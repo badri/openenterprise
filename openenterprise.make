@@ -32,7 +32,7 @@ projects[views][version] = "2.11"
 
 ; Create customized lists and queries from your database.
 projects[views_slideshow][subdir] = "contrib"
-projects[views_slideshow][version] = "2.11"
+projects[views_slideshow][version] = "2.3"
 
 ; A library of helpful tools by Merlin of Chaos.
 projects[ctools][subdir] = "contrib"
