@@ -50,14 +50,6 @@ projects[token][version] = "1.15"
 projects[context][subdir] = "contrib"
 projects[context][version] = "3.0"
 
-; Allows users to export a node and the import into another Drupal installation.
-projects[node_export][subdir] = "contrib"
-projects[node_export][version] = "2.21"
-
-; Google Analytics integration.
-projects[google_analytics][subdir] = "contrib"
-projects[google_analytics][version] = "3.0"
-
 ;;;;
 ; Date and Calendar
 ;;;;
@@ -74,9 +66,17 @@ projects[date][version] = "2.6"
 ; content tools
 ;;;;;;
 
-; Enables the usage of CKEditor (WYSIWYG) instead of plain text fields.
-projects[ckeditor][subdir] = "contrib"
-projects[ckeditor][version] = "1.1"
+; Add markdown syntax input filter.
+projects[markdown][subdir] = "contrib"
+projects[markdown][version] = "1.2"
+
+; Enable the use of wysiwyg editors.
+projects[wysiwyg][subdir] = "contrib"
+projects[wysiwyg][version] = "2.1"
+
+; Add better input format support.
+projects[better_formats][subdir] = "contrib"
+projects[better_formats][version] = "1.2"
 
 ; Wiki-style freelinking for node content using CamelCase and delimiters.
 projects[freelinking][subdir] = "contrib"
@@ -90,8 +90,9 @@ projects[imce][version] = "1.3"
 projects[tagadelic][subdir] = "contrib"
 projects[tagadelic][version] = "1.2"
 
-; Adds a 'Tagadelic' style option to views
-; projects[views_tagadelic][subdir] = "contrib"
+; Obfuscates email addresses to help prevent spambots from collecting them.
+projects[spamspan][subdir] = "contrib"
+projects[spamspan][version] = "1.5-beta2"
 
 ; Add twitter integration
 ; projects[twitter][subdir] = "contrib"
@@ -133,44 +134,55 @@ projects[boxes][version] = "1.0-beta4"
 projects[strongarm][subdir] = "contrib"
 projects[strongarm][version] = "2.0"
 
+;;;;;;
+; utilities
+;;;;;;
+
+; Allows users to export a node and the import into another Drupal installation.
+projects[node_export][subdir] = "contrib"
+projects[node_export][version] = "2.21"
+
 ; jQuery drag and drop ui.
 projects[jquery_ui][subdir] = "contrib"
 projects[jquery_ui][version] = "1.4"
 
+; An API and home for miscellaneous jQuery plugins.
+projects[jquery_plugin][subdir] = "contrib"
+projects[jquery_plugin][version] = "1.10"
+
 ; Common theme library functionality.
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "1.0-alpha1"
+
+; Enable a password policy.
+projects[password_policy][subdir] = "contrib"
+projects[password_policy][version] = "1.0-beta1"
 
 ;;;;;;
 ; admin tools
 ;;;;;;
 
 ; UI helpers for Drupal admins and managers. Includes a special admin theme, custom admin header with JS support, and contextual admin links.
-projects[admin][subdir] = "contrib"
-projects[admin][version] = "2.0"
+projects[admin_menu][subdir] = "contrib"
+projects[admin_menu][version] = "3.0-alpha4"
 
 ; Backup or migrate the Drupal Database quickly and without unnecessary data.
 projects[backup_migrate][subdir] = "contrib"
 projects[backup_migrate][version] = "2.2"
 
 ;;;;;;
-; theme
-;;;;;;
-
-; Allows themes to add conditional stylesheets.
-projects[conditional_styles][subdir] = "contrib"
-projects[conditional_styles][version] = "1.1"
-
-;;;;;;
 ; dev tools
 ;;;;;;
 
+projects[devel][subdir] = "devel"
+projects[devel][version] = "1.22"
+
 ; An API and home for miscellaneous jQuery plugins.
-projects[jquery_plugin][subdir] = "contrib"
-projects[jquery_plugin][version] = "1.10"
+projects[diff][subdir] = "devel"
+projects[diff][version] = "2.1"
 
 ;;;;;;
-; passive utilities
+; path utilities
 ;;;;;;
 
 ; Input filter to convert internal paths, such as internal:node/99&quot;, to their corresponding absolute URL or relative path.
@@ -237,13 +249,24 @@ libraries[jquery_ui][download][url] = "http://jquery-ui.googlecode.com/files/jqu
 libraries[jquery_ui][directory_name] = "jquery.ui"
 libraries[jquery_ui][destination] = "modules/contrib/jquery_ui"
 
+libraries[ckeditor][download][type] = "get"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.4.2/ckeditor_3.4.2.zip"
+libraries[ckeditor][directory_name] = "ckeditor"
+libraries[ckeditor][destination] = "libraries"
+
 ;;;;;;
-; themes
+; theme
 ;;;;;;
+
+; Allows themes to add conditional stylesheets.
+projects[conditional_styles][subdir] = "contrib"
+projects[conditional_styles][version] = "1.1"
 
 projects[tao][version] = "3.1"
 projects[rubik][version] = "3.0-beta2"
-projects[danland][version] = "2.0"
+projects[ninesixty][version] = "1.0"
+projects[oe][location] = http://features.leveltendesign.com/fserver
+projects[oe][version] = "1.0-ALPHA1"
 
 ;;;;;
 ; features

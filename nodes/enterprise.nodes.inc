@@ -21,15 +21,14 @@ array(
   Welcome to your new Open Enterprise website.
 
   <h3>Features</h3>
-  If you turned on features during installation, you should see those in the menu at the top of the page.  You can turn on additional features by going to the menu on the left and clicking on Administer->Site Building->Features
+  If you turned on features during installation, you should see those in the menu at the top of the page.  You can turn on additional features by going to the menu at the top and navigating to Site Building->Features
 
   <h3>Additional Setup Steps</h3>
   A few things you\'ll want to do right away.
   <ol>
-  <li>Notice the wrench in the top left hand corner of the website.  This is where you can change settings for your website.</li>
   <li>Set your google analytics key at <a href=\"/admin/settings/googleanalytics\">admin/settings/googleanalytics</a> or by going to Administer->Site Configuration->Google Analytics.</li>
   <li>Set your twitter name at <a href=\"/user/1/edit/twitter\">user/1/edit/twitter</a>.</li>
-  <li>Start adding content by clicking on the menu at the left at the Create Content link.</li>
+  <li>Start adding content by going to Content Management->Create Content on the menu on the top.</li>
   <li>You can replace the contents of this page by clicking on the Edit link above.</li>
   </ol>
   </div>
@@ -43,12 +42,12 @@ array(
   Welcome to your new Open Enterprise website.
 
   <h3>Features</h3>
-  If you turned on features during installation, you should see those in the menu at the top of the page.  You can turn on additional features by going to the menu on the left and clicking on Administer->Site Building->Features
+  If you turned on features during installation, you should see those in the menu at the top of the page.  You can turn on additional features by going to the menu at the top and navigating to Site Building->Features
 
   <h3>Additional Setup Steps</h3>
   A few things you\'ll want to do right away.
   <ol>
-  <li>Notice the wrench in the top left hand corner of the website.  This is where you can change settings for your website.</li>
+  <li>Set your google analytics key at <a href=\"/admin/settings/googleanalytics\">admin/settings/googleanalytics</a> or by going to Administer->Site Configuration->Google Analytics.</li>
   ',
     'log' => '',
     'revision_timestamp' => '1287584608',

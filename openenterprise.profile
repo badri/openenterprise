@@ -1,5 +1,11 @@
 <?php
-// $Id: openenterprise.profile,v 1.15 2010/08/11 04:02:58 yhahn Exp $
+// $Id$
+// 
+// Define the default WYSIWYG editor
+define('OPENENTERPRISE_EDITOR', 'ckeditor');
+
+// Define the allowed filtered html tags
+define('OPENENTERPRISE_FILTERED_HTML', '<a> <img> <br> <em> <p> <strong> <cite> <sub> <sup> <span> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <pre> <address> <h2> <h3> <h4> <h5> <h6>');
 
 /**
  * Implementation of hook_profile_details().
@@ -18,19 +24,12 @@ function openenterprise_profile_details() {
 function openenterprise_profile_modules() {
   $modules = array(
      // Drupal core
-    'block',
-    'comment',
-    'filter',
-    'help',
-    'menu',
-    'node',
-    'search',
-    'system',
+    'color', 'comment', 'help', 'menu', 'taxonomy', 'dblog', 'profile',
+    'blog', 'aggregator', 'poll',  'search', 'tracker', 'php', 'path',
+    'contact',
     'taxonomy',
-    'upload',
-    'user',
     // Admin
-    'admin',
+    'admin_menu',
     // Views
     'views', 'views_ui', 'views_slideshow', 'views_slideshow_singleframe',
     // CTools
@@ -42,7 +41,9 @@ function openenterprise_profile_modules() {
     // Image
     'imageapi', 'imageapi_gd', 'imagecache',
     // Token
-    'token',
+    'token', 
+    // Editor
+    'wysiwyg', 'better_formats',
     // Node Export
     'node_export', 'node_export_file',
     // Libraries
@@ -53,6 +54,8 @@ function openenterprise_profile_modules() {
     'googleanalytics',
     // Pathauto
     'path', 'pathauto',
+    // Utilities
+    'password_policy',
   );
 
   return $modules;
@@ -72,7 +75,10 @@ function openenterprise_profile_task_list() {
 function openenterprise_profile_tasks(&$task, $url) {
   if ($task == 'profile') {
     // Set the default theme.
-    variable_set('theme_default', 'danblog');
+    openenterprise_config_filter();
+    openenterprise_config_wysiwyg();
+    openenterprise_config_password();
+    variable_set('theme_default', 'oe');
 
     // Need a default for automated profile installs like with aegir.
     $features = variable_get('enabled_features', array(
@@ -81,9 +87,10 @@ function openenterprise_profile_tasks(&$task, $url) {
       'enterprise_calendar' => 1,
       'enterprise_faq' => 1,
       'enterprise_news' => 1,
-      'enterprise_offerings' => 1,
+      'enterprise_products' => 1,
+      'enterprise_services' => 1,
       'enterprise_twitter' => 1,
-      'rotator' => 1,
+      'enerprise_rotator' => 1,
     ));
 
     // Get features dependencies.
@@ -292,3 +299,250 @@ function openenterprise_system_settings_form_submit($form, $form_state) {
   variable_set('enterprise_demo_data', $form_state['values']['enterprise_demo_data']);
 }
 
+/**
+ * Configure input filters
+ *
+ * (From Drupal Commons)
+ */
+function openenterprise_config_filter() {
+  // Force filter format and filter IDs
+  // Necessary because Drupal doesn't use machine names for everything
+
+  // Filtered HTML
+  db_query("UPDATE {filters} f INNER JOIN {filter_formats} ff ON f.format = ff.format SET f.format = 1 WHERE ff.name = 'Filtered HTML'");
+  db_query("UPDATE {filter_formats} SET format = 1 WHERE name = 'Filtered HTML'");
+
+  // Full HTML
+  db_query("UPDATE {filters} f INNER JOIN {filter_formats} ff ON f.format = ff.format SET f.format = 2 WHERE ff.name = 'Full HTML'");
+  db_query("UPDATE {filter_formats} SET format = 2 WHERE name = 'Full HTML'");
+
+  // PHP code
+  db_query("UPDATE {filters} f INNER JOIN {filter_formats} ff ON f.format = ff.format SET f.format = 3 WHERE ff.name = 'PHP code'");
+  db_query("UPDATE {filter_formats} SET format = 3 WHERE name = 'PHP code'");
+
+  // Messaging
+  db_query("UPDATE {filters} f INNER JOIN {filter_formats} ff ON f.format = ff.format SET f.format = 4 WHERE ff.name = 'Messaging plain text'");
+  db_query("UPDATE {filter_formats} SET format = 4 WHERE name = 'Messaging plain text'");
+
+  // Let community and content manager role use Full HTML
+  db_query("UPDATE {filter_formats} SET roles = ',3,4,' WHERE name = 'Full HTML'");
+
+  // Set Full HTML as default format for editor and writer roles
+  db_query("INSERT INTO {better_formats_defaults} (rid, type, format, type_weight, weight)
+    VALUES (3, 'node', 2, 1, -4)");
+  db_query("INSERT INTO {better_formats_defaults} (rid, type, format, type_weight, weight)
+    VALUES (3, 'comment', 2, 1, -4)");
+  db_query("INSERT INTO {better_formats_defaults} (rid, type, format, type_weight, weight)
+    VALUES (3, 'block', 2, 1, -4)");
+  db_query("INSERT INTO {better_formats_defaults} (rid, type, format, type_weight, weight)
+    VALUES (4, 'node', 2, 1, -6)");
+  db_query("INSERT INTO {better_formats_defaults} (rid, type, format, type_weight, weight)
+    VALUES (4, 'comment', 2, 1, -6)");
+  db_query("INSERT INTO {better_formats_defaults} (rid, type, format, type_weight, weight)
+    VALUES (4, 'block', 2, 1, -6)");
+
+  // Add filters to the format
+  db_query("INSERT INTO {filters} (format, module, delta, weight) VALUES (5, 'filter', 0, -10)");
+  db_query("INSERT INTO {filters} (format, module, delta, weight) VALUES (5, 'filter', 2, -9)");
+
+  // Adjust settings for the filter
+  variable_set('filter_url_length_5', 60);
+  variable_set('filter_html_5', 1);
+  variable_set('filter_html_help_5', 0);
+  variable_set('allowed_html_5', '');
+
+  // Set allowed HTML tags for Filter HTML format
+  variable_set('allowed_html_1', OPENENTERPRISE_FILTERED_HTML);
+
+  // Add wiki-style freelinking to both default formats
+  $sql = "INSERT INTO {filters} (format, module, delta, weight) VALUES (%d, '%s', %d, %d)";
+  db_query($sql, 1, 'freelinking', 0, 10);  // Filtered HTML
+  db_query($sql, 2, 'freelinking', 0, 10);  // Full HTML
+}
+
+/**
+ * Configure wysiwyg
+ *
+ * (From Drupal Commons)
+ */
+function openenterprise_config_wysiwyg() {
+  // Add settings for 'Filtered HTML'
+  $item = new stdClass;
+  $item->format = 1;
+  $item->editor = OPENATRIUM_EDITOR;
+  $item->settings = serialize(openenterprise_editor_settings('Filtered HTML'));
+  drupal_write_record('wysiwyg', $item);
+
+  // Add settings for 'Full HTML'
+  $item = new stdClass;
+  $item->format = 2;
+  $item->editor = OPENATRIUM_EDITOR;
+  $item->settings = serialize(openenterprise_editor_settings('Full HTML'));
+  drupal_write_record('wysiwyg', $item);
+}
+
+/*
+ *  Return settings for WYSIWYG editors
+ *
+ * @param $format
+ *   The format name
+ * @return
+ *   An array of editor settings
+ *
+ * (From Drupal Commons)
+ */
+function openenterprise_editor_settings($format) {
+  $settings = '';
+
+  switch($format) {
+    case 'Full HTML':
+      $settings = array(
+        'default' => 1,
+        'user_choose' => 1,
+        'show_toggle' => 1,
+        'theme' => 'advanced',
+        'language' => 'en',
+        'buttons' => array(
+          'default' => array(
+            'Bold' => 1,
+            'Italic' => 1,
+            'Underline' => 1,
+            'Strike' => 1,
+            'JustifyLeft' => 1,
+            'JustifyCenter' => 1,
+            'JustifyRight' => 1,
+            'JustifyBlock' => 1,
+            'BulletedList' => 1,
+            'NumberedList' => 1,
+            'Outdent' => 1,
+            'Indent' => 1,
+            'Undo' => 1,
+            'Redo' => 1,
+            'Link' => 1,
+            'Unlink' => 1,
+            'Anchor' => 1,
+            'Image' => 1,
+            'Superscript' => 1,
+            'Subscript' => 1,
+            'Blockquote' => 1,
+            'Cut' => 1,
+            'Copy' => 1,
+            'Paste' => 1,
+            'RemoveFormat' => 1,
+            'SpecialChar' => 1,
+            'Format' => 1,
+            'Table' => 1,
+            'Find' => 1,
+            'CreateDiv' => 1,
+            'Maximize' => 1,
+          ),
+        ),
+        'toolbar_loc' => 'top',
+        'toolbar_align' => 'left',
+        'path_loc' => 'bottom',
+        'resizing' => 1,
+        'verify_html' => 1,
+        'preformatted' => 0,
+        'convert_fonts_to_spans' => 0,
+        'remove_linebreaks' => 0,
+        'apply_source_formatting' => 0,
+        'paste_auto_cleanup_on_paste' => 0,
+        'block_formats' => 'p,address,pre,blockquote,h2,h3,h4,h5,h6,div',
+        'css_setting' => 'theme',
+        'css_path' => '',
+        'css_classes' => '',
+      );
+      break;
+
+    case 'Filtered HTML':
+    default:
+      $settings = array(
+        'default' => 1,
+        'user_choose' => 1,
+        'show_toggle' => 1,
+        'theme' => 'advanced',
+        'language' => 'en',
+        'buttons' => array(
+          'default' => array(
+            'Bold' => 1,
+            'Italic' => 1,
+            'Underline' => 1,
+            'Strike' => 1,
+            'JustifyLeft' => 1,
+            'JustifyCenter' => 1,
+            'JustifyRight' => 1,
+            'JustifyBlock' => 1,
+            'BulletedList' => 1,
+            'NumberedList' => 1,
+            'Outdent' => 1,
+            'Indent' => 1,
+            'Undo' => 1,
+            'Redo' => 1,
+            'Link' => 1,
+            'Unlink' => 1,
+            'Anchor' => 1,
+            'Image' => 1,
+            'Superscript' => 1,
+            'Subscript' => 1,
+            'Blockquote' => 1,
+            'Cut' => 1,
+            'Copy' => 1,
+            'Paste' => 1,
+            'PasteFromWord' => 1,
+            'RemoveFormat' => 1,
+            'Format' => 1,
+            'SelectAll' => 1,
+            'Find' => 1,
+          ),
+        ),
+        'toolbar_loc' => 'top',
+        'toolbar_align' => 'left',
+        'path_loc' => 'bottom',
+        'resizing' => 1,
+        'verify_html' => 1,
+        'preformatted' => 0,
+        'convert_fonts_to_spans' => 1,
+        'remove_linebreaks' => 0,
+        'apply_source_formatting' => 0,
+        'paste_auto_cleanup_on_paste' => 0,
+        'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6',
+        'css_setting' => 'theme',
+        'css_path' => '',
+        'css_classes' => '',
+      );
+  }
+
+  return $settings;
+}
+
+/**
+ * Configure password policy
+ *
+ * (From Drupal Commons)
+ */
+function openenterprise_config_password() {
+  // Create a password policy
+  $policy = array(
+    'alphanumeric' => 7,  // Contain at least 7 alphanumeric chars
+    'username' => 1,      // Must not equal the username
+    'length' => 7,        // Must be longer than 7 chars
+    'punctuation' => 1,   // Punctuation is required
+  );
+
+  // Add the password policy
+  db_query("INSERT INTO {password_policy} (pid, name, description, enabled, policy, created)
+    VALUES (%d, '%s', '%s', %d, '%s', %d)",
+    1,
+    t('Constraints'),
+    t('Default list of password constraints'),
+    1,
+    serialize($policy),
+    time()
+  );
+
+  // Attach the policy to the authenticated user role
+  db_query("INSERT INTO {password_policy_role} (rid, pid) VALUES (2, 1)");
+
+  // Make the restrictions visible when changing your password
+  variable_set('password_policy_show_restrictions', 1);
+}
