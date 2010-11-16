@@ -90,7 +90,7 @@ function openenterprise_profile_tasks(&$task, $url) {
       'enterprise_products' => 1,
       'enterprise_services' => 1,
       'enterprise_twitter' => 1,
-      'enerprise_rotator' => 1,
+      'enterprise_rotator' => 1,
     ));
 
     // Get features dependencies.
