@@ -1,7 +1,7 @@
 array(
   array(
     'nid' => '12',
-    'type' => 'blog',
+    'type' => 'weblog',
     'language' => '',
     'uid' => '1',
     'status' => '1',
@@ -90,7 +90,7 @@ As promised, here\'s the easy button for keyword research in your Drupal website
   ),
   array(
     'nid' => '9',
-    'type' => 'blog',
+    'type' => 'weblog',
     'language' => '',
     'uid' => '1',
     'status' => '1',
@@ -156,7 +156,7 @@ I am super stoked about being able to create QR codes for my website. To scan th
   ),
   array(
     'nid' => '10',
-    'type' => 'blog',
+    'type' => 'weblog',
     'language' => '',
     'uid' => '1',
     'status' => '1',

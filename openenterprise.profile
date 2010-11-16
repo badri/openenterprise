@@ -25,7 +25,7 @@ function openenterprise_profile_modules() {
   $modules = array(
      // Drupal core
     'color', 'comment', 'help', 'menu', 'taxonomy', 'dblog', 'profile',
-    'blog', 'aggregator', 'poll',  'search', 'tracker', 'php', 'path',
+    'aggregator', 'poll',  'search', 'tracker', 'php', 'path',
     'contact',
     'taxonomy',
     // Admin
@@ -369,14 +369,14 @@ function openenterprise_config_wysiwyg() {
   // Add settings for 'Filtered HTML'
   $item = new stdClass;
   $item->format = 1;
-  $item->editor = OPENATRIUM_EDITOR;
+  $item->editor = OPENENTERPRISE_EDITOR;
   $item->settings = serialize(openenterprise_editor_settings('Filtered HTML'));
   drupal_write_record('wysiwyg', $item);
 
   // Add settings for 'Full HTML'
   $item = new stdClass;
   $item->format = 2;
-  $item->editor = OPENATRIUM_EDITOR;
+  $item->editor = OPENENTERPRISE_EDITOR;
   $item->settings = serialize(openenterprise_editor_settings('Full HTML'));
   drupal_write_record('wysiwyg', $item);
 }
@@ -526,7 +526,6 @@ function openenterprise_config_password() {
     'alphanumeric' => 7,  // Contain at least 7 alphanumeric chars
     'username' => 1,      // Must not equal the username
     'length' => 7,        // Must be longer than 7 chars
-    'punctuation' => 1,   // Punctuation is required
   );
 
   // Add the password policy

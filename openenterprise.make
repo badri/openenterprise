@@ -95,8 +95,8 @@ projects[spamspan][subdir] = "contrib"
 projects[spamspan][version] = "1.5-beta2"
 
 ; Add twitter integration
-; projects[twitter][subdir] = "contrib"
-; projects[twitter][version] = "2.6"
+projects[twitter][subdir] = "contrib"
+projects[twitter][version] = "2.6"
 
 ; Creates AddThis button as a block, to be used in themes and to node links.
 projects[addthis][subdir] = "contrib"
@@ -140,7 +140,7 @@ projects[strongarm][version] = "2.0"
 
 ; Allows users to export a node and the import into another Drupal installation.
 projects[node_export][subdir] = "contrib"
-projects[node_export][version] = "2.21"
+projects[node_export][version] = "2.22"
 
 ; jQuery drag and drop ui.
 projects[jquery_ui][subdir] = "contrib"
@@ -164,7 +164,7 @@ projects[password_policy][version] = "1.0-beta1"
 
 ; UI helpers for Drupal admins and managers. Includes a special admin theme, custom admin header with JS support, and contextual admin links.
 projects[admin_menu][subdir] = "contrib"
-projects[admin_menu][version] = "3.0-alpha4"
+projects[admin_menu][version] = "1.6"
 
 ; Backup or migrate the Drupal Database quickly and without unnecessary data.
 projects[backup_migrate][subdir] = "contrib"
@@ -273,11 +273,11 @@ projects[oe][version] = "1.0-ALPHA1"
 ;;;;;
 
 projects[enterprise][subdir] = "features"
-projects[enterprise][version] = "1.0-ALPHA3"
+projects[enterprise][version] = "1.0-ALPHA4"
 projects[enterprise][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_blog][subdir] = "features"
-projects[enterprise_blog][version] = "1.0-ALPHA3"
+projects[enterprise_blog][version] = "1.0-ALPHA4"
 projects[enterprise_blog][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_calendar][subdir] = "features"
@@ -285,11 +285,11 @@ projects[enterprise_calendar][version] = "1.0-ALPHA2"
 projects[enterprise_calendar][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_faq][subdir] = "features"
-projects[enterprise_faq][version] = "1.0-ALPHA2"
+projects[enterprise_faq][version] = "1.0-ALPHA4"
 projects[enterprise_faq][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_news][subdir] = "features"
-projects[enterprise_news][version] = "1.0-ALPHA3"
+projects[enterprise_news][version] = "1.0-ALPHA4"
 projects[enterprise_news][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_products][subdir] = "features"
