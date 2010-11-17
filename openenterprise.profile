@@ -28,6 +28,9 @@ function openenterprise_profile_modules() {
     'aggregator', 'poll',  'search', 'tracker', 'php', 'path',
     'contact', 'webform',
     'taxonomy',
+    // CCK
+    'content', 'text', 'number', 'optionwidgets', 'fieldgroup',
+    'nodereference', 'userreference',
     // Admin
     'admin_menu',
     // Views
@@ -98,6 +101,7 @@ function openenterprise_profile_tasks(&$task, $url) {
       'enterprise_news' => 1,
       'enterprise_products' => 1,
       'enterprise_services' => 1,
+      'enterprise_staff' => 1,
       'enterprise_twitter' => 1,
       'enterprise_rotator' => 1,
     ));

@@ -244,7 +244,10 @@ projects[contentoptimizer][subdir] = "contrib"
 projects[contentoptimizer][version] = "2.1"
 
 projects[alchemy][subdir] = "contrib"
-projects[alchemy][version] = "1.0-rc2"
+projects[alchemy][version] = "1.0-rc3"
+
+projects[linkintel][subdir] = "contrib"
+projects[linkintel][version] = "1.0-beta3"
 
 projects[kwresearch][subdir] = "contrib"
 projects[kwresearch][version] = "1.0-rc3"
@@ -263,6 +266,11 @@ libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEd
 libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][destination] = "libraries"
 
+libraries[alchemy][download][type] = "get"
+libraries[alchemy][download][url] = "http://www.alchemyapi.com/tools/AlchemyAPI_PHP5-0.5.tar.gz"
+libraries[alchemy][directory_name] = "alchemy"
+libraries[alchemy][destination] = "libraries"
+
 ;;;;;;
 ; theme
 ;;;;;;
@@ -275,18 +283,18 @@ projects[tao][version] = "3.1"
 projects[rubik][version] = "3.0-beta2"
 projects[ninesixty][version] = "1.0"
 projects[oe][location] = http://features.leveltendesign.com/fserver
-projects[oe][version] = "1.0-ALPHA1"
+projects[oe][version] = "1.0-ALPHA2"
 
 ;;;;;
 ; features
 ;;;;;
 
 projects[enterprise][subdir] = "features"
-projects[enterprise][version] = "1.0-ALPHA4"
+projects[enterprise][version] = "1.0-ALPHA5"
 projects[enterprise][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_blog][subdir] = "features"
-projects[enterprise_blog][version] = "1.0-ALPHA4"
+projects[enterprise_blog][version] = "1.0-ALPHA5"
 projects[enterprise_blog][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_calendar][subdir] = "features"
@@ -308,6 +316,10 @@ projects[enterprise_products][location] = http://features.leveltendesign.com/fse
 projects[enterprise_services][subdir] = "features"
 projects[enterprise_services][version] = "1.0-ALPHA3"
 projects[enterprise_services][location] = http://features.leveltendesign.com/fserver
+
+projects[enterprise_staff][subdir] = "features"
+projects[enterprise_staff][version] = "1.0-ALPHA1"
+projects[enterprise_staff][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_twitter][subdir] = "features"
 projects[enterprise_twitter][version] = "1.0-ALPHA2"
