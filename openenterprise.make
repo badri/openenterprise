@@ -217,6 +217,9 @@ projects[globalredirect][version] = "1.2"
 projects[google_analytics][subdir] = "contrib"
 projects[google_analytics][version] = "3.0"
 
+projects[page_title][subdir] = "contrib"
+projects[page_title][version] = "2.3"
+
 ; Allows users to add meta tags, e.g. keywords or description. This module doesn't actually implement any meta tags, but requires other modules to implement them.
 projects[nodewords][subdir] = "contrib"
 projects[nodewords][version] = "1.11"
@@ -234,23 +237,17 @@ projects[page_title][version] = "2.3"
 
 ; Analyze Content
 projects[contentanalysis][subdir] = "contrib"
-projects[contentanalysis][version] = "1.0-beta1"
-
-; Readability Analyzer
-projects[readability][subdir] = "contrib"
-projects[readability][version] = "1.0-beta1"
-
-; ScribeSEO Analyzer
-projects[scribeseo][subdir] = "contrib"
-projects[scribeseo][version] = "1.0-beta1"
-
-; WC3 Analyzer
-projects[w3canalyzer][subdir] = "contrib"
-projects[w3canalyzer][version] = "1.0-beta1"
+projects[contentanalysis][version] = "1.4"
 
 ; Content Optimizer Analyzer
 projects[contentoptimizer][subdir] = "contrib"
 projects[contentoptimizer][version] = "2.1"
+
+projects[alchemy][subdir] = "contrib"
+projects[alchemy][version] = "1.0-rc2"
+
+projects[kwresearch][subdir] = "contrib"
+projects[kwresearch][version] = "1.0-rc3"
 
 ;;;;;
 ; Libraries

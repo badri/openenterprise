@@ -56,6 +56,10 @@ function openenterprise_profile_modules() {
     'googleanalytics',
     // Pathauto
     'path', 'pathauto',
+    // SEO
+    'page_title', 'nodewords', 'globalredirect', 'path_redirect', 'search404',
+    'contentanalysis', 'contentoptimizer', 'alchemy', 'alchemy_contentanalysis',
+    'kwresearch', 'linkintel',
     // Utilities
     'password_policy', 'poormanscron', 'backup_migrate', 'porterstemmer',
     'addthis', 'transliteration',
