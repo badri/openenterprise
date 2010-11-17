@@ -201,6 +201,9 @@ projects[diff][version] = "2.1"
 projects[pathfilter][subdir] = "contrib"
 projects[pathfilter][version] = "1.0"
 
+projects[path_redirect][subdir] = "contrib"
+projects[path_redirect][version] = "1.0-rc1"
+
 ; Provides a mechanism for modules to automatically generate aliases for the content they manage.
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.5"
@@ -244,7 +247,7 @@ projects[contentoptimizer][subdir] = "contrib"
 projects[contentoptimizer][version] = "2.1"
 
 projects[alchemy][subdir] = "contrib"
-projects[alchemy][version] = "1.0-rc3"
+projects[alchemy][version] = "1.0-rc4"
 
 projects[linkintel][subdir] = "contrib"
 projects[linkintel][version] = "1.0-beta3"
@@ -268,7 +271,7 @@ libraries[ckeditor][destination] = "libraries"
 
 libraries[alchemy][download][type] = "get"
 libraries[alchemy][download][url] = "http://www.alchemyapi.com/tools/AlchemyAPI_PHP5-0.5.tar.gz"
-libraries[alchemy][directory_name] = "alchemy"
+libraries[alchemy][directory_name] = "AlchemyAPI"
 libraries[alchemy][destination] = "libraries"
 
 ;;;;;;
