@@ -26,12 +26,14 @@ function openenterprise_profile_modules() {
      // Drupal core
     'color', 'comment', 'help', 'menu', 'taxonomy', 'dblog', 'profile',
     'aggregator', 'poll',  'search', 'tracker', 'php', 'path',
-    'contact',
+    'contact', 'webform',
     'taxonomy',
     // Admin
     'admin_menu',
     // Views
     'views', 'views_ui', 'views_slideshow', 'views_slideshow_singleframe',
+    // Tagadelic
+    'tagadelic', 'tagadelic_views',
     // CTools
     'ctools',
     // Context
@@ -55,7 +57,8 @@ function openenterprise_profile_modules() {
     // Pathauto
     'path', 'pathauto',
     // Utilities
-    'password_policy',
+    'password_policy', 'poormanscron', 'backup_migrate', 'porterstemmer',
+    'addthis', 'transliteration',
   );
 
   return $modules;
@@ -78,6 +81,8 @@ function openenterprise_profile_tasks(&$task, $url) {
     openenterprise_config_filter();
     openenterprise_config_wysiwyg();
     openenterprise_config_password();
+    // Show large amount of tags on tag cloud page
+    variable_set('tagadelic_page_amount', 500);
     variable_set('theme_default', 'oe');
 
     // Need a default for automated profile installs like with aegir.
@@ -271,7 +276,7 @@ function system_form_install_configure_form_alter(&$form, $form_state) {
         '#type' => 'checkbox',
         '#title' => $module->info['name'],
         '#description' => $module->info['description'],
-        '#default_value' => TRUE,
+        '#default_value' => !($name == 'enterprise_products' || $name == 'enterprise_services'),
         '#disabled' => $name == 'enterprise', // Require the enterprise module.
       );
     }

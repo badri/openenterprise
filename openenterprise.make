@@ -90,6 +90,10 @@ projects[imce][version] = "1.3"
 projects[tagadelic][subdir] = "contrib"
 projects[tagadelic][version] = "1.2"
 
+; Tagadelic makes weighted tag clouds from your taxonomy terms.
+projects[tagadelic_views][subdir] = "contrib"
+projects[tagadelic_views][version] = "1.2"
+
 ; Obfuscates email addresses to help prevent spambots from collecting them.
 projects[spamspan][subdir] = "contrib"
 projects[spamspan][version] = "1.5-beta2"
@@ -100,11 +104,11 @@ projects[twitter][version] = "2.6"
 
 ; Creates AddThis button as a block, to be used in themes and to node links.
 projects[addthis][subdir] = "contrib"
-projects[addthis][version] = "2.9"
+projects[addthis][version] = "2.10"
 
-; Adds a printer-friendly version link to content and administrative pages.
-projects[print][subdir] = "contrib"
-projects[print][version] = "1.10"
+; Build webforms.
+projects[webform][subdir] = "contrib"
+projects[webform][version] = "3.4"
 
 ;;;;;;
 ; search
@@ -158,6 +162,14 @@ projects[libraries][version] = "1.0-alpha1"
 projects[password_policy][subdir] = "contrib"
 projects[password_policy][version] = "1.0-beta1"
 
+; Enable cron running on systems without cron set up.
+projects[poormanscron][subdir] = "contrib"
+projects[poormanscron][version] = "2.2"
+
+; Provides a central transliteration service to other Drupal modules, and sanitizes file names while uploading.
+projects[transliteration][subdir] = "contrib"
+projects[transliteration][version] = "3.0"
+
 ;;;;;;
 ; admin tools
 ;;;;;;
@@ -168,7 +180,7 @@ projects[admin_menu][version] = "1.6"
 
 ; Backup or migrate the Drupal Database quickly and without unnecessary data.
 projects[backup_migrate][subdir] = "contrib"
-projects[backup_migrate][version] = "2.2"
+projects[backup_migrate][version] = "2.4"
 
 ;;;;;;
 ; dev tools
