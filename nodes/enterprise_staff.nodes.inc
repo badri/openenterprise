@@ -563,7 +563,7 @@ With over eight years of usability, web design and development experience, Brent
     ),
     'field_staff_position' => array(
       '0' => array(
-        'value' => 'CEO',
+        'value' => 'Director',
       ),
     ),
     'tags' => NULL,

@@ -286,22 +286,22 @@ projects[tao][version] = "3.1"
 projects[rubik][version] = "3.0-beta2"
 projects[ninesixty][version] = "1.0"
 projects[oe][location] = http://features.leveltendesign.com/fserver
-projects[oe][version] = "1.0-ALPHA2"
+projects[oe][version] = "1.0-ALPHA3"
 
 ;;;;;
 ; features
 ;;;;;
 
 projects[enterprise][subdir] = "features"
-projects[enterprise][version] = "1.0-ALPHA5"
+projects[enterprise][version] = "1.0-ALPHA6"
 projects[enterprise][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_blog][subdir] = "features"
-projects[enterprise_blog][version] = "1.0-ALPHA5"
+projects[enterprise_blog][version] = "1.0-ALPHA6"
 projects[enterprise_blog][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_calendar][subdir] = "features"
-projects[enterprise_calendar][version] = "1.0-ALPHA2"
+projects[enterprise_calendar][version] = "1.0-ALPHA3"
 projects[enterprise_calendar][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_faq][subdir] = "features"
@@ -309,7 +309,7 @@ projects[enterprise_faq][version] = "1.0-ALPHA4"
 projects[enterprise_faq][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_news][subdir] = "features"
-projects[enterprise_news][version] = "1.0-ALPHA4"
+projects[enterprise_news][version] = "1.0-ALPHA5"
 projects[enterprise_news][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_products][subdir] = "features"
@@ -321,7 +321,7 @@ projects[enterprise_services][version] = "1.0-ALPHA3"
 projects[enterprise_services][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_staff][subdir] = "features"
-projects[enterprise_staff][version] = "1.0-ALPHA1"
+projects[enterprise_staff][version] = "1.0-ALPHA2"
 projects[enterprise_staff][location] = http://features.leveltendesign.com/fserver
 
 projects[enterprise_twitter][subdir] = "features"

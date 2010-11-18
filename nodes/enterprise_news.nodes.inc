@@ -1,93 +1,75 @@
 array(
   array(
-    'nid' => '13',
+    'nid' => '30',
     'type' => 'news',
     'language' => '',
     'uid' => '1',
     'status' => '1',
-    'created' => '1287662124',
-    'changed' => '1287662124',
+    'created' => '1290100853',
+    'changed' => '1290107512',
     'comment' => '0',
     'promote' => '0',
     'moderate' => '0',
     'sticky' => '0',
     'tnid' => '0',
     'translate' => '0',
-    'vid' => '13',
+    'vid' => '30',
     'revision_uid' => '1',
-    'title' => 'New Drupal Training Dates Announced!',
-    'body' => '<img src=\"/files/users/154/Badge_training_partner.png\" width=\"200\" height=\"90\" alt=\"expert drupal training courses & classes\" />
-
-After a successful first round of Drupal training courses, we are pleased to announce new dates for our Acquia Drupal training series, as well as the official launch of a brand new course, the D.I.Y. Web Success Workshop.
-
-But first, hear what participants Joy Hays and Michael Nelson had to say about their training experiences:
-
-\"The training helped me to see what I was missing and gave me some new
-ideas.\" - Michael Nelson
-
-\"This training opened my eyes to how much there really is in Drupal. It\'s not just a CMS, but something that really can be used in so many different ways.\"
-- Joy Hays
-
-Reserve your seat today!
-
-<strong>If you register by Friday, 8/13 at 12 am CST, you can use the special discount code EARLYBIRD to receive 10% off your order</strong>
-
-<a href=\"http://www.leveltendesign.com/event/diy-web-success-workshop\"><h2><strong>New</strong>: D.I.Y. Web Success Workshop</h2></a>
-
-<strong>September 9 & 10, 2010</strong>
-
-Our D.I.Y. Web Success Workshop will provide a solid introduction to successful online strategies, website building, content management, and search engine  optimization.  During the two day course, participants will build a website
-with an events calendar, news room, FAQ page, blog, forum, contact form and landing pages.  They will also learn how to change the theme of their website and optimize the content for search engines.  Participants will leave the class with a fully functional search friendly website for a business or organization.
-
-<a href=\"http://www.leveltendesign.com/event/diy-web-success-workshop\">See full course description</a>
-
-<a href=\"http://www.leveltendesign.com/event/drupal-day-9-13-10\"><h2>Drupal in a Day</h2></a>
-
-<strong>September 13, 2010</strong>
-
-Drupal in a Day is an overview training course designed to show you how to create your own Drupal site from start to finish.  You’ll begin the course with a blank website.  From there, you’ll add custom content and learn how to
-manage that content.  You’ll also create custom content types, look at views to display content throughout your Drupal website, including creating custom blocks and custom list pages such as a blogroll or a list of recent images added to the site.
-
-<a href=\"http://www.leveltendesign.com/event/drupal-day-9-13-10\">See full course description</a>
-
-<a href=\"http://www.leveltendesign.com/event/drupal-site-builders-workshop\"><h2>Beginning Drupal for Site Builders</h2></a>
-
-<strong>September 14 & 15, 2010</strong>
-
-In two days, you’ll be brought up to speed on Drupal site building, and you’ll be ready to tackle your own project.  This Drupal training course is designed for those who have some basic familiarity with the system but want to broaden their knowledge.  Beginning Drupal for Site Builders provides deep discussions on Drupal’s installation process, as well as managing users, comments, and content.  You’ll also become familiar with Drupal’s block system, and how to use taxonomy to organize your content.
-
-<a href=\"http://www.leveltendesign.com/event/drupal-site-builders-workshop\">See full course description</a>',
-    'teaser' => '<img src=\"/files/users/154/Badge_training_partner.png\" width=\"200\" height=\"90\" alt=\"expert drupal training courses & classes\" />
-
-After a successful first round of Drupal training courses, we are pleased to announce new dates for our Acquia Drupal training series, as well as the official launch of a brand new course, the D.I.Y. Web Success Workshop.
-
-But first, hear what participants Joy Hays and Michael Nelson had to say about their training experiences:
-
-\"The training helped me to see what I was missing and gave me some new
-ideas.\" - Michael Nelson
-
-',
+    'title' => 'DrupalCon Chicago 2011 Venue and Dates Announced',
+    'body' => '<div class="content"><p>The Drupal Association and the DrupalCon North American Regional Organizing Group are pleased to announce that DrupalCon will be coming to Chicago, Illinois from March 7-10, 2011.</p><p>DrupalCon is an international event that brings together the people who use, develop, design, and support the Drupal platform. DrupalCon Chicago 2011 will feature dozens of curated sessions and panels from some of the most influential people and brightest minds within the Drupal community, as well as countless opportunities for networking, code sprints, informal conversations, and more.</p><p>DrupalCon Chicago will be held at the Sheraton Chicago Hotel, located just off Lake Michigan in downtown Chicago. With over 120,000 square feet of meeting space and capacity for over 4,000 attendees, the Sheraton will become the Drupal Tower, a one-stop location for all conference activities and accommodations.</p><p>To find out more about how you can help out with DrupalCon Chicago or learn more about sponsorship opportunities, <a href="http://chicago2011.drupal.org/" target="_blank">visit our site</a>.</p></div>',
+    'teaser' => '<div class="content"><p>The Drupal Association and the DrupalCon North American Regional Organizing Group are pleased to announce that DrupalCon will be coming to Chicago, Illinois from March 7-10, 2011.</p>',
     'log' => '',
-    'revision_timestamp' => '1287662124',
+    'revision_timestamp' => '1290107512',
     'format' => '1',
     'name' => 'admin',
     'picture' => '',
-    'data' => 'a:0:{}',
-    'path' => 'news/new-drupal-training-dates-announced',
+    'data' => 'a:3:{s:7:"contact";i:0;s:13:"form_build_id";s:37:"form-116c78721e9ae59fa18d50cffd8e3657";s:21:"force_password_change";i:0;}',
+    'path' => 'news/drupalcon-chicago-2011-venue-and-dates-announced',
     'field_news_post_date' => array(
       '0' => array(
-        'value' => '2010-10-21T11:54:00',
-        'timezone' => 'UTC',
+        'value' => '2010-10-18T16:18:00',
+        'timezone' => 'America/Chicago',
         'timezone_db' => 'UTC',
         'date_type' => 'date',
       ),
     ),
-    'last_comment_timestamp' => '1287662124',
+    'field_news_image' => array(
+      '0' => NULL,
+    ),
+    'tags' => array(
+      '1' => array(
+        '29' => array(
+          'tid' => '29',
+          'vid' => '1',
+          'name' => 'chicago',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '1' => array(
+          'tid' => '1',
+          'vid' => '1',
+          'name' => 'drupal',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '28' => array(
+          'tid' => '28',
+          'vid' => '1',
+          'name' => 'DrupalCon',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+      ),
+    ),
+    'last_comment_timestamp' => '1290100853',
     'last_comment_name' => NULL,
     'comment_count' => '0',
     'taxonomy' => array(
       'tags' => array(
-        '1' => 'austin, dallas, dates, drupal, houston, levelten, training',
+        '1' => 'chicago, drupal, DrupalCon',
       ),
     ),
     'menu' => array(
@@ -107,64 +89,189 @@ ideas.\" - Michael Nelson
     '#_export_node_encode_object' => '1',
   ),
   array(
-    'nid' => '11',
+    'nid' => '31',
     'type' => 'news',
     'language' => '',
     'uid' => '1',
     'status' => '1',
-    'created' => '1287661688',
-    'changed' => '1287661688',
+    'created' => '1290101073',
+    'changed' => '1290107482',
     'comment' => '0',
     'promote' => '0',
     'moderate' => '0',
     'sticky' => '0',
     'tnid' => '0',
     'translate' => '0',
-    'vid' => '11',
+    'vid' => '31',
     'revision_uid' => '1',
-    'title' => 'LevelTen Wins W3 Award for Work on Caris Life Sciences',
-    'body' => '<div style=\"float: left; margin: 1em .5em 1em 0em;\"><img src=\"/files/w3winner_silver_blk.gif\" width=\"113\" height=\"113\" alt=\"w3 silver award winner\" title=\"w3 2010 silver award winner\" /></div>  It is with great pleasure that I announce a recent win for the team at LevelTen.  We were informed today that we have officially won a silver W3 award for our design work on <a href=\"http://www.carislifesciences.com/\">Caris Life Sciences</a>!  For those keeping score, this marks LevelTen\'s 3rd W3 win in the last four years.
-
-<h2>About the W3 Award</h2>
-
-The W3 Award, judged by the <a href=\"http://www.iavisarts.org\">International Academy of the Visual Arts</a>, seeks to honor creative excellence on the web, and to recognize the creative and marketing professionals behind the webs top websites, web video, and online marketing.  According to the W3\'s website, they are \"the first major Web competition to be accessible to the biggest agencies, the smallest firms, and everyone in between.\"  For more information on the W3 awards, feel free to <a href=\"http://www.w3award.com\">check out their website</a>.
-
-<h2>About the Caris Life Sciences Project</h2>
-
-<blockquote>
-LevelTen worked with the team at Caris Life Sciences to create a professional and engaging website on the Drupal platform. LevelTen applied their decade of web knowledge into a series of strategic wireframes before moving into the site building process. In less than a month, LevelTen went from approved design comps and wireframes to a fully approved Drupal website.
-
-The theme is based on the 960 Grid system and uses CSS styling for all page layouts. In addition, LevelTen incorporated Features and Context functionality into the site, making it easier to manage and control website features and contextual layouts. With these tools, LevelTen created sections of the website that served multiple target audiences, as well as areas for dynamic, regularly updated content.
-</blockquote>
-
-<a href=\"http://www.leveltendesign.com/portfolio/success-story/caris-life-sciences-website-redesign-url-migration\">Read the full case study here</a>.
-',
-    'teaser' => '<div style=\"float: left; margin: 1em .5em 1em 0em;\"><img src=\"/files/w3winner_silver_blk.gif\" width=\"113\" height=\"113\" alt=\"w3 silver award winner\" title=\"w3 2010 silver award winner\" /></div>  It is with great pleasure that I announce a recent win for the team at LevelTen.  We were informed today that we have officially won a silver W3 award for our design work on <a href=\"http://www.carislifesciences.com/\">Caris Life Sciences</a>!  For those keeping score, this marks LevelTen\'s 3rd W3 win in the last four years.
-
-<h2>About the W3 Award</h2>
-
-',
+    'title' => 'Submit Your Session Proposal for DrupalCon Chicago Today!',
+    'body' => '<div class="content"><p>DrupalCon Chicago is now accepting proposals for sessions! This news from the DrupalCon website:</p><p>Session submission for DrupalCon Chicago is now open and we are looking for another fantastic round of sessions! If you have a session in mind, get it submitted soon as the deadline is just weeks away. For DrupalCon Chicago the session programming is happening a little differently than past DrupalCons. So, whether you&#39;re thinking of submitting for the first time or if you&rsquo;re a DrupalCon regular, there are some session ins and outs worth perusing:</p><h2>Initial Round of Speakers</h2><p>How are there already <a href="http://chicago2011.drupal.org/sessions" target="_blank">selected sessions</a> when session submission just opened? Before public session submission opened there was a round of sessions selection. This is a DrupalCon first.</p><p>There are some speakers who are really popular. They are either popular speakers at conferences at large or speakers who are the most popular at DrupalCon. One of our goals for this DrupalCon was to provide for a greater opportunity for the long tail of sessions to be voted on. So, we went to these popular speakers first and got their sessions taken care of.</p><h2>Compensation</h2><p>DrupalCon Chicago has another first. Selected speakers will be get $100 USD off the lowest ticket price, admission to a speakers reception with dinner and drinks, and a pass to the opening night after-party. For those of you who are coming on a ticket that&#39;s part of a sponsor package the $100 will be put towards DrupalCon scholarships.</p><p>This means that if you are submitting a session you should wait to purchase a ticket to DrupalCon until after December 31. Accepted session speakers will get special instructions on how to get the discounted price. Selection will happen right at the end of this year so you won&rsquo;t have to wait long.</p><h2>Session Timeline</h2><p>Session submissions are all due December 10th. Up until that time speakers will have the ability to edit their session details. This is a window of just over a month to get session submitted, so if you have an idea for a session the time to submit it is now! Once the sessions are all in, voting will begin and run until December 24th. Voting is happening after all submissions have been submitted in order to give each session an equal opportunity to get voted on. This will be followed by the full roster of speakers and sessions being announced on December 31st.</p><p>For more details about the speaking at DrupalCon Chicago see the <a href="http://chicago2011.drupal.org/speaker-faq" target="_blank">Speaker FAQ</a>. Or, if you have a great idea for a session <a href="http://chicago2011.drupal.org/speaker-application" target="_blank">submit it</a>.</p><p>&nbsp;</p><p><em>read more: </em><a href="http://chicago2011.drupal.org/news/submit-your-session-proposal-drupalcon-chicago-today" target="_blank">http://chicago2011.drupal.org/news/submit-your-session-proposal-drupalcon-chicago-today</a></p><p>&nbsp;</p></div>',
+    'teaser' => '<div class="content"><p>DrupalCon Chicago is now accepting proposals for sessions! This news from the DrupalCon website:</p><p>Session submission for DrupalCon Chicago is now open and we are looking for another fantastic round of sessions! If you have a session in mind, get it submitted soon as the deadline is just weeks away. For DrupalCon Chicago the session programming is happening a little differently than past DrupalCons. So, whether you&#39;re thinking of submitting for the first time or if you&rsquo;re a DrupalCon regular, there are some session ins and outs worth perusing:</p>',
     'log' => '',
-    'revision_timestamp' => '1287661688',
+    'revision_timestamp' => '1290107482',
     'format' => '1',
     'name' => 'admin',
     'picture' => '',
-    'data' => 'a:0:{}',
-    'path' => 'news/levelten-wins-w3-award-work-caris-life-sciences',
+    'data' => 'a:3:{s:7:"contact";i:0;s:13:"form_build_id";s:37:"form-116c78721e9ae59fa18d50cffd8e3657";s:21:"force_password_change";i:0;}',
+    'path' => 'news/submit-your-session-proposal-drupalcon-chicago-today',
     'field_news_post_date' => array(
       '0' => array(
-        'value' => '2010-10-21T11:47:00',
-        'timezone' => 'UTC',
+        'value' => '2010-11-15T16:22:00',
+        'timezone' => 'America/Chicago',
         'timezone_db' => 'UTC',
         'date_type' => 'date',
       ),
     ),
-    'last_comment_timestamp' => '1287661688',
+    'field_news_image' => array(
+      '0' => NULL,
+    ),
+    'tags' => array(
+      '1' => array(
+        '29' => array(
+          'tid' => '29',
+          'vid' => '1',
+          'name' => 'chicago',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '30' => array(
+          'tid' => '30',
+          'vid' => '1',
+          'name' => 'community',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '1' => array(
+          'tid' => '1',
+          'vid' => '1',
+          'name' => 'drupal',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '28' => array(
+          'tid' => '28',
+          'vid' => '1',
+          'name' => 'DrupalCon',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+      ),
+    ),
+    'last_comment_timestamp' => '1290101073',
     'last_comment_name' => NULL,
     'comment_count' => '0',
     'taxonomy' => array(
       'tags' => array(
-        '1' => '2010, award, caris, w3, win',
+        '1' => 'chicago, community, drupal, DrupalCon',
+      ),
+    ),
+    'menu' => array(
+      'link_title' => '',
+      'mlid' => 0,
+      'plid' => 0,
+      'menu_name' => 'primary-links',
+      'weight' => 0,
+      'options' => array(),
+      'module' => 'menu',
+      'expanded' => 0,
+      'hidden' => 0,
+      'has_children' => 0,
+      'customized' => 0,
+      'parent_depth_limit' => 8,
+    ),
+    '#_export_node_encode_object' => '1',
+  ),
+  array(
+    'nid' => '32',
+    'type' => 'news',
+    'language' => '',
+    'uid' => '1',
+    'status' => '1',
+    'created' => '1290102163',
+    'changed' => '1290107435',
+    'comment' => '0',
+    'promote' => '0',
+    'moderate' => '0',
+    'sticky' => '0',
+    'tnid' => '0',
+    'translate' => '0',
+    'vid' => '32',
+    'revision_uid' => '1',
+    'title' => 'NEW DATES for Aquia Drupal Training!',
+    'body' => '<p>We are pleased to announce our new upcoming Aquia Drupal Training dates!</p><p><strong><u>Austin, TX </u></strong></p><p>January 19, 2011 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal in a Day</p><p>January 20-21, 2011 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Drupal for Site Builders</p><p>January 24-25, 2011 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Themeing Training</p><p>January 26-28, 2011 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Module Development Training</p><p><u><strong>Houston, TX</strong></u></p><p>January 28, 2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal in a Day - Come prepare for Southwestern Drupal Camp!</p><p>February 16, 2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal in a Day</p><p>February 17-18, 2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal for Site Builders</p><p>February 21-22, 2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Themeing Training</p><p>February 23-25, 2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Module Development Training</p><p>For course descriptions and registration please visit us at http://www.leveltendesign.com/services/training or call our office at (214) 887-8586.</p>',
+    'teaser' => '<p>We are pleased to announce our new upcoming Aquia Drupal Training dates!</p><p><strong><u>Austin, TX </u></strong></p><p>January 19, 2011 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drupal in a Day</p><p>January 20-21, 2011 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Drupal for Site Builders</p><p>January 24-25, 2011 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Themeing Training</p>',
+    'log' => '',
+    'revision_timestamp' => '1290107435',
+    'format' => '1',
+    'name' => 'admin',
+    'picture' => '',
+    'data' => 'a:3:{s:7:"contact";i:0;s:13:"form_build_id";s:37:"form-116c78721e9ae59fa18d50cffd8e3657";s:21:"force_password_change";i:0;}',
+    'path' => 'news/new-dates-aquia-drupal-training',
+    'field_news_post_date' => array(
+      '0' => array(
+        'value' => '2010-11-18T17:27:00',
+        'timezone' => 'America/Chicago',
+        'timezone_db' => 'UTC',
+        'date_type' => 'date',
+      ),
+    ),
+    'field_news_image' => array(
+      '0' => NULL,
+    ),
+    'tags' => array(
+      '1' => array(
+        '27' => array(
+          'tid' => '27',
+          'vid' => '1',
+          'name' => 'Aquia',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '15' => array(
+          'tid' => '15',
+          'vid' => '1',
+          'name' => 'austin',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '1' => array(
+          'tid' => '1',
+          'vid' => '1',
+          'name' => 'drupal',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '18' => array(
+          'tid' => '18',
+          'vid' => '1',
+          'name' => 'houston',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+        '20' => array(
+          'tid' => '20',
+          'vid' => '1',
+          'name' => 'training',
+          'description' => '',
+          'weight' => '0',
+          '#_export_node_encode_object' => '1',
+        ),
+      ),
+    ),
+    'last_comment_timestamp' => '1290102163',
+    'last_comment_name' => NULL,
+    'comment_count' => '0',
+    'taxonomy' => array(
+      'tags' => array(
+        '1' => 'Aquia, austin, drupal, houston, training',
       ),
     ),
     'menu' => array(

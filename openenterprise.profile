@@ -13,7 +13,7 @@ define('OPENENTERPRISE_FILTERED_HTML', '<a> <img> <br> <em> <p> <strong> <cite> 
 function openenterprise_profile_details() {
   return array(
     'name' => 'Open Enterprise',
-    'description' => 'Open Enterprise by LevelTen.',
+    'description' => 'Open Enterprise by LevelTen Interactive.',
     'old_short_name' => 'enterprise_installer',
   );
 }
@@ -31,6 +31,8 @@ function openenterprise_profile_modules() {
     // CCK
     'content', 'text', 'number', 'optionwidgets', 'fieldgroup',
     'nodereference', 'userreference',
+    // Date
+    'date_api', 'date', 'date_timezone', 'date_popup', 'date_repeat',
     // Admin
     'admin_menu',
     // Views
@@ -44,11 +46,11 @@ function openenterprise_profile_modules() {
     // Features
     'features',
     // Image
-    'imageapi', 'imageapi_gd', 'imagecache',
+    'imageapi', 'imageapi_gd', 'imagecache', 'imagecache_ui',
     // Token
     'token', 
     // Editor
-    'wysiwyg', 'better_formats',
+    'wysiwyg', 'better_formats', 'imce', 'imce_wysiwyg',
     // Node Export
     'node_export', 'node_export_file',
     // Libraries
@@ -88,9 +90,12 @@ function openenterprise_profile_tasks(&$task, $url) {
     openenterprise_config_filter();
     openenterprise_config_wysiwyg();
     openenterprise_config_password();
+    openenterprise_config_backup_migrate();
+    openenterprise_config_date_formats();
     // Show large amount of tags on tag cloud page
     variable_set('tagadelic_page_amount', 500);
     variable_set('theme_default', 'oe');
+    variable_set('pathauto_node_page_pattern', '[title-raw]');
 
     // Need a default for automated profile installs like with aegir.
     $features = variable_get('enabled_features', array(
@@ -129,9 +134,6 @@ function openenterprise_profile_tasks(&$task, $url) {
   if ($task == 'enterprise-nodes') {
     //do not use cached definition of node types, it will not include cck fields yet
     drupal_flush_all_caches();
-
-    // For whatever reason the page pattern isn't set yet.  We need to set it here.
-    variable_set("pathauto_node_page_pattern", "[title-raw]");
 
     if (variable_get('enterprise_demo_data', 1)) {
       foreach (array_filter($features) as $feature => $value) {
@@ -188,6 +190,9 @@ function _openenterprise_import_nodes_batch_finished() {
   variable_set('site_frontpage', 'home');
   // Clean up the variable.
   variable_del('enabled_features');
+  // These must be set here since pathauto sets them on install which overrides strongarm.
+  variable_set('pathauto_node_pattern', '');
+  variable_set('pathauto_node_page_pattern', '');
   variable_set('install_task', 'finished');
 }
 
@@ -225,6 +230,9 @@ function _openenterprise_setup_menus(&$context) {
       case "Privacy Policy":
         $node_nids['privacy_policy'] = $node->nid;
       break;
+      case "Contact Us":
+        $node_nids['contact_us'] = $node->nid;
+      break;
     }
   }
   $item = new stdClass();
@@ -233,6 +241,8 @@ function _openenterprise_setup_menus(&$context) {
   $item = array('menu_name' => 'footer-links', 'link_path' => 'node/'. $node_nids['privacy_policy'], 'link_title' => st("Privacy Policy"));
   menu_link_save($item);
   $item = array('menu_name' => 'footer-links', 'link_path' => 'node/'.$node_nids['about_us'], 'link_title' => st("About Us"));
+  menu_link_save($item);
+  $item = array('menu_name' => 'footer-links', 'link_path' => 'node/'.$node_nids['contact_us'], 'link_title' => st("Contact Us"));
   menu_link_save($item);
 }
 
@@ -266,6 +276,7 @@ function system_form_install_configure_form_alter(&$form, $form_state) {
       '#options' => date_timezone_names(FALSE, TRUE),
       '#description' => t('Select the default site time zone. If in doubt, choose the timezone that is closest to your location which has the same rules for daylight saving time.'),
       '#required' => TRUE,
+      '#default_value' => 'America/Chicago',
     );
   }
 
@@ -449,6 +460,9 @@ function openenterprise_editor_settings($format) {
             'CreateDiv' => 1,
             'Maximize' => 1,
           ),
+          'imce' => array(
+            'imce' => 1,
+          ),
         ),
         'toolbar_loc' => 'top',
         'toolbar_align' => 'left',
@@ -507,6 +521,9 @@ function openenterprise_editor_settings($format) {
             'SelectAll' => 1,
             'Find' => 1,
           ),
+          'imce' => array(
+            'imce' => 1,
+          ),
         ),
         'toolbar_loc' => 'top',
         'toolbar_align' => 'left',
@@ -557,4 +574,74 @@ function openenterprise_config_password() {
 
   // Make the restrictions visible when changing your password
   variable_set('password_policy_show_restrictions', 1);
+}
+
+/**
+ * Add additional tables to backup and migrate.
+ */
+function openenterprise_config_backup_migrate() {
+  $profile = new stdClass;
+  $profile->profile_id = 'default';
+  $profile->name = 'Default Settings';
+  $profile->filename = '[site-name]';
+  $profile->append_timestamp = 1;
+  $profile->timestamp_format = 'Y-m-d\TH-i-s';
+  $profile->filters['compressions'] = 'none';
+  $profile->filters['notify_success_enable'] = 0;
+  $profile->filters['notify_success_email'] = 'admin@example.com';
+  $profile->filters['notify_failure_email'] = 'admin@example.com';
+  $profile->filters['utils_site_offline'] = 0;
+  $profile->filters['utils_site_offline_message'] = 'Open Enterprise Site is currently under maintenance. We should be back shortly. Thank you for your patience.';
+  $profile->filters['exclude_tables'] = array();
+  $profile->filters['nodata_tables'] = array(
+    'cache' => 'cache',
+    'cache_block' => 'cache_block',
+    'cache_content' => 'cache_content',
+    'cache_filter' => 'cache_filter',
+    'cache_form' => 'cache_form',
+    'cache_menu' => 'cache_menu',
+    'cache_page' => 'cache_page',
+    'cache_update' => 'cache_update',
+    'cache_views' => 'cache_views',
+    'cache_views_data' => 'cache_views_data',
+    'search_dataset' => 'search_dataset',
+    'search_index' => 'search_index',
+    'search_total' => 'search_total',
+    'sessions' => 'sessions',
+    'watchdog' => 'watchdog',
+  );
+  $profile->filters['utils_lock_tables'] = 0;
+  drupal_write_record('backup_migrate_profiles', $profile);
+}
+
+/**
+ * Configure Date Formats
+ */
+function openenterprise_config_date_formats() {
+  $date_format = new stdClass;
+  $date_format->format = 'l, F j, Y';
+  $date_format->type = 'custom';
+  $date_format->locked = 0;
+  drupal_write_record('date_formats', $date_format);
+
+  $date_format = new stdClass;
+  $date_format->format = 'g:i a';
+  $date_format->type = 'custom';
+  $date_format->locked = 0;
+  drupal_write_record('date_formats', $date_format);
+
+  $date_format_type = new stdClass;
+  $date_format_type->type = 'date_only';
+  $date_format_type->title = 'Date Only';
+  $date_format_type->locked = 0;
+  drupal_write_record('date_format_types', $date_format_type);
+
+  $date_format_type = new stdClass;
+  $date_format_type->type = 'time_only';
+  $date_format_type->title = 'Time Only';
+  $date_format_type->locked = 0;
+  drupal_write_record('date_format_types', $date_format_type);
+
+  variable_set('date_format_date_only', 'l, F j, Y');
+  variable_set('date_format_time_only', 'g:i a');
 }
