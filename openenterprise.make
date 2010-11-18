@@ -254,7 +254,7 @@ projects[alchemy][subdir] = "contrib"
 projects[alchemy][version] = "1.0-rc4"
 
 projects[linkintel][subdir] = "contrib"
-projects[linkintel][version] = "1.0-beta3"
+projects[linkintel][version] = "1.0-beta4"
 
 projects[kwresearch][subdir] = "contrib"
 projects[kwresearch][version] = "1.0-rc3"
