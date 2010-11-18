@@ -86,6 +86,10 @@ projects[freelinking][version] = "1.10"
 projects[imce][subdir] = "contrib"
 projects[imce][version] = "1.3"
 
+; Integration for imce and wysiwyg.
+projects[imce_wysiwyg][subdir] = "contrib"
+projects[imce_wysiwyg][version] = "1.1"
+
 ; Tagadelic makes weighted tag clouds from your taxonomy terms.
 projects[tagadelic][subdir] = "contrib"
 projects[tagadelic][version] = "1.2"
