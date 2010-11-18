@@ -254,10 +254,10 @@ projects[alchemy][subdir] = "contrib"
 projects[alchemy][version] = "1.0-rc4"
 
 projects[linkintel][subdir] = "contrib"
-projects[linkintel][version] = "1.0-beta4"
+projects[linkintel][version] = "1.0-beta5"
 
 projects[kwresearch][subdir] = "contrib"
-projects[kwresearch][version] = "1.0-rc3"
+projects[kwresearch][version] = "1.0-rc4"
 
 ;;;;;
 ; Libraries
