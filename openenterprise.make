@@ -290,7 +290,7 @@ projects[tao][version] = "3.1"
 projects[rubik][version] = "3.0-beta2"
 projects[ninesixty][version] = "1.0"
 projects[oe][location] = http://features.leveltendesign.com/fserver
-projects[oe][version] = "1.0-ALPHA3"
+projects[oe][version] = "1.0-ALPHA4"
 
 ;;;;;
 ; features
