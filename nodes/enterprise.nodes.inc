@@ -16,8 +16,8 @@ array(
     'vid' => '51',
     'revision_uid' => '1',
     'title' => 'Home',
-    'body' => '<div class=\"clear-block\">
-  <div style=\"float:left; width:50%\">
+    'body' => '<div class="clear-block">
+  <div style="float:left; width:50%">
   Welcome to your new Open Enterprise website.
 
   <h3>Features</h3>
@@ -26,29 +26,18 @@ array(
   <h3>Additional Setup Steps</h3>
   A few things you\'ll want to do right away.
   <ol>
-  <li>Set your google analytics key at <a href=\"/admin/settings/googleanalytics\">admin/settings/googleanalytics</a> or by going to Administer->Site Configuration->Google Analytics.</li>
-  <li>Set your twitter name at <a href=\"/user/1/edit/twitter\">user/1/edit/twitter</a>.</li>
+  <li>Set your google analytics key at <a href="/admin/settings/googleanalytics">admin/settings/googleanalytics</a> or by going to Administer->Site Configuration->Google Analytics.</li>
+  <li>Set your twitter name at <a href="/user/1/edit/twitter">user/1/edit/twitter</a>.</li>
   <li>Start adding content by going to Content Management->Create Content on the menu on the top.</li>
   <li>You can replace the contents of this page by clicking on the Edit link above.</li>
   </ol>
   </div>
-  <div style=\"float:right;width:50%;padding-top:200px;\">
+  <div style="float:right;width:50%;padding-top:200px;">
   <center>Welcome Video Here</center>
   </div>
   </div>
   ',
-    'teaser' => '<div class=\"clear-block\">
-  <div style=\"float:left; width:50%\">
-  Welcome to your new Open Enterprise website.
-
-  <h3>Features</h3>
-  If you turned on features during installation, you should see those in the menu at the top of the page.  You can turn on additional features by going to the menu at the top and navigating to Site Building->Features
-
-  <h3>Additional Setup Steps</h3>
-  A few things you\'ll want to do right away.
-  <ol>
-  <li>Set your google analytics key at <a href=\"/admin/settings/googleanalytics\">admin/settings/googleanalytics</a> or by going to Site Configuration->Google Analytics.</li>
-  ',
+    'teaser' => '',
     'log' => '',
     'revision_timestamp' => '1287584608',
     'format' => '2',
@@ -93,7 +82,7 @@ array(
     'vid' => '153',
     'revision_uid' => '1',
     'title' => 'Terms of Use',
-    'body' => '<p>The following terms and conditions govern all use of the @site_name website and all content, services and products available at or through the website.  The Website is owned and operated by @site_name, Inc. (“@site_name”).  The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, <a href=\"/privacy-policy\">@site_name’s Privacy Policy</a>) and procedures that may be published from time to time on this Site by @site_name (collectively, the “Agreement”).</p>
+    'body' => '<p>The following terms and conditions govern all use of the @site_name website and all content, services and products available at or through the website.  The Website is owned and operated by @site_name, Inc. (“@site_name”).  The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, <a href="/privacy-policy">@site_name’s Privacy Policy</a>) and procedures that may be published from time to time on this Site by @site_name (collectively, the “Agreement”).</p>
   <p>Please read this Agreement carefully before accessing or using the Website. By accessing or using any part of the web site, you agree to become bound by the terms and conditions of this agreement. If you do not agree to all the terms and conditions of this agreement, then you may not access the Website or use any services. If these terms and conditions are considered an offer by @site_name, acceptance is expressly limited to these terms.</p>
   <ol>
   <li><strong>Your @site_name Account.</strong> If you create an account on the Website, you are responsible for maintaining the security of your account, and you are fully responsible for all activities that occur under the account and any other actions taken in connection with the account. You must not describe or assign keywords to your blog in a misleading or unlawful manner, including in a manner intended to trade on the name or reputation of others, and @site_name may change or remove any description or keyword that it considers inappropriate or unlawful, or otherwise likely to cause @site_name liability. You must immediately notify @site_name of any unauthorized uses of your blog, your account or any other breaches of security. @site_name will not be liable for any acts or omissions by You, including any damages of any kind incurred as a result of such acts or omissions.</li>
@@ -103,7 +92,7 @@ array(
   <li>if your employer has rights to intellectual property you create, you have either (i) received permission from your employer to post or make available the Content, including but not limited to any software, or (ii) secured from your employer a waiver as to all rights in or to the Content;</li>
   <li>you have fully complied with any third-party licenses relating to the Content, and have done all things necessary to successfully pass through to end users any required terms;</li>
   <li>the Content does not contain or install any viruses, worms, malware, Trojan horses or other harmful or destructive content;</li>
-  <li class=\"important\">the Content is not spam, is not machine- or randomly-generated, and does not contain unethical or unwanted commercial content designed to drive traffic to third party sites or boost the search engine rankings of third party sites, or to further unlawful acts (such as phishing) or mislead recipients as to the source of the material (such as spoofing);</li>
+  <li class="important">the Content is not spam, is not machine- or randomly-generated, and does not contain unethical or unwanted commercial content designed to drive traffic to third party sites or boost the search engine rankings of third party sites, or to further unlawful acts (such as phishing) or mislead recipients as to the source of the material (such as spoofing);</li>
   <li>the Content is not pornographic, does not contain threats or incite violence towards individuals or entities, and does not violate the privacy or publicity rights of any third party;</li>
   <li>your blog is not getting advertised via unwanted electronic messages such as spam links on newsgroups, email lists, other blogs and web sites, and similar unsolicited promotional methods;</li>
   <li>your blog is not named in a manner that misleads your readers into thinking that you are another person or company. For example, your blog’s URL or name is not the name of a person other than yourself or company other than your own; and</li>
@@ -111,7 +100,6 @@ array(
   </ul>
   <p>By submitting Content to @site_name for inclusion on your Website, you grant @site_name a world-wide, royalty-free, and non-exclusive license to reproduce, modify, adapt and publish the Content solely for the purpose of displaying, distributing and promoting your blog. If you delete Content, @site_name will use reasonable efforts to remove it from the Website, but you acknowledge that caching or references to the Content may not be made immediately unavailable.</p>
   <p>Without limiting any of those representations or warranties, @site_name has the right (though not the obligation) to, in @site_name’s sole discretion (i) refuse or remove any content that, in @site_name’s reasonable opinion, violates any @site_name policy or is in any way harmful or objectionable, or (ii) terminate or deny access to and use of the Website to any individual or entity for any reason, in @site_name’s sole discretion. @site_name will have no obligation to provide a refund of any amounts previously paid.</p>
-  <ul>
   <li><strong>Responsibility of Website Visitors.</strong> @site_name has not reviewed, and cannot review, all of the material, including computer software, posted to the Website, and cannot therefore be responsible for that material’s content, use or effects. By operating the Website, @site_name does not represent or imply that it endorses the material there posted, or that it believes such material to be accurate, useful or non-harmful. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. The Website may contain content that is offensive, indecent, or otherwise objectionable, as well as content containing technical inaccuracies, typographical mistakes, and other errors. The Website may also contain material that violates the privacy or publicity rights, or infringes the intellectual property and other proprietary rights, of third parties, or the downloading, copying or use of which is subject to additional terms and conditions, stated or unstated. @site_name disclaims any responsibility for any harm resulting from the use by visitors of the Website, or from any downloading by those visitors of content there posted.</li>
   <li><strong>Content Posted on Other Websites.</strong> We have not reviewed, and cannot review, all of the material, including computer software, made available through the websites and webpages to which @site_name links, and that link to @site_name. @site_name does not have any control over those websites and webpages, and is not responsible for their contents or their use. By linking to a non-@site_name website or webpage, @site_name does not represent or imply that it endorses such website or webpage. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. @site_name disclaims any responsibility for any harm resulting from your use of non-@site_name websites and webpages.</li>
   <li><strong>Copyright Infringement and DMCA Policy.</strong> As @site_name asks others to respect its intellectual property rights, it respects the intellectual property rights of others. If you believe that material located on or linked to by @site_name violates your copyright, you are encouraged to notify @site_name. @site_name will respond to all such notices, including as required or appropriate by removing the infringing material or disabling all links to the infringing material. In the case of a visitor who may infringe or repeatedly infringes the copyrights or other intellectual property rights of @site_name or others, @site_name may, in its discretion, terminate or deny access to and use of the Website. In the case of such termination, @site_name will have no obligation to provide a refund of any amounts previously paid to @site_name.</li>
@@ -120,14 +108,14 @@ array(
   </strong></li>
   <li><strong>Termination. </strong>@site_name may terminate your access to all or any part of the Website at any time, with or without cause, with or without notice, effective immediately.  If you wish to terminate this Agreement or your @site_name account (if you have one), you may simply discontinue using the Website.  All provisions of this Agreement which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability. <strong><br>
   </strong></li>
-  <li class=\"important\"><strong>Disclaimer of Warranties.</strong> The Website is provided “as is”. @site_name and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither @site_name nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted.  You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk.</li>
-  <li class=\"important\"><strong>Limitation of Liability.</strong> In no event will @site_name, or its suppliers or licensors, be liable with respect to any subject matter of this agreement under any contract, negligence, strict liability or other legal or equitable theory for: (i) any special, incidental or consequential damages; (ii) the cost of procurement or substitute products or services; (iii) for interruption of use or loss or corruption of data; or (iv) for any amounts that exceed the fees paid by you to @site_name under this agreement during the twelve (12) month period prior to the cause of action. @site_name shall have no liability for any failure or delay due to matters beyond their reasonable control. The foregoing shall not apply to the extent prohibited by applicable law.</li>
+  <li class="important"><strong>Disclaimer of Warranties.</strong> The Website is provided “as is”. @site_name and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither @site_name nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted.  You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk.</li>
+  <li class="important"><strong>Limitation of Liability.</strong> In no event will @site_name, or its suppliers or licensors, be liable with respect to any subject matter of this agreement under any contract, negligence, strict liability or other legal or equitable theory for: (i) any special, incidental or consequential damages; (ii) the cost of procurement or substitute products or services; (iii) for interruption of use or loss or corruption of data; or (iv) for any amounts that exceed the fees paid by you to @site_name under this agreement during the twelve (12) month period prior to the cause of action. @site_name shall have no liability for any failure or delay due to matters beyond their reasonable control. The foregoing shall not apply to the extent prohibited by applicable law.</li>
   <li><strong>General Representation and Warranty.</strong> You represent and warrant that (i) your use of the Website will be in strict accordance with the @site_name Privacy Policy, with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the United States or the country in which you reside) and (ii) your use of the Website will not infringe or misappropriate the intellectual property rights of any third party.</li>
   <li><strong>Indemnification.</strong> You agree to indemnify and hold harmless @site_name, its contractors, and its licensors, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including attorneys’ fees, arising out of your use of the Website, including but not limited to your violation of this Agreement.</li>
   <li><strong>Miscellaneous.</strong> This Agreement constitutes the entire agreement between @site_name and you concerning the subject matter hereof, and they may only be modified by a written amendment signed by an authorized executive of @site_name, or by the posting by @site_name of a revised version. Except to the extent applicable law, if any, provides otherwise, this Agreement, any access to or use of the Website will be governed by the laws of the state of California, U.S.A., excluding its conflict of law provisions, and the proper venue for any disputes arising out of or relating to any of the same will be the state and federal courts located in San Francisco County, California.  Except for claims for injunctive or equitable relief or claims regarding intellectual property rights (which may be brought in any competent court without the posting of a bond), any dispute arising under this Agreement shall be finally settled in accordance with the Comprehensive Arbitration Rules of the Judicial Arbitration and Mediation Service, Inc. (“JAMS”) by three arbitrators appointed in accordance with such Rules.  The arbitration shall take place in San Francisco, California, in the English language and the arbitral decision may be enforced in any court.  The prevailing party in any action or proceeding to enforce this Agreement shall be entitled to costs and attorneys’ fees.  If any part of this Agreement is held invalid or unenforceable, that part will be construed to reflect the parties’ original intent, and the remaining portions will remain in full force and effect. A waiver by either party of any term or condition of this Agreement or any breach thereof, in any one instance, will not waive such term or condition or any subsequent breach thereof. You may assign your rights under this Agreement to any party that consents to, and agrees to be bound by, its terms and conditions; @site_name may assign its rights under this Agreement without condition. This Agreement will be binding upon and will inure to the benefit of the parties, their successors and permitted assigns.</li>
   </ol>
   ',
-    'teaser' => '<p>The following terms and conditions govern all use of the @site_name website and all content, services and products available at or through the website.  The Website is owned and operated by @site_name, Inc. (“@site_name”).  The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, <a href=\"/privacy-policy\">@site_name’s Privacy Policy</a>) and procedures that may be published from time to time on this Site by @site_name (collectively, the “Agreement”).</p>',
+    'teaser' => '<p>The following terms and conditions govern all use of the @site_name website and all content, services and products available at or through the website.  The Website is owned and operated by @site_name, Inc. (“@site_name”).  The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, <a href="/privacy-policy">@site_name’s Privacy Policy</a>) and procedures that may be published from time to time on this Site by @site_name (collectively, the “Agreement”).</p>',
     'log' => '',
     'revision_timestamp' => '1287586327',
     'format' => '2',
@@ -172,14 +160,14 @@ array(
     'vid' => '152',
     'revision_uid' => '1',
     'title' => 'Privacy Policy',
-    'body' => '<p class=\"lead-in\">Your privacy is critically important to us. At @site_name we have a few fundamental principles:</p>
+    'body' => '<p class="lead-in">Your privacy is critically important to us. At @site_name we have a few fundamental principles:</p>
   <ul>
   <li>We don’t ask you for personal information unless we truly need it. (We can’t stand services that ask you for things like your gender or income level for no apparent reason.)</li>
   <li>We don’t share your personal information with anyone except to comply with the law, develop our products, or protect our rights.</li>
   <li>We don’t store personal information on our servers unless required for the on-going operation of one of our services.</li>
   <li>In our blogging products, we aim to make it as simple as possible for you to control what’s visible to the public, seen by search engines, kept private, and permanently deleted.</li>
   </ul>
-  <p>Below is our privacy policy which incorporates these goals:<a href=\"http://creativecommons.org/licenses/by-sa/2.5/\" rel=\"license\"><img border=\"0\" align=\"right\" alt=\"Creative Commons License\" src=\"http://creativecommons.org/images/public/somerights20\"></a> (Note, we’ve decided to make this privacy policy available under a <strong>Creative Commons Sharealike</strong> license, which means you’re more than welcome to steal it and repurpose it for your own use, just make sure to replace references to us with ones to you, and if you want we’d appreciate a link to @site_name somewhere on your site. We spent a lot of money and time on the below, and other people shouldn’t need to do the same.)</p>
+  <p>Below is our privacy policy which incorporates these goals:<a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license"><img border="0" align="right" alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20"></a> (Note, we’ve decided to make this privacy policy available under a <strong>Creative Commons Sharealike</strong> license, which means you’re more than welcome to steal it and repurpose it for your own use, just make sure to replace references to us with ones to you, and if you want we’d appreciate a link to @site_name somewhere on your site. We spent a lot of money and time on the below, and other people shouldn’t need to do the same.)</p>
   <p>It is @site_name’s policy to respect your privacy regarding any information we may collect while operating our websites.</p>
   <h3>Website Visitors</h3>
   <p>Like most website operators, @site_name collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. @site_name’s purpose in collecting non-personally identifying information is to better understand how @site_name’s visitors use its website. From time to time, @site_name may release non-personally-identifying information in the aggregate, e.g., by publishing a report on trends in the usage of its website.</p>
@@ -196,7 +184,7 @@ array(
   <p>Ads appearing on any of our websites may be delivered to users by advertising partners, who may set cookies. These cookies allow the ad server to recognize your computer each time they send you an online advertisement to compile information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This Privacy Policy covers the use of cookies by @site_name and does not cover the use of cookies by any advertisers.</p>
   <h3>Privacy Policy Changes</h3>
   <p>Although most changes are likely to be minor, @site_name may change its Privacy Policy from time to time, and in @site_name’s sole discretion. @site_name encourages visitors to frequently check this page for any changes to its Privacy Policy. Your continued use of this site after any change in this Privacy Policy will constitute your acceptance of such change.</p>',
-    'teaser' => '<p class=\"lead-in\">Your privacy is critically important to us. At @site_name we have a few fundamental principles:</p>',
+    'teaser' => '<p class="lead-in">Your privacy is critically important to us. At @site_name we have a few fundamental principles:</p>',
     'log' => '',
     'revision_timestamp' => '1287585772',
     'format' => '2',
@@ -297,7 +285,7 @@ The goal of Open Enterprise is to provide organizations with both a great techno
     'format' => '3',
     'name' => 'superuser',
     'picture' => '',
-    'data' => 'a:10:{s:14:\"picture_delete\";s:0:\"\";s:14:\"picture_upload\";s:0:\"\";s:13:\"form_build_id\";s:37:\"form-21878cc4b699610a3f4014bd4b8852e4\";s:9:\"nodewords\";a:9:{s:8:\"abstract\";a:1:{s:5:\"value\";s:0:\"\";}s:9:\"canonical\";a:1:{s:5:\"value\";s:0:\"\";}s:9:\"copyright\";a:1:{s:5:\"value\";s:49:\"&copy; 1999-2009 LevelTen Interactive, Dallas, TX\";}s:11:\"description\";a:1:{s:5:\"value\";s:0:\"\";}s:8:\"keywords\";a:1:{s:5:\"value\";s:0:\"\";}s:13:\"revisit-after\";a:1:{s:5:\"value\";s:1:\"1\";}s:6:\"robots\";a:2:{s:5:\"value\";a:6:{s:9:\"noarchive\";i:0;s:8:\"nofollow\";i:0;s:7:\"noindex\";i:0;s:5:\"noodp\";i:0;s:9:\"nosnippet\";i:0;s:6:\"noydir\";i:0;}s:11:\"use_default\";i:0;}s:8:\"dc.title\";a:1:{s:5:\"value\";s:0:\"\";}s:8:\"location\";a:2:{s:8:\"latitude\";s:0:\"\";s:9:\"longitude\";s:0:\"\";}}s:5:\"block\";a:1:{s:5:\"views\";a:1:{s:21:\"latests_posts-block_1\";i:1;}}s:21:\"feedburner_feedburner\";s:0:\"\";s:17:\"mimemail_textonly\";i:0;s:17:\"messaging_default\";s:4:\"mail\";s:27:\"notifications_send_interval\";s:1:\"0\";s:18:\"notifications_auto\";i:1;}',
+    'data' => 'a:10:{s:14:"picture_delete";s:0:"";s:14:"picture_upload";s:0:"";s:13:"form_build_id";s:37:"form-21878cc4b699610a3f4014bd4b8852e4";s:9:"nodewords";a:9:{s:8:"abstract";a:1:{s:5:"value";s:0:"";}s:9:"canonical";a:1:{s:5:"value";s:0:"";}s:9:"copyright";a:1:{s:5:"value";s:49:"&copy; 1999-2009 LevelTen Interactive, Dallas, TX";}s:11:"description";a:1:{s:5:"value";s:0:"";}s:8:"keywords";a:1:{s:5:"value";s:0:"";}s:13:"revisit-after";a:1:{s:5:"value";s:1:"1";}s:6:"robots";a:2:{s:5:"value";a:6:{s:9:"noarchive";i:0;s:8:"nofollow";i:0;s:7:"noindex";i:0;s:5:"noodp";i:0;s:9:"nosnippet";i:0;s:6:"noydir";i:0;}s:11:"use_default";i:0;}s:8:"dc.title";a:1:{s:5:"value";s:0:"";}s:8:"location";a:2:{s:8:"latitude";s:0:"";s:9:"longitude";s:0:"";}}s:5:"block";a:1:{s:5:"views";a:1:{s:21:"latests_posts-block_1";i:1;}}s:21:"feedburner_feedburner";s:0:"";s:17:"mimemail_textonly";i:0;s:17:"messaging_default";s:4:"mail";s:27:"notifications_send_interval";s:1:"0";s:18:"notifications_auto";i:1;}',
     'rdf' => array(),
     'path' => 'contact',
     'og_groups_both' => array(),
@@ -660,7 +648,7 @@ The goal of Open Enterprise is to provide organizations with both a great techno
           'form_key' => 'ckjs',
           'name' => 'ckjs',
           'type' => 'markup',
-          'value' => '<script type=\"text/javascript\">
+          'value' => '<script type="text/javascript">
   var ck0=5;
   var ck1=6;
   $(document).ready(function() {
