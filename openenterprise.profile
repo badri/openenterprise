@@ -12,8 +12,8 @@ define('OPENENTERPRISE_FILTERED_HTML', '<a> <img> <br> <em> <p> <strong> <cite> 
  */
 function openenterprise_profile_details() {
   return array(
-    'name' => 'Open Enterprise',
-    'description' => 'Open Enterprise by LevelTen Interactive.',
+    'name' => t('Open Enterprise'),
+    'description' => t('Open Enterprise by LevelTen Interactive.'),
     'old_short_name' => 'enterprise_installer',
   );
 }
@@ -261,7 +261,7 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
  */
 function system_form_install_configure_form_alter(&$form, $form_state) {
   $form['site_information']['#weight'] = -3;
-  $form['site_information']['site_name']['#default_value'] = 'Open Enterprise Site';
+  $form['site_information']['site_name']['#default_value'] = t('Open Enterprise Site');
   $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
   $form['admin_account']['account']['mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
@@ -283,8 +283,8 @@ function system_form_install_configure_form_alter(&$form, $form_state) {
   $features = features_get_features('', TRUE);
   $form['features'] = array(
     '#type' => 'fieldset',
-    '#title' => 'Features',
-    '#description' => 'Select which features you want to enable on your site.  You can enable more later by going to Administer->Site Building->Features',
+    '#title' => t('Features'),
+    '#description' => t('Select which features you want to enable on your site.  You can enable more later by going to Administer->Site Building->Features'),
     '#weight' => -2,
     '#tree' => TRUE,
   );
@@ -293,8 +293,8 @@ function system_form_install_configure_form_alter(&$form, $form_state) {
     if (!(strpos($name, '_test')) && !in_array($name, $ignore_modules)) {
       $form['features'][$name] = array(
         '#type' => 'checkbox',
-        '#title' => $module->info['name'],
-        '#description' => $module->info['description'],
+        '#title' => t($module->info['name']),
+        '#description' => t($module->info['description']),
         '#default_value' => !($name == 'enterprise_products' || $name == 'enterprise_services'),
         '#disabled' => $name == 'enterprise', // Require the enterprise module.
       );
@@ -302,16 +302,16 @@ function system_form_install_configure_form_alter(&$form, $form_state) {
   }
   $form['enterprise'] = array(
     '#type' => 'fieldset',
-    '#title' => 'Open Enterprise Settings',
+    '#title' => t('Open Enterprise Settings'),
     '#weight' => -1,
   );
   $form['enterprise']['enterprise_demo_data'] = array(
     '#type' => 'select',
-    '#title' => 'Demo Data',
-    '#description' => 'Import some demo data to quickly see a working site.',
+    '#title' => t('Demo Data'),
+    '#description' => t('Import some demo data to quickly see a working site.'),
     '#options' => array(
-      '1' => 'Install Demo Data',
-      '0' => 'Do Not Install Demo Data',
+      '1' => t('Install Demo Data'),
+      '0' => t('Do Not Install Demo Data'),
     ),
    );
   $form['#submit'][] = 'openenterprise_system_settings_form_submit';
@@ -475,7 +475,7 @@ function openenterprise_editor_settings($format) {
         'apply_source_formatting' => 0,
         'paste_auto_cleanup_on_paste' => 0,
         'block_formats' => 'p,address,pre,blockquote,h2,h3,h4,h5,h6,div',
-        'css_setting' => 'theme',
+        'css_setting' => 'none',
         'css_path' => '',
         'css_classes' => '',
       );
@@ -536,7 +536,7 @@ function openenterprise_editor_settings($format) {
         'apply_source_formatting' => 0,
         'paste_auto_cleanup_on_paste' => 0,
         'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6',
-        'css_setting' => 'theme',
+        'css_setting' => 'none',
         'css_path' => '',
         'css_classes' => '',
       );
