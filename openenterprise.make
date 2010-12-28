@@ -174,6 +174,14 @@ projects[poormanscron][version] = "2.2"
 projects[transliteration][subdir] = "contrib"
 projects[transliteration][version] = "3.0"
 
+; Adds settings checking and fixing.
+projects[presets][subdir] = "contrib"
+projects[presets][version] = "1.0-rc2"
+
+; change fieldsets to vertial tabs
+projects[vertical_tabs][subdir] = "contrib"
+projects[vertical_tabs][version] = "1.0-rc1"
+
 ;;;;;;
 ; admin tools
 ;;;;;;
@@ -220,6 +228,9 @@ projects[globalredirect][version] = "1.2"
 ; seo tools
 ;;;;;;
 
+projects[seotools][subdir] = "contrib"
+projects[seotools][version] = "1.0-beta2"
+
 ; Adds Google Analytics javascript tracking code to all your site's pages.
 projects[google_analytics][subdir] = "contrib"
 projects[google_analytics][version] = "3.0"
@@ -259,6 +270,27 @@ projects[linkintel][version] = "1.0-rc3"
 projects[kwresearch][subdir] = "contrib"
 projects[kwresearch][version] = "1.0-rc5"
 
+projects[google_analytics_api][subdir] = "contrib"
+projects[google_analytics_api][version] = "1.0-alpha1"
+
+projects[chart][subdir] = "contrib"
+projects[chart][version] = "1.3"
+
+projects[countries_api][subdir] = "contrib"
+projects[countries_api][version] = "1.1"
+
+projects[seo_friend][subdir] = "contrib"
+projects[seo_friend][version] = "1.0"
+
+projects[wordstream][subdir] = "contrib"
+projects[wordstream][version] = "1.0-alpha2"
+
+projects[xmlsitemap][subdir] = "contrib"
+projects[xmlsitemap][version] = "2.0-beta1"
+
+projects[w3c_validator][subdir] = "contrib"
+projects[w3c_validator][version] = "1.2"
+
 ;;;;;
 ; Libraries
 ;;;;;
@@ -274,7 +306,7 @@ libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][destination] = "libraries"
 
 libraries[alchemy][download][type] = "get"
-libraries[alchemy][download][url] = "http://www.alchemyapi.com/tools/AlchemyAPI_PHP5-0.5.tar.gz"
+libraries[alchemy][download][url] = "http://www.alchemyapi.com/tools/AlchemyAPI_PHP5-0.5.1b.tar.gz"
 libraries[alchemy][directory_name] = "AlchemyAPI"
 libraries[alchemy][destination] = "libraries"
 

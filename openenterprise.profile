@@ -50,7 +50,7 @@ function openenterprise_profile_modules() {
     // Token
     'token', 
     // Editor
-    'wysiwyg', 'better_formats', 'imce', 'imce_wysiwyg',
+    'wysiwyg', 'better_formats', 'imce', 'imce_wysiwyg', 'vertical_tabs',
     // Node Export
     'node_export', 'node_export_file',
     // Libraries
@@ -64,7 +64,13 @@ function openenterprise_profile_modules() {
     // SEO
     'page_title', 'nodewords', 'globalredirect', 'path_redirect', 'search404',
     'contentanalysis', 'contentoptimizer', //'alchemy', 'alchemy_contentanalysis',
-    'kwresearch', 'linkintel',
+    'kwresearch', 'linkintel', 'presets', 'seotools',
+    'google_analytics_api', 'google_analytics_reports', 'chart', 'system_charts',
+    'countries_api', 'seo_friend', 'wordstream',
+    'xmlsitemap', 'xmlsitemap_custom', 'xmlsitemap_node', 'xmlsitemap_engines',
+    'xmlsitemap_user', 'xmlsitemap_menu', 'xmlsitemap_taxonomy',
+    'w3c_validator', 'nodewords_extra', 'nodewords_verification_tags',
+    'nodewords_basic', 'kwresearch_google', 'linkintel_cck', 'linkintel_stemmer',
     // Utilities
     'password_policy', 'poormanscron', 'backup_migrate', 'porterstemmer',
     'addthis', 'transliteration',
@@ -121,7 +127,7 @@ function openenterprise_profile_tasks(&$task, $url) {
       }
     }
     drupal_install_modules(array_keys($modules));
-
+    
     $task = 'enterprise-nodes';
   }
 
@@ -144,6 +150,7 @@ function openenterprise_profile_tasks(&$task, $url) {
       $batch['operations'][] = array('_openenterprise_import_nodes_batch', array('enterprise'));
     }
     $batch['operations'][] = array('_openenterprise_setup_menus', array());
+    $batch['operations'][] = array('_openenterprise_reset_seotools', array());
     $batch['finished'] = '_openenterprise_import_nodes_batch_finished';
     $batch['title'] = st('Importing Nodes @drupal', array('@drupal' => drupal_install_profile_name()));
     $batch['error_message'] = st('The installation has encountered an error.');
@@ -244,6 +251,12 @@ function _openenterprise_setup_menus(&$context) {
   menu_link_save($item);
   $item = array('menu_name' => 'footer-links', 'link_path' => 'node/'.$node_nids['contact_us'], 'link_title' => st("Contact Us"));
   menu_link_save($item);
+}
+
+function _openenterprise_reset_seotools(&$context) {
+  // Reset presets for seotools.
+  module_load_include('inc', 'presets', 'presets.admin');
+  presets_reset_all('seotools', FALSE);
 }
 
 
