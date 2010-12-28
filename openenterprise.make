@@ -257,10 +257,6 @@ projects[page_title][version] = "2.3"
 projects[contentanalysis][subdir] = "contrib"
 projects[contentanalysis][version] = "1.4"
 
-; Content Optimizer Analyzer
-projects[contentoptimizer][subdir] = "contrib"
-projects[contentoptimizer][version] = "2.1"
-
 projects[alchemy][subdir] = "contrib"
 projects[alchemy][version] = "1.0-rc4"
 
