@@ -12,11 +12,11 @@ projects[cck][version] = "2.8"
 
 ; Defines a file field type.
 projects[filefield][subdir] = "contrib"
-projects[filefield][version] = "3.7"
+projects[filefield][version] = "3.9"
 
 ; Defines an image field type.
 projects[imagefield][subdir] = "contrib"
-projects[imagefield][version] = "3.7"
+projects[imagefield][version] = "3.9"
 
 ; Dynamic image manipulator and cache.
 projects[imagecache][subdir] = "contrib"
@@ -28,7 +28,7 @@ projects[imageapi][version] = "1.9"
 
 ; Create customized lists and queries from your database.
 projects[views][subdir] = "contrib"
-projects[views][version] = "2.11"
+projects[views][version] = "2.12"
 
 ; Create customized lists and queries from your database.
 projects[views_slideshow][subdir] = "contrib"
@@ -72,7 +72,7 @@ projects[markdown][version] = "1.2"
 
 ; Enable the use of wysiwyg editors.
 projects[wysiwyg][subdir] = "contrib"
-projects[wysiwyg][version] = "2.1"
+projects[wysiwyg][version] = "2.2"
 
 ; Add better input format support.
 projects[better_formats][subdir] = "contrib"
@@ -84,7 +84,7 @@ projects[freelinking][version] = "1.10"
 
 ; An image/file uploader and browser supporting personal directories and user quota.
 projects[imce][subdir] = "contrib"
-projects[imce][version] = "1.3"
+projects[imce][version] = "1.4"
 
 ; Integration for imce and wysiwyg.
 projects[imce_wysiwyg][subdir] = "contrib"
@@ -120,11 +120,11 @@ projects[webform][version] = "3.4"
 
 ; Improve English language searching by simplifying related words to their root (conjugations, plurals, ...)
 projects[porterstemmer][subdir] = "contrib"
-projects[porterstemmer][version] = "2.5"
+projects[porterstemmer][version] = "2.6"
 
 ; For page not founds, searches the values entered after the domain name
 projects[search404][subdir] = "contrib"
-projects[search404][version] = "1.9"
+projects[search404][version] = "1.10"
 
 ;;;;;;
 ; exportables
@@ -148,7 +148,7 @@ projects[strongarm][version] = "2.0"
 
 ; Allows users to export a node and the import into another Drupal installation.
 projects[node_export][subdir] = "contrib"
-projects[node_export][version] = "2.22"
+projects[node_export][version] = "2.24"
 
 ; jQuery drag and drop ui.
 projects[jquery_ui][subdir] = "contrib"
@@ -206,7 +206,7 @@ projects[pathfilter][subdir] = "contrib"
 projects[pathfilter][version] = "1.0"
 
 projects[path_redirect][subdir] = "contrib"
-projects[path_redirect][version] = "1.0-rc1"
+projects[path_redirect][version] = "1.0-rc2"
 
 ; Provides a mechanism for modules to automatically generate aliases for the content they manage.
 projects[pathauto][subdir] = "contrib"
@@ -233,7 +233,7 @@ projects[nodewords][version] = "1.11"
 
 ; Analyzes node content for search engine optimization recommendations
 projects[contentoptimizer][subdir] = "contrib"
-projects[contentoptimizer][version] = "2.0-beta1"
+projects[contentoptimizer][version] = "2.2"
 
 ; Enhanced control over the page title (in the &lt;head> tag).
 projects[page_title][subdir] = "contrib"
@@ -254,10 +254,10 @@ projects[alchemy][subdir] = "contrib"
 projects[alchemy][version] = "1.0-rc4"
 
 projects[linkintel][subdir] = "contrib"
-projects[linkintel][version] = "1.0-beta5"
+projects[linkintel][version] = "1.0-rc3"
 
 projects[kwresearch][subdir] = "contrib"
-projects[kwresearch][version] = "1.0-rc4"
+projects[kwresearch][version] = "1.0-rc5"
 
 ;;;;;
 ; Libraries
@@ -286,9 +286,10 @@ libraries[alchemy][destination] = "libraries"
 projects[conditional_styles][subdir] = "contrib"
 projects[conditional_styles][version] = "1.1"
 
-projects[tao][version] = "3.1"
+projects[tao][version] = "3.2"
 projects[rubik][version] = "3.0-beta2"
 projects[ninesixty][version] = "1.0"
+projects[jackson][version] = "1.0"
 projects[oe][location] = http://features.leveltendesign.com/fserver
 projects[oe][version] = "1.0-ALPHA4"
 
