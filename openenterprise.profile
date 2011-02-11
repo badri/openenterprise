@@ -69,8 +69,8 @@ function openenterprise_profile_modules() {
     //'countries_api', 'seo_friend', 'wordstream',
     'xmlsitemap', 'xmlsitemap_custom', 'xmlsitemap_node', 'xmlsitemap_engines',
     'xmlsitemap_user', 'xmlsitemap_menu', 'xmlsitemap_taxonomy',
-    'w3c_validator', 'nodewords_extra', 'nodewords_verification_tags',
-    'nodewords_basic', 'kwresearch_google', 'linkintel_cck', 'linkintel_stemmer',
+    //'w3c_validator', 'nodewords_extra', 'nodewords_verification_tags',
+    //'nodewords_basic', 'kwresearch_google', 'linkintel_cck', 'linkintel_stemmer',
     // Utilities
     'password_policy', 'poormanscron', 'backup_migrate', 'porterstemmer',
     'addthis', 'transliteration',
