@@ -150,7 +150,7 @@ function openenterprise_profile_tasks(&$task, $url) {
       $batch['operations'][] = array('_openenterprise_import_nodes_batch', array('enterprise'));
     }
     $batch['operations'][] = array('_openenterprise_setup_menus', array());
-    $batch['operations'][] = array('_openenterprise_reset_seotools', array());
+    //$batch['operations'][] = array('_openenterprise_reset_seotools', array());
     $batch['finished'] = '_openenterprise_import_nodes_batch_finished';
     $batch['title'] = st('Importing Nodes @drupal', array('@drupal' => drupal_install_profile_name()));
     $batch['error_message'] = st('The installation has encountered an error.');
@@ -302,7 +302,7 @@ function system_form_install_configure_form_alter(&$form, $form_state) {
     '#tree' => TRUE,
   );
   foreach($features as $name => $module) {
-    $ignore_modules = array('spaces_dashboard');
+    $ignore_modules = array('spaces_dashboard', 'seotools');
     if (!(strpos($name, '_test')) && !in_array($name, $ignore_modules)) {
       $form['features'][$name] = array(
         '#type' => 'checkbox',
