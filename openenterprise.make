@@ -8,7 +8,7 @@ api = 2
 
 ; Allows administrators to define new content types.
 projects[cck][subdir] = "contrib"
-projects[cck][version] = "2.8"
+projects[cck][version] = "2.9"
 
 ; Defines a file field type.
 projects[filefield][subdir] = "contrib"
@@ -56,11 +56,11 @@ projects[context][version] = "3.0"
 
 ; Views plugin to display views containing dates as Calendars.
 projects[calendar][subdir] = "contrib"
-projects[calendar][version] = "2.2"
+projects[calendar][version] = "2.4"
 
 ; Date API that can be used by other modules.
 projects[date][subdir] = "contrib"
-projects[date][version] = "2.6"
+projects[date][version] = "2.7"
 
 ;;;;;;;
 ; content tools
@@ -72,7 +72,7 @@ projects[markdown][version] = "1.2"
 
 ; Enable the use of wysiwyg editors.
 projects[wysiwyg][subdir] = "contrib"
-projects[wysiwyg][version] = "2.2"
+projects[wysiwyg][version] = "2.3"
 
 ; Add better input format support.
 projects[better_formats][subdir] = "contrib"
@@ -100,7 +100,7 @@ projects[tagadelic_views][version] = "1.2"
 
 ; Obfuscates email addresses to help prevent spambots from collecting them.
 projects[spamspan][subdir] = "contrib"
-projects[spamspan][version] = "1.5-beta2"
+projects[spamspan][version] = "1.6"
 
 ; Add twitter integration
 projects[twitter][subdir] = "contrib"
@@ -112,7 +112,7 @@ projects[addthis][version] = "2.10"
 
 ; Build webforms.
 projects[webform][subdir] = "contrib"
-projects[webform][version] = "3.4"
+projects[webform][version] = "3.6"
 
 ;;;;;;
 ; search
@@ -136,7 +136,7 @@ projects[features][version] = "1.0"
 
 ; Provides exports for custom blocks and spaces integration.
 projects[boxes][subdir] = "contrib"
-projects[boxes][version] = "1.0-beta4"
+projects[boxes][version] = "1.0"
 
 ; Enforces variable values defined by modules that need settings set to operate properly.
 projects[strongarm][subdir] = "contrib"
@@ -160,7 +160,7 @@ projects[jquery_plugin][version] = "1.10"
 
 ; Common theme library functionality.
 projects[libraries][subdir] = "contrib"
-projects[libraries][version] = "1.0-alpha1"
+projects[libraries][version] = "1.0"
 
 ; Enable a password policy.
 projects[password_policy][subdir] = "contrib"
@@ -176,7 +176,7 @@ projects[transliteration][version] = "3.0"
 
 ; Adds settings checking and fixing.
 projects[presets][subdir] = "contrib"
-projects[presets][version] = "1.0-rc2"
+projects[presets][version] = "1.0-rc3"
 
 ; change fieldsets to vertial tabs
 projects[vertical_tabs][subdir] = "contrib"
@@ -199,7 +199,7 @@ projects[backup_migrate][version] = "2.4"
 ;;;;;;
 
 projects[devel][subdir] = "devel"
-projects[devel][version] = "1.22"
+projects[devel][version] = "1.23"
 
 ; An API and home for miscellaneous jQuery plugins.
 projects[diff][subdir] = "devel"
@@ -229,11 +229,11 @@ projects[globalredirect][version] = "1.2"
 ;;;;;;
 
 projects[seotools][subdir] = "contrib"
-projects[seotools][version] = "1.0-beta2"
+projects[seotools][version] = "1.0-beta5"
 
 ; Adds Google Analytics javascript tracking code to all your site's pages.
 projects[google_analytics][subdir] = "contrib"
-projects[google_analytics][version] = "3.0"
+projects[google_analytics][version] = "3.2"
 
 projects[page_title][subdir] = "contrib"
 projects[page_title][version] = "2.3"
@@ -261,10 +261,10 @@ projects[alchemy][subdir] = "contrib"
 projects[alchemy][version] = "1.0-rc4"
 
 projects[linkintel][subdir] = "contrib"
-projects[linkintel][version] = "1.0-rc3"
+projects[linkintel][version] = "1.0-rc4"
 
 projects[kwresearch][subdir] = "contrib"
-projects[kwresearch][version] = "1.0-rc5"
+projects[kwresearch][version] = "1.0-rc6"
 
 projects[google_analytics_api][subdir] = "contrib"
 projects[google_analytics_api][version] = "1.0-alpha1"
@@ -279,10 +279,10 @@ projects[seo_friend][subdir] = "contrib"
 projects[seo_friend][version] = "1.0"
 
 projects[wordstream][subdir] = "contrib"
-projects[wordstream][version] = "1.0-alpha2"
+projects[wordstream][version] = "1.0-beta1"
 
 projects[xmlsitemap][subdir] = "contrib"
-projects[xmlsitemap][version] = "2.0-beta1"
+projects[xmlsitemap][version] = "2.0-beta2"
 
 projects[w3c_validator][subdir] = "contrib"
 projects[w3c_validator][version] = "1.2"

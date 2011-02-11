@@ -62,11 +62,11 @@ function openenterprise_profile_modules() {
     // Pathauto
     'path', 'pathauto',
     // SEO
-    'page_title', 'nodewords', 'globalredirect', 'path_redirect', 'search404',
-    'contentanalysis', 'contentoptimizer', //'alchemy', 'alchemy_contentanalysis',
-    'kwresearch', 'linkintel', 'presets', 'seotools',
-    'google_analytics_api', 'google_analytics_reports', 'chart', 'system_charts',
-    'countries_api', 'seo_friend', 'wordstream',
+    //'page_title', 'nodewords', 'globalredirect', 'path_redirect', 'search404',
+    //'contentanalysis', 'contentoptimizer', 'alchemy', 'alchemy_contentanalysis',
+    //'kwresearch', 'linkintel', 'presets', 'seotools',
+    //'google_analytics_api', 'google_analytics_reports', 'chart', 'system_charts',
+    //'countries_api', 'seo_friend', 'wordstream',
     'xmlsitemap', 'xmlsitemap_custom', 'xmlsitemap_node', 'xmlsitemap_engines',
     'xmlsitemap_user', 'xmlsitemap_menu', 'xmlsitemap_taxonomy',
     'w3c_validator', 'nodewords_extra', 'nodewords_verification_tags',
