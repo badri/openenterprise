@@ -255,7 +255,7 @@ projects[page_title][version] = "2.3"
 
 ; Analyze Content
 projects[contentanalysis][subdir] = "contrib"
-projects[contentanalysis][version] = "1.4"
+projects[contentanalysis][version] = "1.6"
 
 projects[alchemy][subdir] = "contrib"
 projects[alchemy][version] = "1.0-rc6"
@@ -269,6 +269,15 @@ projects[kwresearch][version] = "1.0-rc9"
 projects[google_analytics_reports][subdir] = "contrib"
 projects[google_analytics_reports][version] = "1.0-alpha1"
 
+projects[oauth_common][subdir] = "contrib"
+projects[oauth_common][version] = "2.0-beta2"
+
+projects[autoload][subdir] = "contrib"
+projects[autoload][version] = "2.1"
+
+projects[inputstream][subdir] = "contrib"
+projects[inputstream][version] = "1.0"
+
 projects[chart][subdir] = "contrib"
 projects[chart][version] = "1.3"
 
@@ -279,7 +288,7 @@ projects[seo_friend][subdir] = "contrib"
 projects[seo_friend][version] = "1.0"
 
 projects[wordstream][subdir] = "contrib"
-projects[wordstream][version] = "1.0-beta1"
+projects[wordstream][version] = "1.0-beta3"
 
 projects[xmlsitemap][subdir] = "contrib"
 projects[xmlsitemap][version] = "2.0-beta2"
