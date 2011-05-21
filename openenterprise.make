@@ -12,19 +12,19 @@ projects[cck][version] = "2.9"
 
 ; Defines a file field type.
 projects[filefield][subdir] = "contrib"
-projects[filefield][version] = "3.9"
+projects[filefield][version] = "3.10"
 
 ; Defines an image field type.
 projects[imagefield][subdir] = "contrib"
-projects[imagefield][version] = "3.9"
+projects[imagefield][version] = "3.10"
 
 ; Dynamic image manipulator and cache.
 projects[imagecache][subdir] = "contrib"
-projects[imagecache][version] = "2.0-beta10"
+projects[imagecache][version] = "2.0-beta12"
 
 ; ImageAPI supporting multiple toolkits.
 projects[imageapi][subdir] = "contrib"
-projects[imageapi][version] = "1.9"
+projects[imageapi][version] = "1.10"
 
 ; Create customized lists and queries from your database.
 projects[views][subdir] = "contrib"
@@ -44,7 +44,7 @@ projects[link][version] = "2.9"
 
 ; Provides a shared API for replacement of textual placeholders with actual data.
 projects[token][subdir] = "contrib"
-projects[token][version] = "1.15"
+projects[token][version] = "1.16"
 
 ; Provide modules with a cache that lasts for a single page request.
 projects[context][subdir] = "contrib"
@@ -84,7 +84,7 @@ projects[freelinking][version] = "1.10"
 
 ; An image/file uploader and browser supporting personal directories and user quota.
 projects[imce][subdir] = "contrib"
-projects[imce][version] = "1.4"
+projects[imce][version] = "2.1"
 
 ; Integration for imce and wysiwyg.
 projects[imce_wysiwyg][subdir] = "contrib"
@@ -92,7 +92,7 @@ projects[imce_wysiwyg][version] = "1.1"
 
 ; Tagadelic makes weighted tag clouds from your taxonomy terms.
 projects[tagadelic][subdir] = "contrib"
-projects[tagadelic][version] = "1.2"
+projects[tagadelic][version] = "1.3"
 
 ; Tagadelic makes weighted tag clouds from your taxonomy terms.
 projects[tagadelic_views][subdir] = "contrib"
@@ -112,7 +112,7 @@ projects[addthis][version] = "2.10"
 
 ; Build webforms.
 projects[webform][subdir] = "contrib"
-projects[webform][version] = "3.6"
+projects[webform][version] = "3.11"
 
 ;;;;;;
 ; search
@@ -164,7 +164,7 @@ projects[libraries][version] = "1.0"
 
 ; Enable a password policy.
 projects[password_policy][subdir] = "contrib"
-projects[password_policy][version] = "1.0-beta1"
+projects[password_policy][version] = "1.0"
 
 ; Enable cron running on systems without cron set up.
 projects[poormanscron][subdir] = "contrib"
@@ -176,7 +176,7 @@ projects[transliteration][version] = "3.0"
 
 ; Adds settings checking and fixing.
 projects[presets][subdir] = "contrib"
-projects[presets][version] = "1.0-rc3"
+projects[presets][version] = "1.0-rc5"
 
 ; change fieldsets to vertial tabs
 projects[vertical_tabs][subdir] = "contrib"
@@ -199,7 +199,7 @@ projects[backup_migrate][version] = "2.4"
 ;;;;;;
 
 projects[devel][subdir] = "devel"
-projects[devel][version] = "1.23"
+projects[devel][version] = "1.24"
 
 ; An API and home for miscellaneous jQuery plugins.
 projects[diff][subdir] = "devel"
@@ -229,11 +229,11 @@ projects[globalredirect][version] = "1.2"
 ;;;;;;
 
 projects[seotools][subdir] = "contrib"
-projects[seotools][version] = "1.0-beta5"
+projects[seotools][version] = "1.0-rc3"
 
 ; Adds Google Analytics javascript tracking code to all your site's pages.
 projects[google_analytics][subdir] = "contrib"
-projects[google_analytics][version] = "3.2"
+projects[google_analytics][version] = "3.3"
 
 projects[page_title][subdir] = "contrib"
 projects[page_title][version] = "2.3"
@@ -258,16 +258,16 @@ projects[contentanalysis][subdir] = "contrib"
 projects[contentanalysis][version] = "1.4"
 
 projects[alchemy][subdir] = "contrib"
-projects[alchemy][version] = "1.0-rc4"
+projects[alchemy][version] = "1.0-rc6"
 
 projects[linkintel][subdir] = "contrib"
-projects[linkintel][version] = "1.0-rc4"
+projects[linkintel][version] = "1.0-rc11"
 
 projects[kwresearch][subdir] = "contrib"
-projects[kwresearch][version] = "1.0-rc6"
+projects[kwresearch][version] = "1.0-rc9"
 
-projects[google_analytics_api][subdir] = "contrib"
-projects[google_analytics_api][version] = "1.0-alpha1"
+projects[google_analytics_reports][subdir] = "contrib"
+projects[google_analytics_reports][version] = "1.0-alpha1"
 
 projects[chart][subdir] = "contrib"
 projects[chart][version] = "1.3"
