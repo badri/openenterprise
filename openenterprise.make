@@ -96,3 +96,6 @@ libraries[htmlpurifier][destination] = "libraries"
 ;;;;;;
 ; Theme
 ;;;;;;
+
+projects[tao][type] = theme
+projects[rubik][type] = theme
