@@ -4,7 +4,7 @@ core = "7.x"
 api = 2
 
 projects[drupal][type] = core
-projects[drupal][version] = "7.7"
+projects[drupal][version] = "7.8"
 
 projects[openenterprise][type] = profile
 projects[openenterprise][download][type] = git
