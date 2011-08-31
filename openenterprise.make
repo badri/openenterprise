@@ -48,7 +48,7 @@ projects[features][subdir] = "contrib"
 projects[libraries][subdir] = "contrib"
 projects[password_policy][subdir] = "contrib"
 projects[rotating_banner][subdir] = "contrib"
-projects[rotating_banner][version] = "7.x-1.0-beta1"
+projects[rotating_banner][version] = "1.0-beta1"
 projects[strongarm][subdir] = "contrib"
 projects[token][subdir] = "contrib"
 projects[views][subdir] = "contrib"
@@ -75,7 +75,7 @@ projects[ux_elements][subdir] = "contrib"
 ; Custom
 ;;;;;
 
-projects[tutorials][subdir] = "contrib"
+;projects[tutorials][subdir] = "contrib"
 
 ;;;;;
 ; Libraries
