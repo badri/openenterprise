@@ -70,6 +70,9 @@ projects[nodeconnect][subdir] = "contrib"
 projects[simplified_menu_admin][subdir] = "contrib"
 projects[simplified_modules][subdir] = "contrib"
 projects[ux_elements][subdir] = "contrib"
+; form_process_horizontal_tabs previously declared
+; http://drupal.org/node/1224568
+projects[ux_elements][patch][1224568] = http://drupal.org/files/issues/1224568-ux_elements_redeclare.patch
 
 ;;;;;
 ; Custom
