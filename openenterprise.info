@@ -1,5 +1,5 @@
 name = OpenEnterprise
-description = OpenEnterprise Distribution
+description = OpenEnterprise Distribution by LevelTen Interactive
 
 version = 7.x-1.0-alpha1
 core = 7.x
@@ -76,6 +76,6 @@ dependencies[] = views
 dependencies[] = views_ui
 
 ;; Custom
-dependencies[] = tutorials
+;dependencies[] = tutorials
 
 files[] = openenterprise.profile

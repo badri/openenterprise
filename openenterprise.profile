@@ -101,3 +101,11 @@ function openenterprise_form_install_configure_form_alter(&$form, &$form_state) 
   $form['admin_account']['account']['mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST']; 
 }
 
+/**
+ * Set Open Enterprise as default install profile.
+ */
+function system_form_install_select_profile_form_alter(&$form, $form_state) {
+  foreach($form['profile'] as $key => $element) {
+    $form['profile'][$key]['#value'] = 'openenterprise';
+  }
+}
