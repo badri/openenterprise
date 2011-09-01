@@ -1,5 +1,6 @@
 name = OpenEnterprise
 description = OpenEnterprise Distribution by LevelTen Interactive
+distribution_name = OpenEnterprise
 
 version = 7.x-1.0-alpha1
 core = 7.x
@@ -69,7 +70,6 @@ dependencies[] = entitycache
 dependencies[] = features
 dependencies[] = libraries
 dependencies[] = password_policy
-;dependencies[] = rotating_banner
 dependencies[] = strongarm
 dependencies[] = token
 dependencies[] = views
