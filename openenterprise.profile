@@ -31,6 +31,7 @@ function openenterprise_apps_servers_info() {
  */
 function openenterprise_form_install_configure_form_alter(&$form, &$form_state) {
   // Many modules set messages during installation that are very annoying.
+  // (I'm looking at you Date and IMCE)
   // Lets remove these and readd the only message that should be set.
   drupal_get_messages('status');
   drupal_get_messages('warning');

@@ -27,6 +27,12 @@ function openenterprise_install() {
   variable_set('pathauto_node_pattern', '[node:type]/[node:title]');
   variable_set('pathauto_node_blog_entry_pattern', 'blog/[node:created:custom:Y-m-d]/[node:title]');
   variable_set('pathauto_punctuation_underscore', '1');
+
+  // Set up date defaults so it doesn't yell at us anymore
+  variable_set('date_first_day', 0);
+  variable_set('date_format_long', 'l, F j, Y - H:i');
+  variable_set('date_format_medium', 'D, Y-m-d H:i');
+  variable_set('date_format_short', 'Y-m-d H:i');
 }
 
 function openenterprise_add_default_text_formats_and_perms() {
