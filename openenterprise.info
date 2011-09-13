@@ -69,7 +69,6 @@ dependencies[] = entity
 dependencies[] = entitycache
 dependencies[] = features
 dependencies[] = libraries
-dependencies[] = password_policy
 dependencies[] = strongarm
 dependencies[] = token
 dependencies[] = views

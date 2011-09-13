@@ -1,6 +1,7 @@
 core = "7.x"
 api = 2
 
+projects[drupal][type] = core
 ; Make system directories configurable to allow tests in profiles/[name]/modules to be run.
 ; http://drupal.org/node/911354
 projects[drupal][patch][911354] = http://drupal.org/files/issues/911354.43.patch
@@ -12,6 +13,14 @@ projects[drupal][patch][903730] = http://drupal.org/files/issues/drupal.filter-a
 ; Use vocabulary machine name for permissions
 ; http://drupal.org/node/995156
 projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portable_taxonomy_permissions.patch
+
+; Fix object menu router conversion issue.
+; http://drupal.org/node/972536
+projects[drupal][patch][972536] = http://drupal.org/files/issues/object_conversion_menu_router_build-972536-1.patch
+
+; Allow password flood to be reset
+; http://drupal.org/node/992540
+projects[drupal][patch][992540] = http://drupal.org/files/issues/992540-3-reset_flood_limit_on_password_reset-drush.patch
 
 ;;;;;;
 ; Fields
@@ -46,7 +55,6 @@ projects[entity][subdir] = "contrib"
 projects[entitycache][subdir] = "contrib"
 projects[features][subdir] = "contrib"
 projects[libraries][subdir] = "contrib"
-projects[password_policy][subdir] = "contrib"
 ;projects[rotating_banner][subdir] = "contrib"
 ;projects[rotating_banner][version] = "1.0-beta1"
 projects[strongarm][subdir] = "contrib"
@@ -60,6 +68,12 @@ projects[htmlpurifier][subdir] = "contrib"
 projects[imce][subdir] = "contrib"
 projects[imce_wysiwyg][subdir] = "contrib"
 projects[wysiwyg][subdir] = "contrib"
+; Fix path_to_theme()
+; http://drupal.org/node/835682
+projects[wysiwyg][patch][835682] = http://drupal.org/files/issues/wysiwyg-835682-12.patch
+; Fix empty font styles drop down()
+; http://drupal.org/node/746524
+projects[wysiwyg][patch][746524] = http://drupal.org/files/issues/746524-91Drupal7-v3_drush_make.patch
 
 ;;;;;;
 ; UI Enhancements

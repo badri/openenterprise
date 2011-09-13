@@ -1,100 +1,10 @@
 <?php
 
 /**
- * Implements hook_requirements
- *
- * Make sure that the sites directory is writable.
- */
-function apps_requirements($phase) {
-  if ($phase == 'install') {
-    $requirements['sites all dir']['title'] = 'sites/all Directory';
-    if (is_writable('sites/all')) {
-      $requirements['sites all dir']['severity'] = REQUIREMENT_OK;
-      $requirements['sites all dir']['value'] = 'Writable';
-    }
-    else {
-      $requirements['sites all dir']['severity'] = REQUIREMENT_ERROR;
-      $requirements['sites all dir']['value'] = 'Not Writable';
-      $requirements['sites all dir']['description'] = 'In order to use apps the sites/all directory must be writable.';
-    }
-    $requirements['sites default dir']['title'] = 'sites/default Directory';
-    if (is_writable('sites/default')) {
-      $requirements['sites default dir']['severity'] = REQUIREMENT_OK;
-      $requirements['sites default dir']['value'] = 'Writable';
-    }
-    else {
-      $requirements['sites default dir']['severity'] = REQUIREMENT_ERROR;
-      $requirements['sites default dir']['value'] = 'Not Writable';
-      $requirements['sites default dir']['description'] = 'In order to use apps the sites/default directory must be writable.';
-    }
-  }
-  return $requirements;
-}
-
-/**
- * Implements hook_form_alter().
- *
- * Allows the profile to alter the site-configuration form. This is
- * called through custom invocation, so $form_state is not populated.
- */
-function openenterprise_form_alter(&$form, $form_state, $form_id) {
-  if ($form_id == 'install_configure_form') {
-    $roles = array(DRUPAL_AUTHENTICATED_RID);
-    $policy = _password_policy_load_active_policy($roles);
-
-    $translate = array();
-    if (!empty($policy['policy'])) {
-      // Some policy constraints are active.
-      password_policy_add_policy_js($policy, 1);
-      foreach ($policy['policy'] as $key => $value) {
-        $translate['constraint_'. $key] = _password_policy_constraint_error($key, $value);
-      }
-    }
-
-    // Set a custom form validate and submit handlers.
-    $form['#validate'][] = 'openenterprise_password_validate';
-    $form['#submit'][] = 'openenterprise_password_submit';
-  }
-}
-
-
-/**
 * A trick to enforce page refresh when theme is changed from an overlay.
 */
 function openenterprise_admin_paths_alter(&$paths) {
   $paths['admin/appearance/default*'] = FALSE;
-}
-
-
-/**
- * Password save validate handler.
- */
-function openenterprise_password_validate($form, &$form_state) {
-  $values = $form_state['values'];
-  $account = (object)array('uid' => 1);
-  $account->roles = array(DRUPAL_AUTHENTICATED_RID => DRUPAL_AUTHENTICATED_RID);
-
-  if (!empty($values['account']['pass'])) {
-    $error = _password_policy_constraint_validate($values['account']['pass'], $account);
-    if ($error) {
-      form_set_error('pass', t('Your password has not met the following requirement(s):') .'<ul><li>'. implode('</li><li>', $error) .'</li></ul>');
-    }
-  }
-}
-
-/**
- * Password save submit handler.
- */
-function openenterprise_password_submit($form, &$form_state) {
-  global $user;
-
-  $values = $form_state['values'];
-  $account = (object)array('uid' => 1);
-
-  // Track the hashed password values which can then be used in the history constraint.
-  if ($account->uid && !empty($values['account']['pass'])) {
-    _password_policy_store_password($account->uid, $values['account']['pass']);
-  }
 }
 
 /**
@@ -120,6 +30,25 @@ function openenterprise_apps_servers_info() {
  * implements hook_install_configure_form_alter()
  */
 function openenterprise_form_install_configure_form_alter(&$form, &$form_state) {
+  // Many modules set messages during installation that are very annoying.
+  // Lets remove these and readd the only message that should be set.
+  drupal_get_messages('status');
+  drupal_get_messages('warning');
+
+  // Warn about settings.php permissions risk
+  $settings_dir = conf_path();
+  $settings_file = $settings_dir . '/settings.php';
+  // Check that $_POST is empty so we only show this message when the form is
+  // first displayed, not on the next page after it is submitted. (We do not
+  // want to repeat it multiple times because it is a general warning that is
+  // not related to the rest of the installation process; it would also be
+  // especially out of place on the last page of the installer, where it would
+  // distract from the message that the Drupal installation has completed
+  // successfully.)
+  if (empty($_POST) && (!drupal_verify_install_file(DRUPAL_ROOT . '/' . $settings_file, FILE_EXIST|FILE_READABLE|FILE_NOT_WRITABLE) || !drupal_verify_install_file(DRUPAL_ROOT . '/' . $settings_dir, FILE_NOT_WRITABLE, 'dir'))) {
+    drupal_set_message(st('All necessary changes to %dir and %file have been made, so you should remove write permissions to them now in order to avoid security risks. If you are unsure how to do so, consult the <a href="@handbook_url">online handbook</a>.', array('%dir' => $settings_dir, '%file' => $settings_file, '@handbook_url' => 'http://drupal.org/server-permissions')), 'warning');
+  }
+
   $form['site_information']['site_name']['#default_value'] = 'OpenEnterprise';
   $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
