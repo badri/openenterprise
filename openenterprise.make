@@ -4,7 +4,7 @@ api = 2
 projects[drupal][type] = core
 ; Make system directories configurable to allow tests in profiles/[name]/modules to be run.
 ; http://drupal.org/node/911354
-projects[drupal][patch][911354] = http://drupal.org/files/issues/911354.43.patch
+projects[drupal][patch][911354] = http://drupal.org/files/issues/911354-62-simpletest-profiles.patch
 
 ; Missing drupal_alter() for text formats and filters
 ; http://drupal.org/node/903730
@@ -16,7 +16,7 @@ projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portab
 
 ; Fix object menu router conversion issue.
 ; http://drupal.org/node/972536
-projects[drupal][patch][972536] = http://drupal.org/files/issues/object_conversion_menu_router_build-972536-1.patch
+projects[drupal][patch][972536] = http://drupal.org/files/issues/drupal-menu-int-972536-78.patch
 
 ; Allow password flood to be reset
 ; http://drupal.org/node/992540
@@ -44,20 +44,21 @@ projects[transliteration][subdir] = "contrib"
 ; Sitebuilding tools
 ;;;;;;
 projects[apps][subdir] = "contrib"
-; Allow modules to define apps servers
-; http://drupal.org/node/1255166
-projects[apps][patch][1255166] = http://drupal.org/files/issues/add_apps_server_modules-1255166-1.patch
-
+projects[apps][version] = "1.x-dev"
+projects[backup_migrate] = "contrib"
 projects[ctools][subdir] = "contrib"
 projects[defaultcontent][subdir] = "contrib"
 projects[email_registration][subdir] = "contrib"
 projects[entity][subdir] = "contrib"
 projects[entitycache][subdir] = "contrib"
 projects[features][subdir] = "contrib"
+projects[features][version] = "1.x-dev"
+; Fix user_permissions so only for included roles.
+; http://drupal.org/node/656312
+projects[features][patch][656312] = http://drupal.org/files/issues/features_permission_export-656312-11--D7.patch
 projects[libraries][subdir] = "contrib"
-;projects[rotating_banner][subdir] = "contrib"
-;projects[rotating_banner][version] = "1.0-beta1"
 projects[strongarm][subdir] = "contrib"
+projects[skinr][subdir] = "contrib"
 projects[token][subdir] = "contrib"
 projects[views][subdir] = "contrib"
 
@@ -113,3 +114,9 @@ libraries[htmlpurifier][destination] = "libraries"
 
 projects[tao][type] = theme
 projects[rubik][type] = theme
+projects[acquia_marina][type] = theme
+projects[acquia_prosper][type] = theme
+projects[adaptivetheme][type] = theme
+projects[corolla][type] = theme
+projects[fusion][type] = theme
+projects[jackson][type] = theme

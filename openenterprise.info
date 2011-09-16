@@ -2,7 +2,7 @@ name = OpenEnterprise
 description = OpenEnterprise Distribution by LevelTen Interactive
 distribution_name = OpenEnterprise
 
-version = 7.x-1.0-alpha1
+version = 7.x-1.0-alpha2
 core = 7.x
 
 ; Core
@@ -62,6 +62,7 @@ dependencies[] = ux_elements
 
 ;; Sitebuilding Tools
 dependencies[] = apps
+dependencies[] = backup_migrate
 dependencies[] = ctools
 dependencies[] = defaultcontent
 dependencies[] = email_registration
