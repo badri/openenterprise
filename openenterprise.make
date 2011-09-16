@@ -119,4 +119,4 @@ projects[acquia_prosper][type] = theme
 projects[adaptivetheme][type] = theme
 projects[corolla][type] = theme
 projects[fusion][type] = theme
-projects[jackson][type] = theme
+;projects[jackson][type] = theme
