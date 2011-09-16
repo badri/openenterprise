@@ -45,7 +45,7 @@ projects[transliteration][type] = "module"
 ;;;;;;
 projects[apps][version] = "1.x-dev"
 projects[apps][type] = "module"
-projects[backup_migrate] = "module"
+projects[backup_migrate][type] = "module"
 projects[ctools][type] = "module"
 projects[defaultcontent][type] = "module"
 projects[email_registration][type] = "module"
@@ -118,5 +118,5 @@ projects[acquia_marina][type] = theme
 projects[acquia_prosper][type] = theme
 projects[adaptivetheme][type] = theme
 projects[corolla][type] = theme
-;projects[fusion][type] = theme
-;projects[jackson][type] = theme
+projects[fusion][type] = theme
+projects[jackson][type] = theme
