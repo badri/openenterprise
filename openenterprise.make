@@ -43,16 +43,16 @@ projects[transliteration][type] = "module"
 ;;;;;;
 ; Sitebuilding tools
 ;;;;;;
-projects[apps][type] = "module"
 projects[apps][version] = "1.x-dev"
+projects[apps][type] = "module"
 projects[backup_migrate] = "module"
 projects[ctools][type] = "module"
 projects[defaultcontent][type] = "module"
 projects[email_registration][type] = "module"
 projects[entity][type] = "module"
 projects[entitycache][type] = "module"
-projects[features][type] = "module"
 projects[features][version] = "1.x-dev"
+projects[features][type] = "module"
 ; Fix user_permissions so only for included roles.
 ; http://drupal.org/node/656312
 projects[features][patch][656312] = http://drupal.org/files/issues/features_permission_export-656312-11--D7.patch
@@ -118,5 +118,5 @@ projects[acquia_marina][type] = theme
 projects[acquia_prosper][type] = theme
 projects[adaptivetheme][type] = theme
 projects[corolla][type] = theme
-projects[fusion][type] = theme
+;projects[fusion][type] = theme
 ;projects[jackson][type] = theme
