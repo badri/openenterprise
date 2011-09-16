@@ -25,50 +25,50 @@ projects[drupal][patch][992540] = http://drupal.org/files/issues/992540-3-reset_
 ;;;;;;
 ; Fields
 ;;;;;;
-projects[date][subdir] = "contrib"
-projects[field_group][subdir] = "contrib"
-projects[link][subdir] = "contrib"
-projects[options_element][subdir] = "contrib"
-projects[references][subdir] = "contrib"
+projects[date][type] = "module"
+projects[field_group][type] = "module"
+projects[link][type] = "module"
+projects[options_element][type] = "module"
+projects[references][type] = "module"
 
 ;;;;;;
 ; Path Tools
 ;;;;;;
-projects[globalredirect][subdir] = "contrib"
-projects[pathauto][subdir] = "contrib"
-projects[redirect][subdir] = "contrib"
-projects[transliteration][subdir] = "contrib"
+projects[globalredirect][type] = "module"
+projects[pathauto][type] = "module"
+projects[redirect][type] = "module"
+projects[transliteration][type] = "module"
 
 
 ;;;;;;
 ; Sitebuilding tools
 ;;;;;;
-projects[apps][subdir] = "contrib"
+projects[apps][type] = "module"
 projects[apps][version] = "1.x-dev"
-projects[backup_migrate] = "contrib"
-projects[ctools][subdir] = "contrib"
-projects[defaultcontent][subdir] = "contrib"
-projects[email_registration][subdir] = "contrib"
-projects[entity][subdir] = "contrib"
-projects[entitycache][subdir] = "contrib"
-projects[features][subdir] = "contrib"
+projects[backup_migrate] = "module"
+projects[ctools][type] = "module"
+projects[defaultcontent][type] = "module"
+projects[email_registration][type] = "module"
+projects[entity][type] = "module"
+projects[entitycache][type] = "module"
+projects[features][type] = "module"
 projects[features][version] = "1.x-dev"
 ; Fix user_permissions so only for included roles.
 ; http://drupal.org/node/656312
 projects[features][patch][656312] = http://drupal.org/files/issues/features_permission_export-656312-11--D7.patch
-projects[libraries][subdir] = "contrib"
-projects[strongarm][subdir] = "contrib"
-projects[skinr][subdir] = "contrib"
-projects[token][subdir] = "contrib"
-projects[views][subdir] = "contrib"
+projects[libraries][type] = "module"
+projects[strongarm][type] = "module"
+projects[skinr][type] = "module"
+projects[token][type] = "module"
+projects[views][type] = "module"
 
 ;;;;;;
 ; Text Editor
 ;;;;;;
-projects[htmlpurifier][subdir] = "contrib"
-projects[imce][subdir] = "contrib"
-projects[imce_wysiwyg][subdir] = "contrib"
-projects[wysiwyg][subdir] = "contrib"
+projects[htmlpurifier][type] = "module"
+projects[imce][type] = "module"
+projects[imce_wysiwyg][type] = "module"
+projects[wysiwyg][type] = "module"
 ; Fix path_to_theme()
 ; http://drupal.org/node/835682
 projects[wysiwyg][patch][835682] = http://drupal.org/files/issues/wysiwyg-835682-12.patch
@@ -79,12 +79,12 @@ projects[wysiwyg][patch][746524] = http://drupal.org/files/issues/746524-91Drupa
 ;;;;;;
 ; UI Enhancements
 ;;;;;;
-projects[backports][subdir] = "contrib"
-projects[nodeblock][subdir] = "contrib"
-projects[nodeconnect][subdir] = "contrib"
-projects[simplified_menu_admin][subdir] = "contrib"
-projects[simplified_modules][subdir] = "contrib"
-projects[ux_elements][subdir] = "contrib"
+projects[backports][type] = "module"
+projects[nodeblock][type] = "module"
+projects[nodeconnect][type] = "module"
+projects[simplified_menu_admin][type] = "module"
+projects[simplified_modules][type] = "module"
+projects[ux_elements][type] = "module"
 ; form_process_horizontal_tabs previously declared
 ; http://drupal.org/node/1224568
 projects[ux_elements][patch][1224568] = http://drupal.org/files/issues/1224568-ux_elements_redeclare.patch
@@ -93,7 +93,7 @@ projects[ux_elements][patch][1224568] = http://drupal.org/files/issues/1224568-u
 ; Custom
 ;;;;;
 
-;projects[tutorials][subdir] = "contrib"
+;projects[tutorials][type] = "module"
 
 ;;;;;
 ; Libraries

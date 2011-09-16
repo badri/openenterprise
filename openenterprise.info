@@ -33,6 +33,8 @@ dependencies[] = rdf
 
 ;; Fields
 dependencies[] = date
+dependencies[] = date_popup
+dependencies[] = date_views
 dependencies[] = field_group
 dependencies[] = link
 dependencies[] = options_element
