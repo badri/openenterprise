@@ -48,6 +48,7 @@ projects[apps][type] = "module"
 projects[backup_migrate][type] = "module"
 projects[ctools][type] = "module"
 projects[defaultcontent][type] = "module"
+projects[ds][type] = "module"
 projects[email_registration][type] = "module"
 projects[entity][type] = "module"
 projects[entitycache][type] = "module"
@@ -57,6 +58,7 @@ projects[features][type] = "module"
 ; http://drupal.org/node/656312
 projects[features][patch][656312] = http://drupal.org/files/issues/features_permission_export-656312-11--D7.patch
 projects[libraries][type] = "module"
+projects[menu_block][type] = "module"
 projects[strongarm][type] = "module"
 projects[skinr][type] = "module"
 projects[token][type] = "module"
@@ -80,6 +82,7 @@ projects[wysiwyg][patch][746524] = http://drupal.org/files/issues/746524-91Drupa
 ; UI Enhancements
 ;;;;;;
 projects[backports][type] = "module"
+projects[block_visibility][type] = "module"
 projects[nodeblock][type] = "module"
 projects[nodeconnect][type] = "module"
 projects[simplified_menu_admin][type] = "module"

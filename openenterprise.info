@@ -56,6 +56,7 @@ dependencies[] = wysiwyg
 
 ;; UX Enhancements
 dependencies[] = backports
+dependencies[] = block_visibility
 dependencies[] = nodeblock
 dependencies[] = nodeconnect
 dependencies[] = simplified_menu_admin
@@ -72,6 +73,7 @@ dependencies[] = entity
 dependencies[] = entitycache
 dependencies[] = features
 dependencies[] = libraries
+dependencies[] = menu_block
 dependencies[] = strongarm
 dependencies[] = token
 dependencies[] = views
