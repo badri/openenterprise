@@ -123,3 +123,6 @@ projects[adaptivetheme][type] = theme
 projects[corolla][type] = theme
 projects[fusion][type] = theme
 projects[jackson][type] = theme
+projects[oe_bartik][type] = theme
+projects[oe_bartik][download][type] = "get"
+projects[oe_bartik][download][url] = "http://git.drupal.org/sandbox/tombo/1287712.git"
