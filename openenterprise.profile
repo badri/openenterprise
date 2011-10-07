@@ -71,6 +71,19 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
 }
 
 /**
+ * Implements hook_install_tasks
+ */
+function openenterprise_install_tasks() {
+  $tasks = array(
+    'openenterprise_apps_install_form' => array(
+      'display_name' => st('Select Apps'),
+      'type' => 'form',
+    ),
+  );
+  return $tasks;
+}
+
+/**
  * Change the final task to our task
  */
 function openenterprise_install_tasks_alter(&$tasks, $install_state) {
@@ -118,4 +131,33 @@ function openenterprise_install_finished(&$install_state) {
   drupal_cron_run();
 
   return $output;
+}
+
+/**
+ * Apps install form
+ */
+function openenterprise_apps_install_form($form, $form_state) {
+  drupal_set_title('Select Apps');
+  apps_include('manifest');
+
+  $apps = apps_apps('levelten', array(), TRUE);
+  foreach($apps as $name => $app) {
+    if ($name != '#theme') {
+      $options[$name] = '<strong>' . $app['name'] . '</strong><br>' . $app['description'];
+    }
+  }
+  $form = array();
+
+  $form['apps'] = array(
+    '#type' =>'checkboxes',
+    '#title' => 'Apps',
+    '#options' => $options,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+
+  return $form;
 }
