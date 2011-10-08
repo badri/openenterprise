@@ -154,6 +154,12 @@ function openenterprise_apps_install_form($form, $form_state) {
     '#options' => $options,
   );
 
+  $form['default_content'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Install default content',
+    '#description' => 'By selecting this box default content will be installed for each app. Without default content the site may look empty before you start adding to it. You can remove the default content later by going to the apps config page.',
+  );
+
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Submit',
