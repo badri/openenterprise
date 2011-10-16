@@ -66,6 +66,7 @@ dependencies[] = ux_elements
 ;; Sitebuilding Tools
 dependencies[] = apps
 dependencies[] = backup_migrate
+dependencies[] = boxes
 dependencies[] = ctools
 dependencies[] = defaultcontent
 dependencies[] = email_registration
@@ -78,6 +79,13 @@ dependencies[] = strongarm
 dependencies[] = token
 dependencies[] = views
 dependencies[] = views_ui
+dependencies[] = views_slideshow
+dependencies[] = views_slideshow_cycle
+
+;; Features
+dependencies[] = enterprise_rotator
+dependencies[] = enterprise_rotator_content
+dependencies[] = enterprise_content
 
 ;; Custom
 ;dependencies[] = tutorials

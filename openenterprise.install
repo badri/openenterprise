@@ -6,23 +6,13 @@
  * Perform actions to set up the site for this profile.
  */
 function openenterprise_install() {
+  openenterprise_enable_admin_theme ();
   openenterprise_add_default_text_formats_and_perms();
+  openenterprise_create_menus();
   openenterprise_add_default_blocks();
   openenterprise_add_content_types();
   openenterprise_setup_users();
   openenterprise_setup_tags();
-  openenterprise_enable_admin_theme ();
-
-  // Create a Home link in the main menu.
-  $item = array(
-    'link_title' => st('Home'),
-    'link_path' => '<front>',
-    'menu_name' => 'main-menu',
-  );
-  menu_link_save($item);
-
-  // Update the menu router information.
-  menu_rebuild();
 
   // pathauto variables since they don't get set early enough for content.
   variable_set('pathauto_node_pattern', '[node:content-type:machine-name]/[node:title]');
@@ -252,10 +242,26 @@ function openenterprise_add_default_text_formats_and_perms() {
     ->execute();
 }
 
+/**
+ * Create menus and links
+ */
+function openenterprise_create_menus() {
+  // Create a Home link in the main menu.
+  $item = array(
+    'link_title' => st('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+  );
+  menu_link_save($item);
+
+  // Update the menu router information.
+  menu_rebuild();
+}
+
 function openenterprise_add_default_blocks() {
   // Enable some standard blocks.
   $default_theme = variable_get('theme_default', 'bartik');
-  $admin_theme = 'seven';
+  $admin_theme = 'rubik';
   $values = array(
     array(
       'module' => 'system',

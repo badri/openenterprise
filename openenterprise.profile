@@ -73,7 +73,7 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
 /**
  * Implements hook_install_tasks
  */
-function openenterprise_install_tasks() {
+/*function openenterprise_install_tasks() {
   $tasks = array(
     'openenterprise_apps_install_form' => array(
       'display_name' => st('Select Apps'),
@@ -81,7 +81,7 @@ function openenterprise_install_tasks() {
     ),
   );
   return $tasks;
-}
+}*/
 
 /**
  * Change the final task to our task
