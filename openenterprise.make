@@ -28,6 +28,7 @@ projects[drupal][patch][992540] = http://drupal.org/files/issues/992540-3-reset_
 projects[date][type] = "module"
 projects[field_group][type] = "module"
 projects[link][type] = "module"
+projects[link][version] = "1.x-dev"
 projects[options_element][type] = "module"
 projects[references][type] = "module"
 
