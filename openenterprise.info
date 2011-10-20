@@ -79,13 +79,6 @@ dependencies[] = strongarm
 dependencies[] = token
 dependencies[] = views
 dependencies[] = views_ui
-dependencies[] = views_slideshow
-dependencies[] = views_slideshow_cycle
-
-;; Features
-dependencies[] = enterprise_rotator
-dependencies[] = enterprise_rotator_content
-dependencies[] = enterprise_content
 
 ;; Custom
 ;dependencies[] = tutorials

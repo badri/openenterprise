@@ -65,8 +65,6 @@ projects[strongarm][type] = "module"
 projects[skinr][type] = "module"
 projects[token][type] = "module"
 projects[views][type] = "module"
-projects[views_slideshow][type] = "module"
-projects[views_slideshow][version] = "3.x-dev"
 
 ;;;;;;
 ; Text Editor
@@ -100,8 +98,6 @@ projects[ux_elements][patch][1224568] = http://drupal.org/files/issues/1224568-u
 ; Custom/Features
 ;;;;;
 
-projects[enterprise_rotator][subdir] = "custom"
-projects[enterprise_rotator][location] = http://apps.leveltendesign.com/fserver
 projects[enterprise_content][subdir] = "custom"
 projects[enterprise_content][location] = http://apps.leveltendesign.com/fserver
 
@@ -119,11 +115,6 @@ libraries[htmlpurifier][download][type] = "get"
 libraries[htmlpurifier][download][url] = "http://htmlpurifier.org/releases/htmlpurifier-4.3.0.zip"
 libraries[htmlpurifier][directory_name] = "htmlpurifier"
 libraries[htmlpurifier][destination] = "libraries"
-
-libraries[jquery.cycle][download][type] = "get"
-libraries[jquery.cycle][download][url] = "https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js"
-libraries[jquery.cycle][directory_name] = "jquery.cycle"
-libraries[jquery.cycle][destination] = "libraries"
 
 ;;;;;;
 ; Theme
