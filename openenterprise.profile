@@ -73,15 +73,15 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
 /**
  * Implements hook_install_tasks
  */
-/*function openenterprise_install_tasks() {
+function openenterprise_install_tasks() {
   $tasks = array(
     'openenterprise_apps_install_form' => array(
-      'display_name' => st('Select Apps'),
+      'display_name' => st('Install Apps'),
       'type' => 'form',
     ),
   );
   return $tasks;
-}*/
+}
 
 /**
  * Change the final task to our task
@@ -137,33 +137,70 @@ function openenterprise_install_finished(&$install_state) {
  * Apps install form
  */
 function openenterprise_apps_install_form($form, $form_state) {
-  drupal_set_title('Select Apps');
+  drupal_set_title(t('Install Apps'));
   apps_include('manifest');
 
-  $apps = apps_apps('levelten', array(), TRUE);
-  foreach($apps as $name => $app) {
-    if ($name != '#theme') {
-      $options[$name] = '<strong>' . $app['name'] . '</strong><br>' . $app['description'];
-    }
+  // Set a message if not writeable.
+  $writeable = is_writable('sites');
+  if (!$form_state['rebuild'] && !$writeable) {
+    drupal_set_message('<b>Sites directory is not writeable.</b><br> You will not be able to install apps unless the sites directory is writeable. <br><br>To change this go to your sites root directory and type \'chmod 777 -R sites\'', 'error');
   }
-  $form = array();
 
-  $form['apps'] = array(
-    '#type' =>'checkboxes',
-    '#title' => 'Apps',
-    '#options' => $options,
-  );
+  $form['actions'] = array('#type' => 'actions', '#weight' => 3);
+  if ($writeable) {
+    $apps = apps_apps('levelten', array(), TRUE);
+    foreach($apps as $name => $app) {
+      if ($name != '#theme') {
+        $options[$name] = '<strong>' . $app['name'] . '</strong><br>' . $app['description'];
+      }
+    }
+    $form = array();
 
-  $form['default_content'] = array(
-    '#type' => 'checkbox',
-    '#title' => 'Install default content',
-    '#description' => 'By selecting this box default content will be installed for each app. Without default content the site may look empty before you start adding to it. You can remove the default content later by going to the apps config page.',
-  );
+    $form['apps_fieldset'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Select Apps To Install'),
+      '#collapsible' => FALSE,
+    );
+    $form['apps_fieldset']['apps'] = array(
+      '#type' =>'checkboxes',
+      '#title' => t('Apps'),
+      '#options' => $options,
+    );
 
-  $form['submit'] = array(
+    $form['default_content_fieldset'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Default Content'),
+      '#collapsible' => FALSE,
+    );
+    $form['default_content_fieldset']['default_content'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Install default content'),
+      '#description' => t('By selecting this box default content will be installed for each app. Without default content the site may look empty before you start adding to it. You can remove the default content later by going to the apps config page.'),
+    );
+  }
+
+  $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => 'Submit',
+    '#value' => t('Install Apps'),
+    '#disabled' => !$writeable,
   );
+  $form['actions']['skip'] = array(
+    '#type' => 'submit',
+    '#value' => t('Skip this step'),
+  );
+  $form['actions']['reload'] = array(
+    '#type' => 'submit',
+    '#value' => t("Recheck 'sites' permissions"),
+    '#executes_submit_callback' => FALSE,
+  );
+  drupal_add_css("#openenterprise-apps-install-form .form-submit { display:inline; }", array('type' => 'inline'));
 
   return $form;
+}
+
+function openenterprise_apps_install_form_submit($form, &$form_state) {
+  if ($form_state['values']['op'] == t('Install Apps')) {
+    $apps = array_filter($form_state['values']['apps']);
+    // Do Something
+  }
 }
