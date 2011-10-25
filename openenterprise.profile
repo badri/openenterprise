@@ -129,7 +129,7 @@ function openenterprise_install_finished(&$install_state) {
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
     $output .= '<p>' . st('Your site now contains the apps you selected. To add more, go to the Apps menu in the admin menu at the top of the site.') . '</p>';
     $output .= '<h2>' . st('Next Step') . '</h2>';
-    $output .= '<p>' . st('<a href="@url">Go to your site\'s home page</a>.', array('@url' => url($url))) . '</p>';
+    $output .= '<p>' . st('<a href="@url">Go to your site\'s home page</a>.', array('@url' => url('<front>'))) . '</p>';
   }
 
   // Flush all caches to ensure that any full bootstraps during the installer
