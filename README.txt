@@ -9,4 +9,4 @@ projects[drupal][version] = "7.8"
 projects[openenterprise][type] = profile
 projects[openenterprise][download][type] = git
 projects[openenterprise][download][url] = git://github.com/levelten/openenterprise.git
-projects[openenterprise][download][revision] = DRUPAL-7--1-0-ALPHA2
+projects[openenterprise][download][revision] = DRUPAL-7--1-0-ALPHA4

@@ -73,13 +73,30 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
 /**
  * Implements hook_install_tasks
  */
-function openenterprise_install_tasks() {
-  $tasks = array(
-    'openenterprise_apps_install_form' => array(
-      'display_name' => st('Install Apps'),
-      'type' => 'form',
-    ),
-  );
+function openenterprise_install_tasks($install_state) {
+  // Only use apps forms during interactive installs.
+  if ($install_state['interactive']) {
+    $tasks = array(
+      'openenterprise_apps_select_form' => array(
+        'display_name' => st('Select Apps'),
+        'type' => 'form',
+      ),
+      'openenterprise_download_app_modules' => array(
+        'display' => FALSE,
+        'type' => 'batch',
+        'run' => (isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
+      ),
+      'openenterprise_install_app_modules' => array(
+        'display' => FALSE,
+        'type' => 'batch',
+        'run' => (isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
+      ),
+      'openenterprise_enable_app_modules' => array(
+        'display' => FALSE,
+        'run' => (isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
+      ),
+    );
+  }
   return $tasks;
 }
 
@@ -101,11 +118,19 @@ function openenterprise_install_tasks_alter(&$tasks, $install_state) {
  */
 function openenterprise_install_finished(&$install_state) {
   drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
-  $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
-  $output .= '<p>' . st('Your site is currently a blank canvas with many great tools to build it. To get started you can either create your own content types, views and set up the site yourself or install some prebuild apps. Apps provide complete bundled functionality that will greatly speed up the process of creating your site.') . '</p>';
-  $output .= '<p>' . st('Even after installing apps your site may look very empty before you add some content. To see what it looks like with content, try installing the default content for each of the apps. This can be done on each app\'s configuration page.') . '</p>';
-  $output .= '<h2>' . st('Next Step') . '</h2>';
-  $output .= '<p>' . st('<a href="@url">Install some apps</a>', array('@url' => url('admin/apps'))) . ' or ' . st('<a href="@url">go to your site\'s home page</a>.', array('@url' => url(''))) . '</p>';
+  if (empty($_SESSION['apps'])) {
+    $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
+    $output .= '<p>' . st('By not installing any apps, your site is currently a blank. To get started you can either create your own content types, views and set up the site yourself or install some prebuild apps. Apps provide complete bundled functionality that will greatly speed up the process of creating your site.') . '</p>';
+    $output .= '<p>' . st('Even after installing apps your site may look very empty before you add some content. To see what it looks like with content, try installing the default content for each of the apps. This can be done on each app\'s configuration page.') . '</p>';
+    $output .= '<h2>' . st('Next Step') . '</h2>';
+    $output .= '<p>' . st('<a href="@url">Install some apps</a>', array('@url' => url('admin/apps'))) . ' or ' . st('<a href="@url">go to your site\'s home page</a>.', array('@url' => url('<front>'))) . '</p>';
+  }
+  else {
+    $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
+    $output .= '<p>' . st('Your site now contains the apps you selected. To add more, go to the Apps menu in the admin menu at the top of the site.') . '</p>';
+    $output .= '<h2>' . st('Next Step') . '</h2>';
+    $output .= '<p>' . st('<a href="@url">Go to your site\'s home page</a>.', array('@url' => url($url))) . '</p>';
+  }
 
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
@@ -136,20 +161,22 @@ function openenterprise_install_finished(&$install_state) {
 /**
  * Apps install form
  */
-function openenterprise_apps_install_form($form, $form_state) {
+function openenterprise_apps_select_form($form, $form_state, &$install_state) {
   drupal_set_title(t('Install Apps'));
   apps_include('manifest');
 
   // Set a message if not writeable.
-  $writeable = is_writable('sites');
+  $writeable = is_writable('sites') && is_writable('sites/all') && is_writable('sites/all/modules') && is_writable(conf_path());
   if (!$form_state['rebuild'] && !$writeable) {
     drupal_set_message('<b>Sites directory is not writeable.</b><br> You will not be able to install apps unless the sites directory is writeable. <br><br>To change this go to your sites root directory and type \'chmod 777 -R sites\'', 'error');
   }
 
   $form['actions'] = array('#type' => 'actions', '#weight' => 3);
   if ($writeable) {
-    $apps = apps_apps('levelten', array(), TRUE);
-    foreach($apps as $name => $app) {
+    if (!isset($install_state['apps_manifest'])) {
+      $install_state['apps_manifest'] = apps_apps('levelten', array(), TRUE);
+    }
+    foreach($install_state['apps_manifest'] as $name => $app) {
       if ($name != '#theme') {
         $options[$name] = '<strong>' . $app['name'] . '</strong><br>' . $app['description'];
       }
@@ -164,6 +191,7 @@ function openenterprise_apps_install_form($form, $form_state) {
     $form['apps_fieldset']['apps'] = array(
       '#type' =>'checkboxes',
       '#title' => t('Apps'),
+      '#default_value' => array('enterprise_blog', 'enterprise_rotator'), //This should be set somehow.
       '#options' => $options,
     );
 
@@ -175,6 +203,7 @@ function openenterprise_apps_install_form($form, $form_state) {
     $form['default_content_fieldset']['default_content'] = array(
       '#type' => 'checkbox',
       '#title' => t('Install default content'),
+      '#default_value' => TRUE,
       '#description' => t('By selecting this box default content will be installed for each app. Without default content the site may look empty before you start adding to it. You can remove the default content later by going to the apps config page.'),
     );
   }
@@ -193,14 +222,154 @@ function openenterprise_apps_install_form($form, $form_state) {
     '#value' => t("Recheck 'sites' permissions"),
     '#executes_submit_callback' => FALSE,
   );
-  drupal_add_css("#openenterprise-apps-install-form .form-submit { display:inline; }", array('type' => 'inline'));
+  drupal_add_css("#openenterprise-apps-select-form .form-submit { display:inline; }", array('type' => 'inline'));
 
   return $form;
 }
 
-function openenterprise_apps_install_form_submit($form, &$form_state) {
+/**
+ * Submit function for openenterprise_apps_select_form.
+ */
+function openenterprise_apps_select_form_submit($form, &$form_state) {
   if ($form_state['values']['op'] == t('Install Apps')) {
-    $apps = array_filter($form_state['values']['apps']);
-    // Do Something
+    global $install_state;
+    $install_state['apps'] = array_filter($form_state['values']['apps']);
+    $install_state['apps_default_content'] = $form_state['values']['default_content'];
+    // For some reason the install_state gets lost in the last steps. Adding to session as well.
+    $_SESSION['apps'] = array_filter($form_state['values']['apps']);
+    $_SESSION['apps_default_content'] = $form_state['values']['default_content'];
+  }
+}
+
+/**
+ * Batch process apps download.
+ */
+function openenterprise_download_app_modules(&$install_state) {
+  // Copied and modified from apps.installer.inc
+  $download_commands = array();
+  foreach ($install_state['apps'] as $id => $name) {
+    $downloads = array();
+    $app = $install_state['apps_manifest'][$name];
+    // find all downloads needed for dependencies
+    foreach($app['dependencies'] as $dep) {
+      if(!$dep['installed']) {
+        $downloads[$dep['downloadable']]['for'][] = $dep['version']['name'];
+      }
+    }
+    // add our core modules download
+    if(!$app['installed']) {
+      $downloads[$app['downloadable']]['for'][] = $app['machine_name'];
+    }
+    //foreach download find the url
+    foreach($downloads as $key => $download) {
+      $downloads[$key]['url'] = $app['downloadables'][$key];
+      // do a quick dirty pull of the name from the key
+      $downloads[$key]['name'] = ($e = strpos($key, " ")) ? substr($key, 0, $e) : $key;
+    }
+    foreach($downloads as $download) {
+      $download_commands[] = array(
+        'apps_download_batch',
+        array(
+          $download['name'],
+          $download['url']
+        ),
+      );
+    }
+  }
+  $batch = array(
+    'operations' => $download_commands,
+    'file' => drupal_get_path('module', 'apps') . '/apps.installer.inc',
+    'title' => t('Downloading modules'),
+    'finished' => 'openenterprise_download_batch_finished',
+    'init_message' => t('Preparing to download needed modules'),
+  );
+  return $batch;
+}
+
+/**
+ * Batch callback invoked when the download batch is completed.
+ *
+ * A pass though to update_manager_download_batch_finished
+ */
+function openenterprise_download_batch_finished($success, $results) {
+  $_SESSION['update_manager_update_projects'] = $results['projects'];
+}
+
+/**
+ * Batch process apps install.
+ */
+function openenterprise_install_app_modules(&$install_state) {
+  $batch = array();
+  if (!empty($_SESSION['update_manager_update_projects'])) {
+    apps_include('installer');
+    // Make sure the Updater registry is loaded.
+    drupal_get_updaters();
+
+    $updates = array();
+    $directory = _update_manager_extract_directory();
+
+    $projects = $_SESSION['update_manager_update_projects'];
+    foreach ($projects as $project => $url) {
+      $project_location = $directory . '/' . $project;
+      $updater = Updater::factory($project_location);
+      $project_real_location = drupal_realpath($project_location);
+      $updates[] = array(
+        'project' => $project,
+        'updater_name' => get_class($updater),
+        'local_url' => $project_real_location,
+      );
+    }
+
+    // If the owner of the last directory we extracted is the same as the
+    // owner of our configuration directory (e.g. sites/default) where we're
+    // trying to install the code, there's no need to prompt for FTP/SSH
+    // credentials. Instead, we instantiate a FileTransferLocal and invoke
+    // update_authorize_run_update() directly.
+    //if (fileowner($project_real_location) == fileowner(conf_path())) {
+    if (is_writeable(conf_path())) {
+      module_load_include('inc', 'update', 'update.authorize');
+      $filetransfer = new FileTransferLocal(DRUPAL_ROOT);
+      $operations = array();
+      foreach ($updates as $update => $update_info) {
+        $operations[] = array(
+          'update_authorize_batch_copy_project',
+          array(
+            $update_info['project'],
+            $update_info['updater_name'],
+            $update_info['local_url'],
+            $filetransfer,
+          ),
+        );
+      }
+
+      $batch = array(
+        'title' => t('Installing updates'),
+        'init_message' => t('Preparing to update your site'),
+        'operations' => $operations,
+        'file' => drupal_get_path('module', 'update') . '/update.authorize.inc',
+      );
+      unset($_SESSION['update_manager_update_projects']);
+    }
+  }
+  return $batch;
+}
+
+/**
+ * Install downloaded apps.
+ */
+function openenterprise_enable_app_modules(&$install_state) {
+  $modules = array_keys($_SESSION['apps']);
+  if ($_SESSION['apps_default_content']) {
+    $modules[] = 'enterprise_content';
+    $files = system_rebuild_module_data();
+    foreach($_SESSION['apps'] as $app) {
+      // Should probably check the app to see the proper way to do this.
+      if (isset($files[$app . '_content'])) {
+        $modules[] = $app . '_content';
+      }
+    }
+  }
+  if (!empty($modules)) {
+    module_enable($modules);
   }
 }
