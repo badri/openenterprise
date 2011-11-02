@@ -300,7 +300,9 @@ function openenterprise_download_app_modules(&$install_state) {
  * A pass though to update_manager_download_batch_finished
  */
 function openenterprise_download_batch_finished($success, $results) {
-  $_SESSION['update_manager_update_projects'] = $results['projects'];
+  if (isset($results['projects'])) {
+    $_SESSION['update_manager_update_projects'] = $results['projects'];
+  }
 }
 
 /**
