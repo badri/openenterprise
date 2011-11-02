@@ -383,3 +383,28 @@ function openenterprise_enable_app_modules(&$install_state) {
     module_enable($modules);
   }
 }
+
+/**
+ * Implements hook_block_info()
+ */
+function openenterprise_block_info() {
+  $blocks['powered-by'] = array(
+    'info' => t('Powered by OpenEnterprise'),
+    'weight' => '10',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function openenterprise_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'powered-by':
+      $block['subject'] = NULL;
+      $block['content'] = '<span>' . t('Powered by <a href="http://apps.leveltendesign.com/project/openenterprise" target="_blank">OpenEnterprise</a>. A distribution by <a href="http://www.leveltendesign.com" target="_blank">LevelTen Interactive</a>') . '</span>';
+      return $block;
+  }
+}

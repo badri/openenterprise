@@ -314,7 +314,7 @@ function openenterprise_add_default_blocks() {
       'cache' => -1,
     ),
     array(
-      'module' => 'system',
+      'module' => 'openenterprise',
       'delta' => 'powered-by',
       'theme' => $default_theme,
       'status' => 1,
