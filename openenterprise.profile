@@ -78,7 +78,7 @@ function openenterprise_install_tasks($install_state) {
   if ($install_state['interactive']) {
     $tasks = array(
       'openenterprise_apps_select_form' => array(
-        'display_name' => st('Select Apps'),
+        'display_name' => st('Install Apps'),
         'type' => 'form',
       ),
       'openenterprise_download_app_modules' => array(
@@ -183,6 +183,10 @@ function openenterprise_apps_select_form($form, $form_state, &$install_state) {
     }
     $form = array();
 
+    $form['apps_message'] = array(
+      '#markup' => t('<h2>Apps</h2><p>Apps are the next generation in usability for Drupal. They contain bundles of functionality for your website. Select any apps you want to install right now. You can add more later on the apps page.</p></p>In order to install apps, the "sites" directory of your website must be writable.</p>'),
+    );
+
     $form['apps_fieldset'] = array(
       '#type' => 'fieldset',
       '#title' => t('Select Apps To Install'),
@@ -223,6 +227,10 @@ function openenterprise_apps_select_form($form, $form_state, &$install_state) {
     '#executes_submit_callback' => FALSE,
   );
   drupal_add_css("#openenterprise-apps-select-form .form-submit { display:inline; }", array('type' => 'inline'));
+  // We need to hide this with css. If we disable or remove the button it will interfere with the rebuilding the form process when it is clicked.
+  if ($writeable) {
+    drupal_add_css("#openenterprise-apps-select-form #edit-reload { display:none; }", array('type' => 'inline'));
+  }
 
   return $form;
 }
