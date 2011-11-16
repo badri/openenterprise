@@ -126,10 +126,11 @@ function openenterprise_install_finished(&$install_state) {
     $output .= '<p>' . st('<a href="@url">Install some apps</a>', array('@url' => url('admin/apps'))) . ' or ' . st('<a href="@url">go to your site\'s home page</a>.', array('@url' => url('<front>'))) . '</p>';
   }
   else {
+    $link = (isset($_SESSION['apps_default_content']))?drupal_get_normal_path('home'):'<front>';
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
     $output .= '<p>' . st('Your site now contains the apps you selected. To add more, go to the Apps menu in the admin menu at the top of the site.') . '</p>';
     $output .= '<h2>' . st('Next Step') . '</h2>';
-    $output .= '<p>' . st('<a href="@url">Go to your site\'s home page</a>.', array('@url' => url('<front>'))) . '</p>';
+    $output .= '<p>' . st('<a href="@url">Go to your site\'s home page</a>.', array('@url' => url($link))) . '</p>';
   }
 
   // Flush all caches to ensure that any full bootstraps during the installer
@@ -159,6 +160,27 @@ function openenterprise_install_finished(&$install_state) {
 }
 
 /**
+ * We only want to get the apps_manifest once so cache it.
+ */
+function openenterprise_get_apps_manifest() {
+  static $apps_manifest;
+  
+  if (!isset($apps_manifest)) {
+    // Not sure this is doing anything because we are using DrupalFakeCache at this point.
+    $cache = cache_get('apps_manifest');
+    if ($cache && isset($cache->data)) {
+      $apps_manifest = $cache->data;
+    }
+    else {
+      $apps_manifest = apps_apps('levelten', array(), TRUE);
+      cache_set('apps_manifest', $apps_manifest);
+    }
+  }
+
+  return $apps_manifest;
+}
+
+/**
  * Apps install form
  */
 function openenterprise_apps_select_form($form, $form_state, &$install_state) {
@@ -174,7 +196,7 @@ function openenterprise_apps_select_form($form, $form_state, &$install_state) {
   $form['actions'] = array('#type' => 'actions', '#weight' => 3);
   if ($writeable) {
     if (!isset($install_state['apps_manifest'])) {
-      $install_state['apps_manifest'] = apps_apps('levelten', array(), TRUE);
+      $install_state['apps_manifest'] = openenterprise_get_apps_manifest();
     }
     foreach($install_state['apps_manifest'] as $name => $app) {
       if ($name != '#theme') {
