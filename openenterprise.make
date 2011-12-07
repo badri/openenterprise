@@ -69,6 +69,8 @@ projects[views][type] = "module"
 ;;;;;;
 ; Text Editor
 ;;;;;;
+projects[bueditor][type] = "module"
+projects[ajax_markup][type] = "module"
 projects[htmlpurifier][type] = "module"
 projects[imce][type] = "module"
 projects[imce_wysiwyg][type] = "module"
@@ -122,12 +124,5 @@ libraries[htmlpurifier][destination] = "libraries"
 
 projects[tao][type] = theme
 projects[rubik][type] = theme
-projects[acquia_marina][type] = theme
-projects[acquia_prosper][type] = theme
-projects[adaptivetheme][type] = theme
-projects[corolla][type] = theme
-projects[fusion][type] = theme
-projects[jackson][type] = theme
-projects[oe_bartik][type] = theme
-projects[oe_bartik][download][type] = "git"
-projects[oe_bartik][download][url] = "http://git.drupal.org/sandbox/tombo/1287712.git"
+projects[omega][type] = theme
+
