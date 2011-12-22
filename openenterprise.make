@@ -60,7 +60,6 @@ projects[ds][type] = "module"
 projects[email_registration][type] = "module"
 projects[entity][type] = "module"
 projects[entitycache][type] = "module"
-projects[features][version] = "1.x-dev"
 projects[features][type] = "module"
 ; Fix user_permissions so only for included roles.
 ; http://drupal.org/node/656312
