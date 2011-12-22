@@ -51,7 +51,7 @@ projects[apps][type] = "module"
 projects[apps][patch][1348732] = http://drupal.org/files/1348732-11-apps-file-transfer.patch
 ; Fix dependency namespacing issue.
 ; http://drupal.org/node/1348814
-projects[apps][patch][1348814] = http://drupal.org/files/apps_namespacing_1348814.patch
+; projects[apps][patch][1348814] = http://drupal.org/files/apps_namespacing_1348814.patch
 projects[backup_migrate][type] = "module"
 projects[boxes][type] = "module"
 projects[ctools][type] = "module"

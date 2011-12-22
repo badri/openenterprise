@@ -86,6 +86,12 @@ function openenterprise_install_tasks($install_state) {
         'type' => 'batch',
         'run' => (isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
       ),
+      // Only need this if using filetransfer authorization.
+      'openenterprise_authorize_transfer' => array(
+        'display' => FALSE,
+        'type' => 'form',
+        'run' => (!is_writeable(conf_path()))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
+      ),
       'openenterprise_install_app_modules' => array(
         'display' => FALSE,
         'type' => 'batch',
@@ -187,17 +193,17 @@ function openenterprise_apps_select_form($form, $form_state, &$install_state) {
   drupal_set_title(t('Install Apps'));
   apps_include('manifest');
 
-  // Set a message if not writeable.
-  $writeable = is_writable('sites') && is_writable('sites/all') && is_writable('sites/all/modules') && is_writable(conf_path());
-  if (!$form_state['rebuild'] && !$writeable) {
-    drupal_set_message('<b>Sites directory is not writeable.</b><br> You will not be able to install apps unless the sites directory is writeable. <br><br>To change this go to your sites root directory and type \'chmod 777 -R sites\'', 'error');
+  // Get and cache the apps manifest file.
+  if (!isset($install_state['apps_manifest'])) {
+    $install_state['apps_manifest'] = openenterprise_get_apps_manifest();
   }
 
-  $form['actions'] = array('#type' => 'actions', '#weight' => 3);
-  if ($writeable) {
-    if (!isset($install_state['apps_manifest'])) {
-      $install_state['apps_manifest'] = openenterprise_get_apps_manifest();
-    }
+  // Set a message if no manifest received.
+  if (!isset($install_state['apps_manifest'])) {
+    drupal_set_message('<b>Unable to contact Apps Server.</b><br> For some reason we were unable to contact the apps server.', 'error');
+  }
+  else {
+    $form['actions'] = array('#type' => 'actions', '#weight' => 3);
     foreach($install_state['apps_manifest'] as $name => $app) {
       if ($name != '#theme') {
         $options[$name] = '<strong>' . $app['name'] . '</strong><br>' . $app['description'];
@@ -206,7 +212,7 @@ function openenterprise_apps_select_form($form, $form_state, &$install_state) {
     $form = array();
 
     $form['apps_message'] = array(
-      '#markup' => t('<h2>Apps</h2><p>Apps are the next generation in usability for Drupal. They contain bundles of functionality for your website. Select any apps you want to install right now. You can add more later on the apps page.</p></p>In order to install apps, the "sites" directory of your website must be writable.</p>'),
+      '#markup' => t('<h2>Apps</h2><p>Apps are the next generation in usability for Drupal. They contain bundles of functionality for your website. Select any apps you want to install right now. You can add more later on the apps page.</p></p>In order to install apps, you must be able to FTP or SSH into your server. This uses the same process as the update module.</p>'),
     );
 
     $form['apps_fieldset'] = array(
@@ -232,27 +238,17 @@ function openenterprise_apps_select_form($form, $form_state, &$install_state) {
       '#default_value' => TRUE,
       '#description' => t('By selecting this box default content will be installed for each app. Without default content the site may look empty before you start adding to it. You can remove the default content later by going to the apps config page.'),
     );
-  }
 
-  $form['actions']['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Install Apps'),
-    '#disabled' => !$writeable,
-  );
+    $form['actions']['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Install Apps'),
+    );
+  }
   $form['actions']['skip'] = array(
     '#type' => 'submit',
     '#value' => t('Skip this step'),
   );
-  $form['actions']['reload'] = array(
-    '#type' => 'submit',
-    '#value' => t("Recheck 'sites' permissions"),
-    '#executes_submit_callback' => FALSE,
-  );
   drupal_add_css("#openenterprise-apps-select-form .form-submit { display:inline; }", array('type' => 'inline'));
-  // We need to hide this with css. If we disable or remove the button it will interfere with the rebuilding the form process when it is clicked.
-  if ($writeable) {
-    drupal_add_css("#openenterprise-apps-select-form #edit-reload { display:none; }", array('type' => 'inline'));
-  }
 
   return $form;
 }
@@ -262,9 +258,6 @@ function openenterprise_apps_select_form($form, $form_state, &$install_state) {
  */
 function openenterprise_apps_select_form_submit($form, &$form_state) {
   if ($form_state['values']['op'] == t('Install Apps')) {
-    global $install_state;
-    $install_state['apps'] = array_filter($form_state['values']['apps']);
-    $install_state['apps_default_content'] = $form_state['values']['default_content'];
     // For some reason the install_state gets lost in the last steps. Adding to session as well.
     $_SESSION['apps'] = array_filter($form_state['values']['apps']);
     $_SESSION['apps_default_content'] = $form_state['values']['default_content'];
@@ -277,7 +270,7 @@ function openenterprise_apps_select_form_submit($form, &$form_state) {
 function openenterprise_download_app_modules(&$install_state) {
   // Copied and modified from apps.installer.inc
   $download_commands = array();
-  foreach ($install_state['apps'] as $id => $name) {
+  foreach ($_SESSION['apps'] as $id => $name) {
     $downloads = array();
     $app = $install_state['apps_manifest'][$name];
     // find all downloads needed for dependencies
@@ -319,12 +312,70 @@ function openenterprise_download_app_modules(&$install_state) {
 /**
  * Batch callback invoked when the download batch is completed.
  *
- * A pass though to update_manager_download_batch_finished
+ * This is a copy of update_manager_download_batch_finished without the goto
+ * which messes up the batch during install.
  */
 function openenterprise_download_batch_finished($success, $results) {
-  if (isset($results['projects'])) {
-    $_SESSION['update_manager_update_projects'] = $results['projects'];
+  if (!empty($results['errors'])) {
+    $error_list = array(
+      'title' => t('Downloading updates failed:'),
+      'items' => $results['errors'],
+    );
+    drupal_set_message(theme('item_list', $error_list), 'error');
   }
+  elseif ($success) {
+    drupal_set_message(t('Updates downloaded successfully.'));
+    $_SESSION['update_manager_update_projects'] = $results['projects'];
+    //drupal_goto('admin/update/ready'); //This was removed.
+  }
+  else {
+    // Ideally we're catching all Exceptions, so they should never see this,
+    // but just in case, we have to tell them something.
+    drupal_set_message(t('Fatal error trying to download.'), 'error');
+  }
+}
+
+/**
+ * Build list of updates
+ */
+function openenterprise_build_updates() {
+  // Make sure the Updater registry is loaded.
+  drupal_get_updaters();
+
+  $updates = array();
+  $directory = _update_manager_extract_directory();
+
+  $projects = $_SESSION['update_manager_update_projects'];
+  foreach ($projects as $project => $url) {
+    $project_location = $directory . '/' . $project;
+    $updater = Updater::factory($project_location);
+    $project_real_location = drupal_realpath($project_location);
+    $updates[] = array(
+      'project' => $project,
+      'updater_name' => get_class($updater),
+      'local_url' => $project_real_location,
+    );
+  }
+  return $updates;
+}
+
+/**
+ * Get filetransfer authorization form.
+ */
+function openenterprise_authorize_transfer($form, $form_state, &$install_state) {
+  // Set the $_SESSION variables so that authorize form knows what to do after authorization.
+  system_authorized_init('openenterprise_authorize_transfer_save', drupal_get_path('profile', 'openenterprise') . '/openenterprise.profile', array(), t('Apps Install Manager'));
+  require_once DRUPAL_ROOT . '/includes/authorize.inc';
+  // Get the authorize form.
+  $form = drupal_get_form('authorize_filetransfer_form');
+  return $form;
+}
+
+/**
+ * Callback after the authorize_filetransfer_form_submit. Save the file transfer protocol.
+ */
+function openenterprise_authorize_transfer_save($filetransfer, $nothing) {
+  $_SESSION['filetransfer'] = $filetransfer;
 }
 
 /**
@@ -334,24 +385,8 @@ function openenterprise_install_app_modules(&$install_state) {
   $batch = array();
   if (!empty($_SESSION['update_manager_update_projects'])) {
     apps_include('installer');
-    // Make sure the Updater registry is loaded.
-    drupal_get_updaters();
-
-    $updates = array();
-    $directory = _update_manager_extract_directory();
-
-    $projects = $_SESSION['update_manager_update_projects'];
-    foreach ($projects as $project => $url) {
-      $project_location = $directory . '/' . $project;
-      $updater = Updater::factory($project_location);
-      $project_real_location = drupal_realpath($project_location);
-      $updates[] = array(
-        'project' => $project,
-        'updater_name' => get_class($updater),
-        'local_url' => $project_real_location,
-      );
-    }
-
+    $updates = openenterprise_build_updates();
+    
     // If the owner of the last directory we extracted is the same as the
     // owner of our configuration directory (e.g. sites/default) where we're
     // trying to install the code, there's no need to prompt for FTP/SSH
