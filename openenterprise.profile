@@ -90,7 +90,7 @@ function openenterprise_install_tasks($install_state) {
       'openenterprise_authorize_transfer' => array(
         'display' => FALSE,
         'type' => 'form',
-        'run' => (!is_writeable(conf_path()))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
+        'run' => (!is_writeable(conf_path()) && isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
       ),
       'openenterprise_install_app_modules' => array(
         'display' => FALSE,
