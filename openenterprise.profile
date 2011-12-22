@@ -336,30 +336,6 @@ function openenterprise_download_batch_finished($success, $results) {
 }
 
 /**
- * Build list of updates
- */
-function openenterprise_build_updates() {
-  // Make sure the Updater registry is loaded.
-  drupal_get_updaters();
-
-  $updates = array();
-  $directory = _update_manager_extract_directory();
-
-  $projects = $_SESSION['update_manager_update_projects'];
-  foreach ($projects as $project => $url) {
-    $project_location = $directory . '/' . $project;
-    $updater = Updater::factory($project_location);
-    $project_real_location = drupal_realpath($project_location);
-    $updates[] = array(
-      'project' => $project,
-      'updater_name' => get_class($updater),
-      'local_url' => $project_real_location,
-    );
-  }
-  return $updates;
-}
-
-/**
  * Get filetransfer authorization form.
  */
 function openenterprise_authorize_transfer($form, $form_state, &$install_state) {
@@ -367,14 +343,17 @@ function openenterprise_authorize_transfer($form, $form_state, &$install_state) 
   system_authorized_init('openenterprise_authorize_transfer_save', drupal_get_path('profile', 'openenterprise') . '/openenterprise.profile', array(), t('Apps Install Manager'));
   require_once DRUPAL_ROOT . '/includes/authorize.inc';
   // Get the authorize form.
-  $form = drupal_get_form('authorize_filetransfer_form');
+  $form = drupal_retrieve_form('authorize_filetransfer_form', $form_state);
+  // Add in the default form handlers.
+  $form['#validate'][] = 'authorize_filetransfer_form_validate';
+  $form['#submit'][] = 'authorize_filetransfer_form_submit';
   return $form;
 }
 
 /**
  * Callback after the authorize_filetransfer_form_submit. Save the file transfer protocol.
  */
-function openenterprise_authorize_transfer_save($filetransfer, $nothing) {
+function openenterprise_authorize_transfer_save($filetransfer, $nothing = array()) {
   $_SESSION['filetransfer'] = $filetransfer;
 }
 
@@ -385,38 +364,54 @@ function openenterprise_install_app_modules(&$install_state) {
   $batch = array();
   if (!empty($_SESSION['update_manager_update_projects'])) {
     apps_include('installer');
-    $updates = openenterprise_build_updates();
     
-    // If the owner of the last directory we extracted is the same as the
-    // owner of our configuration directory (e.g. sites/default) where we're
-    // trying to install the code, there's no need to prompt for FTP/SSH
-    // credentials. Instead, we instantiate a FileTransferLocal and invoke
-    // update_authorize_run_update() directly.
-    //if (fileowner($project_real_location) == fileowner(conf_path())) {
-    if (is_writeable(conf_path())) {
-      module_load_include('inc', 'update', 'update.authorize');
-      $filetransfer = new FileTransferLocal(DRUPAL_ROOT);
-      $operations = array();
-      foreach ($updates as $update => $update_info) {
-        $operations[] = array(
-          'update_authorize_batch_copy_project',
-          array(
-            $update_info['project'],
-            $update_info['updater_name'],
-            $update_info['local_url'],
-            $filetransfer,
-          ),
-        );
-      }
+    // Make sure the Updater registry is loaded.
+    drupal_get_updaters();
 
-      $batch = array(
-        'title' => t('Installing updates'),
-        'init_message' => t('Preparing to update your site'),
-        'operations' => $operations,
-        'file' => drupal_get_path('module', 'update') . '/update.authorize.inc',
+    $updates = array();
+    $directory = _update_manager_extract_directory();
+
+    $projects = $_SESSION['update_manager_update_projects'];
+    foreach ($projects as $project => $url) {
+      $project_location = $directory . '/' . $project;
+      $updater = Updater::factory($project_location);
+      $project_real_location = drupal_realpath($project_location);
+      $updates[] = array(
+        'project' => $project,
+        'updater_name' => get_class($updater),
+        'local_url' => $project_real_location,
       );
-      unset($_SESSION['update_manager_update_projects']);
     }
+    
+    if (isset($_SESSION['filetransfer'])) {
+      // We have authenticated a filetransfer so use it.
+      $filetransfer = $_SESSION['filetransfer'];
+    }
+    else {
+      // This is a local transfer because the config_path is writeable.
+      $filetransfer = new FileTransferLocal(DRUPAL_ROOT);
+    }
+    module_load_include('inc', 'update', 'update.authorize');
+    $operations = array();
+    foreach ($updates as $update => $update_info) {
+      $operations[] = array(
+        'update_authorize_batch_copy_project',
+        array(
+          $update_info['project'],
+          $update_info['updater_name'],
+          $update_info['local_url'],
+          $filetransfer,
+        ),
+      );
+    }
+
+    $batch = array(
+      'title' => t('Installing updates'),
+      'init_message' => t('Preparing to update your site'),
+      'operations' => $operations,
+      'file' => drupal_get_path('module', 'update') . '/update.authorize.inc',
+    );
+    unset($_SESSION['update_manager_update_projects']);
   }
   return $batch;
 }
