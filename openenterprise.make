@@ -80,7 +80,7 @@ projects[wysiwyg][type] = "module"
 projects[wysiwyg][patch][835682] = http://drupal.org/files/issues/wysiwyg-835682-12.patch
 ; Fix empty font styles drop down()
 ; http://drupal.org/node/746524
-projects[wysiwyg][patch][746524] = http://drupal.org/files/issues/746524-91Drupal7-v3_drush_make.patch
+projects[wysiwyg][patch][746524] = http://drupal.org/files/746524-143-D7.patch
 
 ;;;;;;
 ; UI Enhancements
@@ -109,7 +109,7 @@ projects[enterprise_content][location] = http://apps.leveltendesign.com/fserver
 ; Libraries
 ;;;;;
 libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.1/ckeditor_3.6.1.zip"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.2/ckeditor_3.6.2.zip"
 libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][destination] = "libraries"
 
@@ -125,4 +125,6 @@ libraries[htmlpurifier][destination] = "libraries"
 projects[tao][type] = theme
 projects[rubik][type] = theme
 projects[omega][type] = theme
+projects[beta][type] = theme
+projects[gamma][type] = theme
 
