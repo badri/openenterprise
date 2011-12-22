@@ -130,6 +130,4 @@ libraries[htmlpurifier][destination] = "libraries"
 projects[tao][type] = theme
 projects[rubik][type] = theme
 projects[omega][type] = theme
-projects[beta][type] = theme
-projects[gamma][type] = theme
 

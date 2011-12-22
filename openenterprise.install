@@ -6,7 +6,7 @@
  * Perform actions to set up the site for this profile.
  */
 function openenterprise_install() {
-  openenterprise_enable_admin_theme ();
+  openenterprise_enable_theme_settings ();
   openenterprise_add_default_text_formats_and_perms();
   openenterprise_create_menus();
   openenterprise_add_default_blocks();
@@ -42,7 +42,6 @@ function openenterprise_add_default_text_formats_and_perms() {
         'weight' => 1,
         'status' => 1,
         'settings' => array(
-          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd>',
           'allowed_html' => '<a> <img> <br> <em> <p> <strong> <cite> <sub> <sup> <span> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <pre> <address> <h2> <h3> <h4> <h5> <h6>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
@@ -89,7 +88,7 @@ function openenterprise_add_default_text_formats_and_perms() {
   filter_format_save($full_html_format);
 
   // Add wysiwyg editor to filtered and full html formats
-  $filtered_html_wysiwyg = array(
+/*  $filtered_html_wysiwyg = array(
     'format' => 'filtered_html',
     'editor' => 'ckeditor',
     'settings' => array(
@@ -220,7 +219,7 @@ function openenterprise_add_default_text_formats_and_perms() {
     )
   );
   $full_html_wysiwyg['settings'] = serialize($full_html_wysiwyg['settings']);
-  drupal_write_record('wysiwyg', $full_html_wysiwyg);
+  drupal_write_record('wysiwyg', $full_html_wysiwyg);*/
 
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
@@ -460,7 +459,12 @@ function openenterprise_setup_tags() {
 /**
 * Set Rubik as the Admin Theme
 */
-function openenterprise_enable_admin_theme () {
+function openenterprise_enable_theme_settings () {
+  // Set default theme.
+  $theme_default = 'bartik';
+  variable_set('theme_default', $theme_default);
+  
+  
   // Enable the admin theme.
   db_update('system')
     ->fields(array('status' => 1))
@@ -474,7 +478,7 @@ function openenterprise_enable_admin_theme () {
     ->execute();
   variable_set('admin_theme', 'rubik');
   variable_set('node_admin_theme', '1');
-  variable_set(theme_seven_settings, array(
+  variable_set('theme_seven_settings', array(
     'toggle_logo' => 1,
     'toggle_name' => 1,
     'toggle_slogan' => 1,
@@ -491,7 +495,7 @@ function openenterprise_enable_admin_theme () {
     'favicon_path' => '',
     'favicon_upload' => '',
   ));
-  variable_set(theme_bartik_settings, array(
+  variable_set('theme_' . $theme_default . '_settings', array(
     'toggle_logo' => 1,
     'toggle_name' => 1,
     'toggle_slogan' => 1,
