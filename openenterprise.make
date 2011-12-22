@@ -94,7 +94,6 @@ projects[backports][type] = "module"
 projects[block_visibility][type] = "module"
 projects[nodeconnect][type] = "module"
 projects[simplified_menu_admin][type] = "module"
-projects[simplified_modules][type] = "module"
 projects[ux_elements][type] = "module"
 ; form_process_horizontal_tabs previously declared
 ; http://drupal.org/node/1224568

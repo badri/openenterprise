@@ -58,7 +58,6 @@ dependencies[] = backports
 dependencies[] = block_visibility
 dependencies[] = nodeconnect
 dependencies[] = simplified_menu_admin
-dependencies[] = simplified_modules
 dependencies[] = ux_elements
 
 ;; Sitebuilding Tools
