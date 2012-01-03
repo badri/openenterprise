@@ -52,6 +52,8 @@ dependencies[] = htmlpurifier
 dependencies[] = imce_wysiwyg
 dependencies[] = imce
 dependencies[] = wysiwyg
+dependencies[] = bueditor
+dependencies[] = ajax_markup
 
 ;; UX Enhancements
 dependencies[] = backports
