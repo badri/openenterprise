@@ -46,12 +46,9 @@ projects[transliteration][type] = "module"
 ;;;;;;
 projects[apps][version] = "1.x-dev"
 projects[apps][type] = "module"
-; Fix file transfer authorization.
-; http://drupal.org/node/1348732
-projects[apps][patch][1348732] = http://drupal.org/files/1348732-11-apps-file-transfer.patch
-; Fix dependency namespacing issue.
-; http://drupal.org/node/1348814
-; projects[apps][patch][1348814] = http://drupal.org/files/apps_namespacing_1348814.patch
+; Fix some issues with Installation profiles.
+; http://drupal.org/node/1407006
+projects[apps][patch][1407006] = http://drupal.org/files/apps_profile_bug_fixes.1407006.patch
 projects[backup_migrate][type] = "module"
 projects[boxes][type] = "module"
 projects[ctools][type] = "module"
