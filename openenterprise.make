@@ -114,7 +114,7 @@ libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][destination] = "libraries"
 
 libraries[htmlpurifier][download][type] = "get"
-libraries[htmlpurifier][download][url] = "http://htmlpurifier.org/releases/htmlpurifier-4.3.0.zip"
+libraries[htmlpurifier][download][url] = "http://htmlpurifier.org/releases/htmlpurifier-4.4.0.tar.gz"
 libraries[htmlpurifier][directory_name] = "htmlpurifier"
 libraries[htmlpurifier][destination] = "libraries"
 

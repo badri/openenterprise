@@ -74,37 +74,28 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
  * Implements hook_install_tasks
  */
 function openenterprise_install_tasks($install_state) {
-  // Only use apps forms during interactive installs.
-  if ($install_state['interactive']) {
-    require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.appinstaller.inc';
-    $tasks = array(
-      'openenterprise_apps_select_form' => array(
-        'display_name' => st('Install Apps'),
-        'type' => 'form',
-      ),
-      'openenterprise_download_app_modules' => array(
-        'display' => FALSE,
-        'type' => 'batch',
-        'run' => (isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
-      ),
-      // Only need this if using filetransfer authorization.
-      'openenterprise_authorize_transfer' => array(
-        'display' => FALSE,
-        'type' => 'form',
-        'run' => (!is_writeable(conf_path()) && isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
-      ),
-      'openenterprise_install_app_modules' => array(
-        'display' => FALSE,
-        'type' => 'batch',
-        'run' => (isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
-      ),
-      'openenterprise_enable_app_modules' => array(
-        'display' => FALSE,
-        'run' => (isset($_SESSION['apps']))?INSTALL_TASK_RUN_IF_NOT_COMPLETED:INSTALL_TASK_SKIP,
-      ),
-    );
+  $tasks = array();
+  if (module_exists('apps')) {
+    require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
+    $tasks = $tasks + apps_profile_install_tasks($install_state, 'levelten', array('enterprise_rotator', 'enterprise_blog'));
   }
   return $tasks;
+}
+
+/**
+ * Modify the apps_select_form
+ * 
+ * Add a custom callback so we can save the apps selection for later.
+ */
+function openenterprise_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
+//  $form['#submit'][] = 'openenterprise_apps_profile_apps_select_form_submit';
+}
+
+/**
+ * Submit callback for apps_profile_apps_select_form
+ */
+function openenterprise_apps_profile_apps_select_form_submit($form, $form_state) {
+  // TODO save off apps selection
 }
 
 /**
