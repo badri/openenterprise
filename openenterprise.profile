@@ -75,10 +75,8 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
  */
 function openenterprise_install_tasks($install_state) {
   $tasks = array();
-  if (module_exists('apps')) {
-    require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-    $tasks = $tasks + apps_profile_install_tasks($install_state, 'levelten', array('enterprise_rotator', 'enterprise_blog'));
-  }
+  require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
+  $tasks = $tasks + apps_profile_install_tasks($install_state, 'levelten', array('enterprise_rotator', 'enterprise_blog'));
   return $tasks;
 }
 
@@ -88,14 +86,19 @@ function openenterprise_install_tasks($install_state) {
  * Add a custom callback so we can save the apps selection for later.
  */
 function openenterprise_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
-//  $form['#submit'][] = 'openenterprise_apps_profile_apps_select_form_submit';
+  $form['#submit'][] = 'openenterprise_apps_profile_apps_select_form_submit';
 }
 
 /**
  * Submit callback for apps_profile_apps_select_form
  */
 function openenterprise_apps_profile_apps_select_form_submit($form, $form_state) {
-  // TODO save off apps selection
+  $apps = array_filter($form_state['values']['apps']);
+  $_SESSION['openenterprise_apps_installed'] = FALSE;
+  if (!empty($apps)) {
+    $_SESSION['openenterprise_apps_installed'] = TRUE;
+  }
+  $_SESSION['openenterprise_apps_default_content'] = $form_state['values']['default_content'];
 }
 
 /**
@@ -116,7 +119,7 @@ function openenterprise_install_tasks_alter(&$tasks, $install_state) {
  */
 function openenterprise_install_finished(&$install_state) {
   drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
-  if (empty($_SESSION['apps'])) {
+  if (!$_SESSION['openenterprise_apps_installed']) {
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
     $output .= '<p>' . st('By not installing any apps, your site is currently a blank. To get started you can either create your own content types, views and set up the site yourself or install some prebuild apps. Apps provide complete bundled functionality that will greatly speed up the process of creating your site.') . '</p>';
     $output .= '<p>' . st('Even after installing apps your site may look very empty before you add some content. To see what it looks like with content, try installing the default content for each of the apps. This can be done on each app\'s configuration page.') . '</p>';
@@ -124,7 +127,7 @@ function openenterprise_install_finished(&$install_state) {
     $output .= '<p>' . st('<a href="@url">Install some apps</a>', array('@url' => url('admin/apps'))) . ' or ' . st('<a href="@url">go to your site\'s home page</a>.', array('@url' => url('<front>'))) . '</p>';
   }
   else {
-    $link = (isset($_SESSION['apps_default_content']))?drupal_get_normal_path('home'):'<front>';
+    $link = (isset($_SESSION['openenterprise_apps_default_content']))?drupal_get_normal_path('home'):'<front>';
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
     $output .= '<p>' . st('Your site now contains the apps you selected. To add more, go to the Apps menu in the admin menu at the top of the site.') . '</p>';
     $output .= '<h2>' . st('Next Step') . '</h2>';
