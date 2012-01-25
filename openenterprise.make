@@ -44,11 +44,7 @@ projects[transliteration][type] = "module"
 ;;;;;;
 ; Sitebuilding tools
 ;;;;;;
-projects[apps][version] = "1.x-dev"
 projects[apps][type] = "module"
-; Fix some issues with Installation profiles.
-; http://drupal.org/node/1407006
-projects[apps][patch][1407006] = http://drupal.org/files/apps_profile_bug_fixes.1407006.patch
 projects[backup_migrate][type] = "module"
 projects[boxes][type] = "module"
 projects[ctools][type] = "module"
