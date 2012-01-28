@@ -59,6 +59,7 @@ projects[features][type] = "module"
 ; Fix user_permissions so only for included roles.
 ; http://drupal.org/node/656312
 projects[features][patch][656312] = http://drupal.org/files/issues/features_permission_export-656312-11--D7.patch
+projects[features_override][type] = "module"
 projects[libraries][type] = "module"
 projects[menu_block][type] = "module"
 projects[strongarm][type] = "module"
