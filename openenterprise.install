@@ -117,6 +117,20 @@ function openenterprise_add_default_text_formats_and_perms() {
         'weight' => 1,
         'status' => 0,
       ),
+      // WYSIWYG HTML filter.
+      'wysiwyg_filter' => array(
+        'weight' => 1,
+        'status' => 1,
+        'settings' => array(
+          'valid_elements' => 'a[!href|target<_blank|title],
+div[align<center?justify?left?right],
+p[align<center?justify?left?right],
+br,span,em/i,strong/b,ul,ol,li,h3,h4,h5,h6,
+img[src|width|height|alt|style|title]',
+          'allow_comments' => 0,
+          'nofollow_policy' => 'disabled',
+        ),
+      ),
       // HTML corrector filter.
       'filter_htmlcorrector' => array(
         'weight' => 0,
@@ -287,7 +301,7 @@ Align Image Left=align-left',
 
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+  //user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
 
   // Create a default role for site administrators, with all available permissions assigned.
@@ -486,6 +500,102 @@ function openenterprise_add_content_types() {
   foreach ($rdf_mappings as $rdf_mapping) {
     rdf_mapping_save($rdf_mapping);
   }
+
+  // Create an image field named "Image", enabled for the 'article' content type.
+  // Many of the following values will be defaulted, they're included here as an illustrative examples.
+  // See http://api.drupal.org/api/function/field_create_field/7
+
+  $field = array(
+    'field_name' => 'field_inline_image',
+    'type' => 'image',
+    'cardinality' => -1,
+    'locked' => FALSE,
+    'indexes' => array('fid' => array('fid')),
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => FALSE,
+    ),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+    ),
+  );
+  field_create_field($field);
+
+
+  // Many of the following values will be defaulted, they're included here as an illustrative examples.
+  // See http://api.drupal.org/api/function/field_create_instance/7
+  $instance = array(
+    'field_name' => 'field_inline_image',
+    'entity_type' => 'node',
+    'label' => 'Image',
+    'bundle' => 'page',
+    'description' => st('Upload an image to insert in this page. After selecting the image, press "Insert" to add to the page.'),
+    'required' => FALSE,
+
+    'settings' => array(
+      'file_directory' => 'inline-images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'alt_field' => TRUE,
+      'title_field' => '',
+    ),
+
+    'widget' => array(
+      'type' => 'image_image',
+      'settings' => array(
+        'progress_indicator' => 'bar',
+        'preview_image_style' => 'thumbnail',
+        'filefield_sources' => array(
+          'filefield_sources' => array(
+            'imce' => 'imce',
+            'remote' => 'remote',
+            'reference' => 'reference',
+            'attach' => 0,
+          ),
+          'source_attach' => array(
+            'path' => 'file_attach',
+            'absolute' => 0,
+            'attach_mode' => 'copy',
+          ),
+          'source_reference' => array(
+            'autocomplete' => 0,
+          ),
+        ),
+        'insert' => 1,
+        'insert_styles' => array(
+          'image' => 'image',
+          'image_large' => 'image_large',
+          'image_medium' => 'image_medium',
+          'image_thumbnail' => 'image_thumbnail',
+          'auto' => 0,
+          'link' => 0,
+        ),
+        'insert_default' => 'image',
+        'insert_class' => 'inline',
+        'insert_width' => '',
+        'caption_from_title' => 1,
+      ),
+      'weight' => -1,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'hidden',
+        'settings' => array(),
+        'weight' => -1,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'hidden',
+        'settings' => array(),
+        'weight' => -1,
+      ),
+    ),
+  );
+  field_create_instance($instance);
 
   // Default "Basic page" to not be promoted and have comments disabled.
   variable_set('node_options_page', array('status'));

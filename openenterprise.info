@@ -79,6 +79,7 @@ dependencies[] = libraries
 dependencies[] = menu_block
 dependencies[] = strongarm
 dependencies[] = token
+dependencies[] = uuid
 dependencies[] = views
 dependencies[] = views_ui
 

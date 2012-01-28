@@ -60,6 +60,7 @@ projects[libraries][type] = "module"
 projects[menu_block][type] = "module"
 projects[strongarm][type] = "module"
 projects[token][type] = "module"
+projects[uuid][type] = "module"
 projects[views][type] = "module"
 
 ;;;;;;
@@ -69,6 +70,7 @@ projects[imce][type] = "module"
 projects[imce_wysiwyg][type] = "module"
 projects[better_formats][type] = "module"
 projects[insert][type] = "module"
+projects[insert][version] = "1.x-dev"
 projects[caption_filter][type] = "module"
 projects[image_resize_filter][type] = "module"
 projects[wysiwyg][type] = "module"
@@ -104,7 +106,7 @@ projects[enterprise_content][location] = http://apps.leveltendesign.com/fserver
 ;;;;;
 libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.7.zip"
-libraries[tinymce][directory_name] = "ckeditor"
+libraries[tinymce][directory_name] = "tinymce"
 libraries[tinymce][destination] = "libraries"
 
 ;;;;;;
