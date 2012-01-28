@@ -2,7 +2,7 @@ name = OpenEnterprise
 description = OpenEnterprise Distribution by LevelTen Interactive
 distribution_name = OpenEnterprise
 
-version = 7.x-1.0-BETA1
+version = 7.x-1.0-BETA4
 core = 7.x
 
 ; Core
@@ -65,7 +65,7 @@ dependencies[] = backports
 dependencies[] = block_visibility
 dependencies[] = nodeconnect
 dependencies[] = simplified_menu_admin
-dependencies[] = ux_elements
+dependencies[] = elements
 
 ;; Sitebuilding Tools
 dependencies[] = apps

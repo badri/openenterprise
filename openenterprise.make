@@ -31,6 +31,7 @@ projects[link][type] = "module"
 projects[link][version] = "1.x-dev"
 projects[options_element][type] = "module"
 projects[references][type] = "module"
+projects[filefield_sources][type] = "module"
 
 ;;;;;;
 ; Path Tools
@@ -64,14 +65,12 @@ projects[views][type] = "module"
 ;;;;;;
 ; Text Editor
 ;;;;;;
-projects[htmlpurifier][type] = "module"
 projects[imce][type] = "module"
 projects[imce_wysiwyg][type] = "module"
 projects[better_formats][type] = "module"
 projects[insert][type] = "module"
 projects[caption_filter][type] = "module"
 projects[image_resize_filter][type] = "module"
-projects[filefield_sources][type] = "module"
 projects[wysiwyg][type] = "module"
 ; Fix path_to_theme()
 ; http://drupal.org/node/835682
@@ -88,10 +87,7 @@ projects[backports][type] = "module"
 projects[block_visibility][type] = "module"
 projects[nodeconnect][type] = "module"
 projects[simplified_menu_admin][type] = "module"
-projects[ux_elements][type] = "module"
-; form_process_horizontal_tabs previously declared
-; http://drupal.org/node/1224568
-projects[ux_elements][patch][1224568] = http://drupal.org/files/issues/1224568-ux_elements_redeclare.patch
+projects[elements][type] = "module"
 
 ;;;;;
 ; Custom/Features
@@ -109,11 +105,6 @@ libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.7.zip"
 libraries[tinymce][directory_name] = "ckeditor"
 libraries[tinymce][destination] = "libraries"
-
-libraries[htmlpurifier][download][type] = "get"
-libraries[htmlpurifier][download][url] = "http://htmlpurifier.org/releases/htmlpurifier-4.4.0.tar.gz"
-libraries[htmlpurifier][directory_name] = "htmlpurifier"
-libraries[htmlpurifier][destination] = "libraries"
 
 ;;;;;;
 ; Theme
