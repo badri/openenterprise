@@ -88,6 +88,7 @@ projects[block_visibility][type] = "module"
 projects[nodeconnect][type] = "module"
 projects[simplified_menu_admin][type] = "module"
 projects[elements][type] = "module"
+projects[admin_menu] = "module"
 
 ;;;;;
 ; Custom/Features
