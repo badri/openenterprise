@@ -540,7 +540,7 @@ function openenterprise_add_content_types() {
       'max_resolution' => '',
       'min_resolution' => '',
       'alt_field' => TRUE,
-      'title_field' => '',
+      'title_field' => TRUE,
     ),
 
     'widget' => array(
@@ -578,7 +578,7 @@ function openenterprise_add_content_types() {
         'insert_width' => '',
         'caption_from_title' => 1,
       ),
-      'weight' => -1,
+      'weight' => 40,
     ),
     'display' => array(
       'default' => array(
