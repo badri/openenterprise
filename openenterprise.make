@@ -48,7 +48,7 @@ projects[transliteration][type] = "module"
 projects[apps][type] = "module"
 ; Fix error during install.
 ; http://drupal.org/node/1417916
-projects[features][patch][1417916] = http://drupal.org/files/apps_install_profile_foreach_error.1417916.patch
+projects[apps][patch][1417916] = http://drupal.org/files/apps_install_profile_foreach_error.1417916.patch
 projects[backup_migrate][type] = "module"
 projects[ctools][type] = "module"
 projects[defaultcontent][type] = "module"
