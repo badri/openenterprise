@@ -46,10 +46,8 @@ projects[transliteration][type] = "module"
 ;;;;;;
 projects[apps][type] = "module"
 projects[backup_migrate][type] = "module"
-projects[boxes][type] = "module"
 projects[ctools][type] = "module"
 projects[defaultcontent][type] = "module"
-projects[ds][type] = "module"
 projects[email_registration][type] = "module"
 projects[entity][type] = "module"
 projects[entitycache][type] = "module"
@@ -60,18 +58,20 @@ projects[features][patch][656312] = http://drupal.org/files/issues/features_perm
 projects[libraries][type] = "module"
 projects[menu_block][type] = "module"
 projects[strongarm][type] = "module"
-projects[skinr][type] = "module"
 projects[token][type] = "module"
 projects[views][type] = "module"
 
 ;;;;;;
 ; Text Editor
 ;;;;;;
-projects[bueditor][type] = "module"
-projects[ajax_markup][type] = "module"
 projects[htmlpurifier][type] = "module"
 projects[imce][type] = "module"
 projects[imce_wysiwyg][type] = "module"
+projects[better_formats][type] = "module"
+projects[insert][type] = "module"
+projects[caption_filter][type] = "module"
+projects[image_resize_filter][type] = "module"
+projects[filefield_sources][type] = "module"
 projects[wysiwyg][type] = "module"
 ; Fix path_to_theme()
 ; http://drupal.org/node/835682
@@ -79,6 +79,7 @@ projects[wysiwyg][patch][835682] = http://drupal.org/files/issues/wysiwyg-835682
 ; Fix empty font styles drop down()
 ; http://drupal.org/node/746524
 projects[wysiwyg][patch][746524] = http://drupal.org/files/746524-143-D7.patch
+projects[wysiwyg_filter][type] = "module"
 
 ;;;;;;
 ; UI Enhancements
@@ -104,10 +105,10 @@ projects[enterprise_content][location] = http://apps.leveltendesign.com/fserver
 ;;;;;
 ; Libraries
 ;;;;;
-libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.2/ckeditor_3.6.2.zip"
-libraries[ckeditor][directory_name] = "ckeditor"
-libraries[ckeditor][destination] = "libraries"
+libraries[tinymce][download][type] = "get"
+libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.7.zip"
+libraries[tinymce][directory_name] = "ckeditor"
+libraries[tinymce][destination] = "libraries"
 
 libraries[htmlpurifier][download][type] = "get"
 libraries[htmlpurifier][download][url] = "http://htmlpurifier.org/releases/htmlpurifier-4.4.0.tar.gz"

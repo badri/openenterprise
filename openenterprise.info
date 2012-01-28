@@ -21,7 +21,8 @@ dependencies[] = taxonomy
 dependencies[] = syslog
 dependencies[] = search
 dependencies[] = shortcut
-dependencies[] = toolbar
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
 dependencies[] = overlay
 dependencies[] = field
 dependencies[] = field_ui
@@ -52,8 +53,12 @@ dependencies[] = htmlpurifier
 dependencies[] = imce_wysiwyg
 dependencies[] = imce
 dependencies[] = wysiwyg
-dependencies[] = bueditor
-dependencies[] = ajax_markup
+dependencies[] = wysiwyg_filter
+dependencies[] = better_formats
+dependencies[] = caption_filter
+dependencies[] = insert
+dependencies[] = image_resize_filter
+dependencies[] = filefield_sources
 
 ;; UX Enhancements
 dependencies[] = backports
