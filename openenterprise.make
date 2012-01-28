@@ -46,6 +46,9 @@ projects[transliteration][type] = "module"
 ; Sitebuilding tools
 ;;;;;;
 projects[apps][type] = "module"
+; Fix error during install.
+; http://drupal.org/node/1417916
+projects[features][patch][1417916] = http://drupal.org/files/apps_install_profile_foreach_error.1417916.patch
 projects[backup_migrate][type] = "module"
 projects[ctools][type] = "module"
 projects[defaultcontent][type] = "module"
@@ -90,7 +93,7 @@ projects[block_visibility][type] = "module"
 projects[nodeconnect][type] = "module"
 projects[simplified_menu_admin][type] = "module"
 projects[elements][type] = "module"
-projects[admin_menu] = "module"
+projects[admin_menu][type] = "module"
 
 ;;;;;
 ; Custom/Features
