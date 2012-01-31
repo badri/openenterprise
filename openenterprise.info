@@ -86,3 +86,6 @@ dependencies[] = views_ui
 ;dependencies[] = tutorials
 
 files[] = openenterprise.profile
+
+;; Include WYSIWYG stylesheet
+stylesheets[all][] = wysiwyg_align.css
