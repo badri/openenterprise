@@ -79,7 +79,7 @@ function openenterprise_form_apps_profile_apps_select_form_alter(&$form, $form_s
  * Submit callback for apps_profile_apps_select_form
  */
 function openenterprise_apps_profile_apps_select_form_submit($form, $form_state) {
-  if (isset($form_state['values']['apps']) && !empty($form_state['values']['apps'])) {
+  if ($form_state['values']['op'] == t('Install Apps') && isset($form_state['values']['apps']) && !empty($form_state['values']['apps'])) {
     $apps = array_filter($form_state['values']['apps']);
     $_SESSION['openenterprise_apps_installed'] = FALSE;
     if (!empty($apps)) {
