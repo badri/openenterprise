@@ -4,7 +4,7 @@ api = 2
 projects[drupal][type] = core
 ; Make system directories configurable to allow tests in profiles/[name]/modules to be run.
 ; http://drupal.org/node/911354
-projects[drupal][patch][911354] = http://drupal.org/files/issues/911354-62-simpletest-profiles.patch
+projects[drupal][patch][911354] = http://drupal.org/files/drupal8.simpletest-profiles.73.patch
 
 ; Missing drupal_alter() for text formats and filters
 ; http://drupal.org/node/903730
