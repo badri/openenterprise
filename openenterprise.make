@@ -52,9 +52,16 @@ projects[apps][patch][1417916] = http://drupal.org/files/apps_install_profile_fo
 ; Fix continue when apps server is unavailable.
 ; http://drupal.org/node/1422086
 projects[apps][patch][1422086] = http://drupal.org/files/apps_profile_no_internet.1422086.patch
+; Fix continue when apps server is unavailable.
+; http://drupal.org/node/1422254
+projects[apps][patch][1422254] = http://drupal.org/files/apps_profile_download_fail.1422254.patch
 projects[backup_migrate][type] = "module"
+projects[boxes][type] = "module"
 projects[ctools][type] = "module"
 projects[defaultcontent][type] = "module"
+projects[defaultcontent][download][type] = git
+projects[defaultcontent][download][url] = http://git.drupal.org/project/defaultcontent.git
+projects[defaultcontent][download][revision] = 7.x-1.0-alpha4
 projects[email_registration][type] = "module"
 projects[entity][type] = "module"
 projects[entitycache][type] = "module"
@@ -67,7 +74,6 @@ projects[libraries][type] = "module"
 projects[menu_block][type] = "module"
 projects[strongarm][type] = "module"
 projects[token][type] = "module"
-projects[uuid][type] = "module"
 projects[views][type] = "module"
 
 ;;;;;;
