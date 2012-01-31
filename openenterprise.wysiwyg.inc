@@ -288,3 +288,100 @@ Align Image Left=align-left',
   //user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));  
 }
+
+function openenterprise_wysiwyg_create_image_field($type) {
+  if (!field_read_field('field_inline_image', array('include_inactive' => TRUE))) {
+    // Create an image field named "Image", enabled for a content type.
+    $field = array(
+      'field_name' => 'field_inline_image',
+      'type' => 'image',
+      'cardinality' => -1,
+      'locked' => FALSE,
+      'indexes' => array('fid' => array('fid')),
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => FALSE,
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+      ),
+    );
+    field_create_field($field);
+  }
+
+  if (!field_read_instance('node', 'field_inline_image', $type)) {
+    // Set up the field instance. Many of these settings are related to the WYSIWYG setup.
+    $instance = array(
+      'field_name' => 'field_inline_image',
+      'entity_type' => 'node',
+      'label' => 'Image',
+      'bundle' => $type,
+      'description' => st('Upload an image to insert in this node. After selecting the image, press "Insert" to add to the page.'),
+      'required' => FALSE,
+
+      'settings' => array(
+        'file_directory' => 'inline-images',  
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'alt_field' => TRUE,
+        'title_field' => TRUE,
+      ),
+
+      'widget' => array(
+        'type' => 'image_image',
+        'settings' => array(
+          'progress_indicator' => 'bar',
+          'preview_image_style' => 'thumbnail',
+          'filefield_sources' => array(
+            'filefield_sources' => array(
+              'imce' => 'imce',
+              'remote' => 'remote',
+              'reference' => 'reference',
+              'attach' => 0,
+            ),
+            'source_attach' => array(
+              'path' => 'file_attach',
+              'absolute' => 0,
+              'attach_mode' => 'copy',
+            ),
+            'source_reference' => array(
+              'autocomplete' => 0,
+            ),
+          ),
+          'insert' => 1,
+          'insert_styles' => array(
+            'image' => 'image',
+            'image_large' => 'image_large',
+            'image_medium' => 'image_medium',
+            'image_thumbnail' => 'image_thumbnail',
+            'auto' => 0,
+            'link' => 0,
+          ),
+          'insert_default' => 'image',
+          'insert_class' => 'inline',
+          'insert_width' => '',
+          'caption_from_title' => 1,
+        ),
+        'weight' => 40,
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'hidden',
+          'settings' => array(),
+          'weight' => -1,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'type' => 'hidden',
+          'settings' => array(),
+          'weight' => -1,
+        ),
+      ),
+    );
+    field_create_instance($instance);
+  }
+}
