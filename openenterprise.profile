@@ -79,12 +79,14 @@ function openenterprise_form_apps_profile_apps_select_form_alter(&$form, $form_s
  * Submit callback for apps_profile_apps_select_form
  */
 function openenterprise_apps_profile_apps_select_form_submit($form, $form_state) {
-  $apps = array_filter($form_state['values']['apps']);
-  $_SESSION['openenterprise_apps_installed'] = FALSE;
-  if (!empty($apps)) {
-    $_SESSION['openenterprise_apps_installed'] = TRUE;
+  if (isset($form_state['values']['apps']) && !empty($form_state['values']['apps'])) {
+    $apps = array_filter($form_state['values']['apps']);
+    $_SESSION['openenterprise_apps_installed'] = FALSE;
+    if (!empty($apps)) {
+      $_SESSION['openenterprise_apps_installed'] = TRUE;
+    }
+    $_SESSION['openenterprise_apps_default_content'] = $form_state['values']['default_content'];
   }
-  $_SESSION['openenterprise_apps_default_content'] = $form_state['values']['default_content'];
 }
 
 /**

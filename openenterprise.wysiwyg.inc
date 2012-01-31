@@ -223,7 +223,7 @@ img[!src|alt|width|height|class|typeof],
 
   // WYSIWYG Configuration for Full HTML
   $full_html_wysiwyg = array(
-    'format' => 'filtered_html',
+    'format' => 'full_html',
     'editor' => 'tinymce',
     'settings' => array(
       'default' => 1,

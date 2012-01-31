@@ -49,6 +49,9 @@ projects[apps][type] = "module"
 ; Fix error during install.
 ; http://drupal.org/node/1417916
 projects[apps][patch][1417916] = http://drupal.org/files/apps_install_profile_foreach_error.1417916.patch
+; Fix continue when apps server is unavailable.
+; http://drupal.org/node/1422086
+projects[apps][patch][1422086] = http://drupal.org/files/apps_profile_no_internet.1422086.patch
 projects[backup_migrate][type] = "module"
 projects[ctools][type] = "module"
 projects[defaultcontent][type] = "module"
