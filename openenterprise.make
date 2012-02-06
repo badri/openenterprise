@@ -1,21 +1,5 @@
-core = "7.x"
 api = 2
-
-; Missing drupal_alter() for text formats and filters
-; http://drupal.org/node/903730
-projects[drupal][patch][903730] = http://drupal.org/files/issues/drupal.filter-alter.92.patch
-
-; Use vocabulary machine name for permissions
-; http://drupal.org/node/995156
-projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portable_taxonomy_permissions.patch
-
-; Fix object menu router conversion issue.
-; http://drupal.org/node/972536
-projects[drupal][patch][972536] = http://drupal.org/files/issues/drupal-menu-int-972536-78.patch
-
-; Allow password flood to be reset
-; http://drupal.org/node/992540
-projects[drupal][patch][992540] = http://drupal.org/files/issues/992540-3-reset_flood_limit_on_password_reset-drush.patch
+core = "7.12"
 
 ;;;;;;
 ; Fields
@@ -71,13 +55,13 @@ projects[views][version] = 3.1
 ; Text Editor
 ;;;;;;
 projects[imce][version] = 1.5
-projects[imce_wysiwyg][version] = "module"
-projects[better_formats][version] = "module"
-projects[insert][version] = "module"
-projects[insert][version] = "1.x-dev"
-projects[caption_filter][version] = "module"
-projects[image_resize_filter][version] = "module"
-projects[wysiwyg][version] = "module"
+projects[imce_wysiwyg][version] = 1.0
+;; No D7 release yet
+;projects[better_formats][version] = 1.x-dev
+projects[insert][version] = 1.1
+projects[caption_filter][version] = 1.2
+projects[image_resize_filter][version] = 1.13
+projects[wysiwyg][version] = 2.1
 ; Fix path_to_theme()
 ; http://drupal.org/node/835682
 projects[wysiwyg][patch][835682] = http://drupal.org/files/issues/wysiwyg-835682-12.patch
@@ -100,16 +84,14 @@ projects[admin_menu][version] = 3.0-rc1
 ; Custom/Features
 ;;;;;
 
-projects[enterprise_content][subdir] = "custom"
-projects[enterprise_content][location] = http://apps.leveltendesign.com/fserver
-
-;projects[tutorials][version] = "module"
+;projects[enterprise_content][subdir] = "custom"
+;projects[enterprise_content][location] = http://apps.leveltendesign.com/fserver
 
 ;;;;;
 ; Libraries
 ;;;;;
 libraries[tinymce][download][version] = "get"
-libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.7.zip"
+libraries[tinymce][download][url] = "https://github.com/downloads/tinymce/tinymce/tinymce_3.4.7.zip"
 libraries[tinymce][directory_name] = "tinymce"
 libraries[tinymce][destination] = "libraries"
 
@@ -117,7 +99,7 @@ libraries[tinymce][destination] = "libraries"
 ; Theme
 ;;;;;;
 
-projects[tao][version] = theme
-projects[rubik][version] = theme
-projects[omega][version] = theme
+projects[tao][version] = 3.0-beta4
+projects[rubik][version] = 4.0-beta7
+projects[omega][version] = 3.0
 

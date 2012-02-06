@@ -14,6 +14,14 @@
  */
 
 function openenterprise_wysiwyg_formats() {
+  // Clean out old formats
+  db_delete('wysiwyg')
+    ->condition('format', 'filtered_html')
+    ->execute();
+  db_delete('wysiwyg')
+    ->condition('format', 'full_html')
+    ->execute();
+  
   // Filtered HTML Text Filter
   $filtered_html_format = array(
     'format' => 'filtered_html',
