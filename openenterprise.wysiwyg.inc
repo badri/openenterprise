@@ -291,10 +291,8 @@ Align Image Left=align-left',
   $full_html_wysiwyg['settings'] = serialize($full_html_wysiwyg['settings']);
   drupal_write_record('wysiwyg', $full_html_wysiwyg);
 
-  // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
-  //user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));  
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array($filtered_html_permission));  
 }
 
 function openenterprise_wysiwyg_create_image_field($type) {
