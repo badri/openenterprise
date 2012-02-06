@@ -68,7 +68,7 @@ projects[wysiwyg][patch][835682] = http://drupal.org/files/issues/wysiwyg-835682
 ; Fix empty font styles drop down()
 ; http://drupal.org/node/746524
 projects[wysiwyg][patch][746524] = http://drupal.org/files/746524-143-D7.patch
-projects[wysiwyg_filter][version] = 1.0
+projects[wysiwyg_filter][version] = 1.6-rc2
 
 ;;;;;;
 ; UI Enhancements
