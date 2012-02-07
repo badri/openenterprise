@@ -62,8 +62,33 @@ function openenterprise_form_install_configure_form_alter(&$form, &$form_state) 
 function openenterprise_install_tasks($install_state) {
   $tasks = array();
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-  $tasks = $tasks + apps_profile_install_tasks($install_state, 'levelten', array('enterprise_rotator', 'enterprise_blog'));
+  $server = array(
+    'machine name' => 'levelten',
+    'default apps' => array(
+      'enterprise_rotator',
+      'enterprise_blog',
+    ),
+    'required apps' => array(
+
+    ),
+    'default content callback' => 'openenterprise_default_content',
+  );
+  $tasks = $tasks + apps_profile_install_tasks($install_state, $server);
   return $tasks;
+}
+
+/**
+ * Apps installer default content callback.
+ */
+function openenterprise_default_content(&$modules) {
+  $modules[] = 'enterprise_content';
+  $files = system_rebuild_module_data();
+  foreach($modules as $module) {
+    // Should probably check the app to see the proper way to do this.
+    if (isset($files[$module . '_content'])) {
+      $modules[] = $module . '_content';
+    }
+  }
 }
 
 /**

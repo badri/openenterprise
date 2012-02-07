@@ -33,6 +33,9 @@ projects[apps][patch][1422086] = http://drupal.org/files/apps_profile_no_interne
 ; Fix continue when apps server is unavailable.
 ; http://drupal.org/node/1422254
 projects[apps][patch][1422254] = http://drupal.org/files/apps_profile_download_fail.1422254.patch
+; Fix Installation Profile additions formatting.
+; http://drupal.org/node/1431992
+projects[apps][patch][1431992] = http://drupal.org/files/1431992-update-install-profile-def.patch
 projects[backup_migrate][version] = 2.2
 projects[boxes][version] = 1.0-beta7
 projects[ctools][version] = 1.0-rc1
@@ -90,6 +93,7 @@ projects[admin_menu][version] = 3.0-rc1
 ;;;;;
 ; Libraries
 ;;;;;
+
 libraries[tinymce][download][version] = "get"
 libraries[tinymce][download][url] = "https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
 libraries[tinymce][directory_name] = "tinymce"
