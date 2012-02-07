@@ -91,7 +91,7 @@ projects[admin_menu][version] = 3.0-rc1
 ; Libraries
 ;;;;;
 libraries[tinymce][download][version] = "get"
-libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
+libraries[tinymce][download][url] = "https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
 libraries[tinymce][directory_name] = "tinymce"
 libraries[tinymce][destination] = "libraries"
 
@@ -102,4 +102,3 @@ libraries[tinymce][destination] = "libraries"
 projects[tao][version] = 3.0-beta4
 projects[rubik][version] = 4.0-beta7
 projects[omega][version] = 3.0
-
