@@ -84,13 +84,6 @@ projects[elements][version] = 1.2
 projects[admin_menu][version] = 3.0-rc1
 
 ;;;;;
-; Custom/Features
-;;;;;
-
-projects[enterprise_content][subdir] = "custom"
-projects[enterprise_content][location] = http://apps.leveltendesign.com/fserver
-
-;;;;;
 ; Libraries
 ;;;;;
 

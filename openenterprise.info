@@ -78,9 +78,13 @@ dependencies[] = entitycache
 dependencies[] = features
 dependencies[] = libraries
 dependencies[] = menu_block
+dependencies[] = page_manager
+dependencies[] = panels
 dependencies[] = strongarm
 dependencies[] = token
+dependencies[] = total_control
 dependencies[] = views
+dependencies[] = views_content
 dependencies[] = views_ui
 
 ;; Custom
