@@ -337,3 +337,11 @@ function openenterprise_update_7100() {
   openenterprise_wysiwyg_formats();
   openenterprise_wysiwyg_create_image_field('page');
 }
+
+
+/**
+ * Enable the modules: 404 Navigation and Total Control.
+ */
+function openenterprise_update_7101() {
+  module_enable(array('navigation404', 'total_control'));
+}

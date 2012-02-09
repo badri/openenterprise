@@ -59,6 +59,7 @@ dependencies[] = filefield_sources
 dependencies[] = backports
 dependencies[] = block_visibility
 dependencies[] = elements
+dependencies[] = navigation404
 dependencies[] = nodeconnect
 dependencies[] = simplified_menu_admin
 

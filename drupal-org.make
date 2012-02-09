@@ -52,8 +52,8 @@ projects[libraries][version] = 1.0
 projects[menu_block][version] = 2.3
 projects[panels][version] = 3.0
 projects[strongarm][version] = 2.0-beta5
-projects[total_control][version] = 2.3-beta1
 projects[token][version] = 1.0-rc1
+projects[total_control][version] = 2.3-beta1
 projects[views][version] = 3.1
 
 ;;;;;;
@@ -84,6 +84,7 @@ projects[nodeconnect][version] = 1.0-alpha1
 projects[simplified_menu_admin][version] = 1.0-beta2
 projects[elements][version] = 1.2
 projects[admin_menu][version] = 3.0-rc1
+projects[navigation404][version] = 1.0
 
 libraries[tinymce][download][version] = "get"
 libraries[tinymce][download][url] = "https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
