@@ -172,6 +172,36 @@ function openenterprise_install_finished(&$install_state) {
 
   return $output;
 }
+
+
+/**
+ * Implements hook_theme().
+ */
+function openenterprise_theme($existing, $type, $theme, $path) {
+  return array(
+    'openenterprise_logo' => array(
+      'variables' => array(),
+    ),
+    'levelten_logo' => array(
+      'variables' => array(),
+    ),
+  );
+}
+
+/**
+ * Implements theme_openenterprise_logo().
+ */
+function theme_openenterprise_logo() {
+  return '<img src="/profiles/openenterprise/openenterprise-logo-small.png" alt="" class="openenterprise" height="16" width="122" />';
+}
+
+/**
+ * Implements theme_levelten_logo().
+ */
+function theme_levelten_logo() {
+  return '<img src="/profiles/openenterprise/levelten-logo-small.png" alt="" class="levelten" height="16" width="52" />';
+}
+
 /**
  * Implements hook_block_info()
  */
@@ -188,11 +218,19 @@ function openenterprise_block_info() {
  * Implements hook_block_view().
  */
 function openenterprise_block_view($delta = '') {
+  $openenterprise = theme('openenterprise_logo');
+  if (!$openenterprise) {
+    $openenterprise = t('OpenEnterprise');
+  }
+  $levelten = theme('levelten_logo');
+  if (!$levelten) {
+    $levelten = t('LevelTen Interactive');
+  }
   $block = array();
   switch ($delta) {
     case 'powered-by':
       $block['subject'] = NULL;
-      $block['content'] = '<span>' . t('Powered by <a href="http://apps.leveltendesign.com/project/openenterprise" target="_blank">OpenEnterprise</a>. A distribution by <a href="http://www.leveltendesign.com" target="_blank">LevelTen Interactive</a>') . '</span>';
+      $block['content'] = '<span>' . t('Powered by <a href="http://drupal.org/project/openenterprise" title="OpenEnterprise" target="_blank">!openenterprise</a>. A distribution by <a href="http://www.leveltendesign.com" title="LevelTen Interactive" target="_blank">!levelten</a>.', array('!openenterprise' => $openenterprise, '!levelten' => $levelten)) . '</span>';
       return $block;
   }
 }
