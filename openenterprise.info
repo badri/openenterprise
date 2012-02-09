@@ -2,9 +2,6 @@ name = OpenEnterprise
 description = OpenEnterprise Distribution by LevelTen Interactive
 distribution_name = OpenEnterprise
 
-version = 7.x-1.0-beta4
-core = 7.x
-
 ; Core
 dependencies[] = block
 dependencies[] = comment
