@@ -90,7 +90,7 @@ projects[navigation404][version] = 1.0
 ; Libraries
 ;;;;;
 
-libraries[tinymce][download][version] = "get"
+libraries[tinymce][download][type] = "file"
 libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
 libraries[tinymce][directory_name] = "tinymce"
 libraries[tinymce][destination] = "libraries"
