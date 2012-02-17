@@ -218,19 +218,19 @@ function openenterprise_block_info() {
  * Implements hook_block_view().
  */
 function openenterprise_block_view($delta = '') {
-  $openenterprise = theme('openenterprise_logo');
-  if (!$openenterprise) {
-    $openenterprise = t('OpenEnterprise');
-  }
-  $levelten = theme('levelten_logo');
-  if (!$levelten) {
-    $levelten = t('LevelTen Interactive');
-  }
-  $block = array();
   switch ($delta) {
     case 'powered-by':
-      $block['subject'] = NULL;
-      $block['content'] = '<span>' . t('Powered by <a href="http://drupal.org/project/openenterprise" title="OpenEnterprise" target="_blank">!openenterprise</a>. A distribution by <a href="http://www.leveltendesign.com" title="LevelTen Interactive" target="_blank">!levelten</a>.', array('!openenterprise' => $openenterprise, '!levelten' => $levelten)) . '</span>';
-      return $block;
+      $openenterprise = theme('openenterprise_logo');
+      if (!$openenterprise) {
+        $openenterprise = t('OpenEnterprise');
+      }
+      $levelten = theme('levelten_logo');
+      if (!$levelten) {
+        $levelten = t('LevelTen Interactive');
+      }
+      return array(
+        'subject' => NULL,
+        'content' => '<span>' . variable_get('site_name', t('This site')) . ' ' . t('is powered by <a href="http://drupal.org/project/openenterprise" title="OpenEnterprise" target="_blank">!openenterprise</a>. A distribution by <a href="http://www.leveltendesign.com" title="LevelTen Interactive" target="_blank">!levelten</a>.', array('!openenterprise' => $openenterprise, '!levelten' => $levelten)) . '</span>',
+      );
   }
 }
