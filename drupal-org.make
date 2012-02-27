@@ -98,3 +98,4 @@ libraries[tinymce][destination] = "libraries"
 projects[tao][version] = 3.0-beta4
 projects[rubik][version] = 4.0-beta7
 projects[omega][version] = 3.0
+projects[omega][patch][1343274] = http://drupal.org/files/omega-ie7_0.patch
