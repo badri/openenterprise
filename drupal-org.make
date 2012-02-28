@@ -4,7 +4,7 @@ core = "7.12"
 ;;;;;;
 ; Fields
 ;;;;;;
-projects[date][version] = 2.0-rc2
+projects[date][version] = 2.2
 projects[field_group][version] = 1.1
 projects[link][version] = 1.0
 projects[options_element][version] = 1.5
@@ -54,7 +54,7 @@ projects[panels][version] = 3.0
 projects[strongarm][version] = 2.0-beta5
 projects[token][version] = 1.0-rc1
 projects[total_control][version] = 2.3-beta1
-projects[views][version] = 3.1
+projects[views][version] = 3.3
 
 ;;;;;;
 ; Text Editor
@@ -80,14 +80,18 @@ projects[wysiwyg_filter][version] = 1.6-rc2
 ;;;;;;
 projects[backports][version] = 1.0-alpha1
 projects[block_visibility][version] = 1.0-beta2
-projects[nodeconnect][version] = 1.0-alpha1
+projects[nodeconnect][version] = 1.0-alpha2
 projects[simplified_menu_admin][version] = 1.0-beta2
 projects[elements][version] = 1.2
 projects[admin_menu][version] = 3.0-rc1
 projects[navigation404][version] = 1.0
 
-libraries[tinymce][download][version] = "get"
-libraries[tinymce][download][url] = "https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
+;;;;;
+; Libraries
+;;;;;
+
+libraries[tinymce][download][type] = "file"
+libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
 libraries[tinymce][directory_name] = "tinymce"
 libraries[tinymce][destination] = "libraries"
 
@@ -96,6 +100,6 @@ libraries[tinymce][destination] = "libraries"
 ;;;;;;
 
 projects[tao][version] = 3.0-beta4
-projects[rubik][version] = 4.0-beta7
-projects[omega][version] = 3.0
+projects[rubik][version] = 4.0-beta8
+projects[omega][version] = 3.1
 projects[omega][patch][1343274] = http://drupal.org/files/omega-ie7_0.patch
