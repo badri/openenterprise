@@ -234,3 +234,23 @@ function openenterprise_block_view($delta = '') {
       );
   }
 }
+
+/**
+ * Implements hook_init()
+ * 
+ * Add a message if this is the levelten apps page.
+ */
+function openenterprise_init() {
+  if ($_GET['q'] == 'admin/apps/levelten') {
+    apps_include('manifest'); 
+    $server = apps_servers('levelten');
+    // Create args array for substitutions
+    $manifest = apps_manifest($server);
+    if (isset($manifest['message']) && $manifest['message'] != '') {
+      foreach($server as $key => $value) {
+        $args['!' . $key] = $value;
+      }
+      drupal_set_message(format_string($manifest['message'], $args));
+    }
+  }
+}
