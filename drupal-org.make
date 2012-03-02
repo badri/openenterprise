@@ -55,6 +55,7 @@ projects[strongarm][version] = 2.0-beta5
 projects[token][version] = 1.0-rc1
 projects[total_control][version] = 2.3-beta1
 projects[views][version] = 3.3
+projects[views_bulk_operations][version] = 3.0-rc1
 
 ;;;;;;
 ; Text Editor
@@ -103,3 +104,4 @@ projects[tao][version] = 3.0-beta4
 projects[rubik][version] = 4.0-beta8
 projects[omega][version] = 3.1
 projects[omega][patch][1343274] = http://drupal.org/files/omega-ie7_0.patch
+projects[navin][version] = 1.0-beta1
