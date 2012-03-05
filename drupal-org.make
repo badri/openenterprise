@@ -36,6 +36,9 @@ projects[apps][patch][1422254] = http://drupal.org/files/apps_profile_download_f
 ; Fix Installation Profile additions formatting.
 ; http://drupal.org/node/1431992
 projects[apps][patch][1431992] = http://drupal.org/files/1431992-update-install-profile-def.patch
+; Fix Manifest Caching.
+; http://drupal.org/node/1403030
+projects[apps][patch][1403030] = http://drupal.org/files/apps-manifest_caching-1403030_0.patch
 projects[backup_migrate][version] = 2.2
 projects[boxes][version] = 1.0-beta7
 projects[ctools][version] = 1.0-rc1
