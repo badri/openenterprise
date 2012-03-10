@@ -7,7 +7,7 @@ core = "7.12"
 projects[date][version] = 2.2
 projects[field_group][version] = 1.1
 projects[link][version] = 1.0
-projects[options_element][version] = 1.5
+projects[options_element][version] = 1.6
 projects[references][version] = 2.0
 projects[filefield_sources][version] = 1.4
 
@@ -49,7 +49,7 @@ projects[entitycache][version] = 1.1
 projects[features][version] = 1.0-beta6
 ; Fix user_permissions so only for included roles.
 ; http://drupal.org/node/656312
-projects[features][patch][656312] = http://drupal.org/files/issues/features_permission_export-656312-11--D7.patch
+; projects[features][patch][656312] = http://drupal.org/files/issues/features_permission_export-656312-11--D7.patch
 projects[features_override][version] = 1.0-beta1
 projects[libraries][version] = 1.0
 projects[menu_block][version] = 2.3
