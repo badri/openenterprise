@@ -8,6 +8,16 @@ function openenterprise_admin_paths_alter(&$paths) {
 }
 
 /**
+ * Set Open Enterprise as default install profile.
+ *
+ * Must use system as the hook module because openenterprise is not active yet
+ */
+function system_form_install_select_profile_form_alter(&$form, $form_state) {
+  foreach($form['profile'] as $key => $element) {
+    $form['profile'][$key]['#value'] = 'openenterprise';
+  }
+}
+/**
  * Implements hook_appstore_stores_info
  */
 function openenterprise_apps_servers_info() {
