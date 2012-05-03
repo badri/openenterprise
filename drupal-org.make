@@ -1,13 +1,13 @@
 api = 2
-core = "7.12"
+core = "7.14"
 
 ;;;;;;
 ; Fields
 ;;;;;;
-projects[date][version] = 2.2
+projects[date][version] = 2.5
 projects[field_group][version] = 1.1
 projects[link][version] = 1.0
-projects[options_element][version] = 1.6
+projects[options_element][version] = 1.7
 projects[references][version] = 2.0
 projects[filefield_sources][version] = 1.4
 
@@ -23,39 +23,23 @@ projects[transliteration][version] = 3.0
 ;;;;;;
 ; Sitebuilding tools
 ;;;;;;
-projects[apps][version] = 1.0-beta5
-; Fix error during install.
-; http://drupal.org/node/1417916
-projects[apps][patch][1417916] = http://drupal.org/files/apps_install_profile_foreach_error.1417916.patch
-; Fix continue when apps server is unavailable.
-; http://drupal.org/node/1422086
-projects[apps][patch][1422086] = http://drupal.org/files/apps_profile_no_internet.1422086.patch
-; Fix continue when apps server is unavailable.
-; http://drupal.org/node/1422254
-projects[apps][patch][1422254] = http://drupal.org/files/apps_profile_download_fail.1422254.patch
-; Fix Installation Profile additions formatting.
-; http://drupal.org/node/1431992
-projects[apps][patch][1431992] = http://drupal.org/files/1431992-update-install-profile-def.patch
-; Fix Manifest Caching.
-; http://drupal.org/node/1403030
-projects[apps][patch][1403030] = http://drupal.org/files/apps-manifest_caching-1403030_0.patch
+projects[apps][version] = 1.0-beta6
 projects[backup_migrate][version] = 2.2
-projects[boxes][version] = 1.0-beta7
-projects[ctools][version] = 1.0-rc1
+projects[boxes][version] = 1.0
+projects[ctools][version] = 1.0
+projects[custom_formatters][version] = 2.0
 projects[defaultcontent][version] = 1.0-alpha4
+projects[ds][version] = 1.5
 projects[email_registration][version] = 1.0
-projects[entity][version] = 1.0-rc1
+projects[entity][version] = 1.0-rc2
 projects[entitycache][version] = 1.1
-projects[features][version] = 1.0-beta6
-; Fix user_permissions so only for included roles.
-; http://drupal.org/node/656312
-; projects[features][patch][656312] = http://drupal.org/files/issues/features_permission_export-656312-11--D7.patch
-projects[features_override][version] = 1.0-beta1
+projects[features][version] = 1.0-rc2
+projects[features_override][version] = 2.0-alpha1
 projects[libraries][version] = 1.0
 projects[menu_block][version] = 2.3
-projects[panels][version] = 3.0
-projects[strongarm][version] = 2.0-beta5
-projects[token][version] = 1.0-rc1
+projects[panels][version] = 3.2
+projects[strongarm][version] = 2.0-rc1
+projects[token][version] = 1.0
 projects[total_control][version] = 2.3-beta1
 projects[views][version] = 3.3
 projects[views_bulk_operations][version] = 3.0-rc1
@@ -87,7 +71,7 @@ projects[block_visibility][version] = 1.0-beta2
 projects[nodeconnect][version] = 1.0-alpha2
 projects[simplified_menu_admin][version] = 1.0-beta2
 projects[elements][version] = 1.2
-projects[admin_menu][version] = 3.0-rc1
+projects[admin_menu][version] = 3.0-rc2
 projects[navigation404][version] = 1.0
 
 ;;;;;
@@ -95,7 +79,7 @@ projects[navigation404][version] = 1.0
 ;;;;;
 
 libraries[tinymce][download][type] = "file"
-libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
+libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.9.zip"
 libraries[tinymce][directory_name] = "tinymce"
 libraries[tinymce][destination] = "libraries"
 
