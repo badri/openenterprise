@@ -6,6 +6,7 @@
  * Perform actions to set up the site for this profile.
  */
 function openenterprise_install() {
+  variable_set('node_content_enabled', TRUE);
   openenterprise_enable_theme_settings ();
   openenterprise_add_default_text_formats_and_perms();
   openenterprise_setup_admin_role();
