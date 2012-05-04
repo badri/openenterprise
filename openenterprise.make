@@ -91,4 +91,4 @@ projects[tao][version] = 3.0-beta4
 projects[rubik][version] = 4.0-beta8
 projects[omega][version] = 3.1
 projects[omega][patch][1343274] = http://drupal.org/files/omega-ie7_0.patch
-projects[navin][version] = 1.0-beta1
+projects[navin][version] = 1.0-beta2

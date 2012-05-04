@@ -70,7 +70,7 @@ function openenterprise_create_menus() {
 
 function openenterprise_add_default_blocks() {
   // Enable some standard blocks.
-  $default_theme = variable_get('theme_default', 'bartik');
+  $default_theme = variable_get('theme_default', 'navin');
   $admin_theme = 'rubik';
   $values = array(
     array(
@@ -89,7 +89,7 @@ function openenterprise_add_default_blocks() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => -1,
-      'region' => 'sidebar_first',
+      'region' => 'user_first',
       'pages' => '',
       'cache' => -1,
     ),
@@ -109,7 +109,7 @@ function openenterprise_add_default_blocks() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'sidebar_first',
+      'region' => 'sidebar_second',
       'pages' => '',
       'cache' => -1,
     ),
@@ -119,7 +119,7 @@ function openenterprise_add_default_blocks() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'sidebar_first',
+      'region' => 'sidebar_second',
       'pages' => '',
       'cache' => -1,
     ),
@@ -129,17 +129,7 @@ function openenterprise_add_default_blocks() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 10,
-      'region' => 'footer',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
+      'region' => 'footer_bottom',
       'pages' => '',
       'cache' => -1,
     ),
@@ -275,11 +265,16 @@ function openenterprise_setup_tags() {
 */
 function openenterprise_enable_theme_settings () {
   // Set default theme.
-  $theme_default = 'bartik';
+  $theme_default = 'navin';
   variable_set('theme_default', $theme_default);
   
   
   // Enable the admin theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', $theme_default)
+    ->execute();
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
@@ -293,23 +288,6 @@ function openenterprise_enable_theme_settings () {
   variable_set('admin_theme', 'rubik');
   variable_set('node_admin_theme', '1');
   variable_set('theme_seven_settings', array(
-    'toggle_logo' => 1,
-    'toggle_name' => 1,
-    'toggle_slogan' => 1,
-    'toggle_node_user_picture' => 1,
-    'toggle_comment_user_picture' => 1,
-    'toggle_comment_user_verification' => 1,
-    'toggle_favicon' => 1,
-    'toggle_main_menu' => 1,
-    'toggle_secondary_menu' => 1,
-    'default_logo' => 0,
-    'logo_path' => 'profiles/openenterprise/logo.png',
-    'logo_upload' => '',
-    'default_favicon' => 1,
-    'favicon_path' => '',
-    'favicon_upload' => '',
-  ));
-  variable_set('theme_' . $theme_default . '_settings', array(
     'toggle_logo' => 1,
     'toggle_name' => 1,
     'toggle_slogan' => 1,

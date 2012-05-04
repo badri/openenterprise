@@ -40,6 +40,26 @@ function openenterprise_apps_servers_info() {
  * implements hook_install_configure_form_alter()
  */
 function openenterprise_form_install_configure_form_alter(&$form, &$form_state) {
+  // Many modules set messages during installation that are very annoying.
+  // (I'm looking at you Date and IMCE)
+  // Lets remove these and readd the only message that should be set.
+  drupal_get_messages('status');
+  drupal_get_messages('warning');
+
+  // Warn about settings.php permissions risk
+  $settings_dir = conf_path();
+  $settings_file = $settings_dir . '/settings.php';
+  // Check that $_POST is empty so we only show this message when the form is
+  // first displayed, not on the next page after it is submitted. (We do not
+  // want to repeat it multiple times because it is a general warning that is
+  // not related to the rest of the installation process; it would also be
+  // especially out of place on the last page of the installer, where it would
+  // distract from the message that the Drupal installation has completed
+  // successfully.)
+  if (empty($_POST) && (!drupal_verify_install_file(DRUPAL_ROOT . '/' . $settings_file, FILE_EXIST|FILE_READABLE|FILE_NOT_WRITABLE) || !drupal_verify_install_file(DRUPAL_ROOT . '/' . $settings_dir, FILE_NOT_WRITABLE, 'dir'))) {
+    drupal_set_message(st('All necessary changes to %dir and %file have been made, so you should remove write permissions to them now in order to avoid security risks. If you are unsure how to do so, consult the <a href="@handbook_url">online handbook</a>.', array('%dir' => $settings_dir, '%file' => $settings_file, '@handbook_url' => 'http://drupal.org/server-permissions')), 'warning');
+  }
+
   $form['site_information']['site_name']['#default_value'] = 'OpenEnterprise';
   $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
   $form['admin_account']['account']['name']['#default_value'] = 'admin';

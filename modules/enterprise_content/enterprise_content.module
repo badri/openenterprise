@@ -38,16 +38,17 @@ function enterprise_content_init() {
     }
 
     // Enable some default blocks.
-    $default_theme = variable_get('theme_default', 'bartik');
+    //$default_theme = variable_get('theme_default', 'navin');
+    $default_theme = 'navin';
     $values = array(
       array(
         'module' => 'menu',
         'delta' => 'menu-legal-notices',
         'theme' => $default_theme,
         'status' => 1,
-        'weight' => 0,
+        'weight' => 1,
         'title' => '<none>',
-        'region' => 'footer_firstcolumn',
+        'region' => 'footer_first',
         'pages' => '',
         'cache' => -1,
       ),
@@ -58,7 +59,7 @@ function enterprise_content_init() {
         'status' => 1,
         'title' => '<none>',
         'weight' => 0,
-        'region' => 'footer_secondcolumn',
+        'region' => 'footer_second',
         'pages' => '',
         'cache' => -1,
       ),
@@ -69,7 +70,7 @@ function enterprise_content_init() {
         'status' => 1,
         'weight' => -1,
         'visibility' => 1,
-        'region' => 'triptych_first',
+        'region' => 'postfix_first',
         'pages' => '<front>',
         'cache' => -2,
       ),
@@ -80,7 +81,7 @@ function enterprise_content_init() {
         'status' => 1,
         'weight' => -1,
         'visibility' => 1,
-        'region' => 'triptych_middle',
+        'region' => 'postfix_second',
         'pages' => '<front>',
         'cache' => -2,
       ),
@@ -91,7 +92,7 @@ function enterprise_content_init() {
         'status' => 1,
         'weight' => -1,
         'visibility' => 1,
-        'region' => 'triptych_last',
+        'region' => 'postfix_third',
         'pages' => '<front>',
         'cache' => -2,
       ),
@@ -102,7 +103,7 @@ function enterprise_content_init() {
         'status' => 1,
         'weight' => -1,
         'visibility' => 1,
-        'region' => 'featured',
+        'region' => 'header_first',
         'pages' => '<front>',
         'cache' => -1,
       ),
