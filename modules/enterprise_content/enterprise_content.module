@@ -38,8 +38,7 @@ function enterprise_content_init() {
     }
 
     // Enable some default blocks.
-    //$default_theme = variable_get('theme_default', 'navin');
-    $default_theme = 'navin';
+    $default_theme = variable_get('theme_default', 'navin');
     $values = array(
       array(
         'module' => 'menu',
@@ -109,7 +108,7 @@ function enterprise_content_init() {
       ),
     );
     foreach ($values as $record) {
-      drupal_write_record('block', $record, array('theme', 'module', 'delta'));
+      drupal_write_record('block', $record);
     }
 
     variable_set('enterprise_content_installed', TRUE);

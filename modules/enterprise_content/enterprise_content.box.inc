@@ -10,7 +10,7 @@
 function enterprise_content_default_box() {
   $export = array();
 
-  $box = new stdClass;
+  $box = new stdClass();
   $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
   $box->api_version = 1;
   $box->delta = 'oe1';
@@ -25,7 +25,7 @@ function enterprise_content_default_box() {
   );
   $export['oe1'] = $box;
 
-  $box = new stdClass;
+  $box = new stdClass();
   $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
   $box->api_version = 1;
   $box->delta = 'oe2';
@@ -40,7 +40,7 @@ function enterprise_content_default_box() {
   );
   $export['oe2'] = $box;
 
-  $box = new stdClass;
+  $box = new stdClass();
   $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
   $box->api_version = 1;
   $box->delta = 'oe3';

@@ -10,24 +10,6 @@
 function enterprise_content_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: menu-social:http://linkedin.com
-  $menu_links['menu-social:http://www.linkedin.com'] = array(
-    'menu_name' => 'menu-social',
-    'link_path' => 'http://www.linkedin.com',
-    'router_path' => '',
-    'link_title' => 'LinkedIn',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-  );
   // Exported menu link: menu-social:http://twitter.com
   $menu_links['menu-social:http://twitter.com'] = array(
     'menu_name' => 'menu-social',
@@ -64,7 +46,25 @@ function enterprise_content_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '0',
   );
-  // Exported menu link: menu-social:http://youtube.com
+  // Exported menu link: menu-social:http://www.linkedin.com
+  $menu_links['menu-social:http://www.linkedin.com'] = array(
+    'menu_name' => 'menu-social',
+    'link_path' => 'http://www.linkedin.com',
+    'router_path' => '',
+    'link_title' => 'LinkedIn',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+  );
+  // Exported menu link: menu-social:http://www.youtube.com
   $menu_links['menu-social:http://www.youtube.com'] = array(
     'menu_name' => 'menu-social',
     'link_path' => 'http://www.youtube.com',
@@ -84,11 +84,8 @@ function enterprise_content_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('About Us');
   t('Facebook');
   t('LinkedIn');
-  t('Privacy Policy');
-  t('Terms and Conditions');
   t('Twitter');
   t('YouTube');
 
