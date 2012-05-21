@@ -15,7 +15,7 @@ projects[filefield_sources][version] = 1.4
 ; Path Tools
 ;;;;;;
 projects[globalredirect][version] = 1.4
-projects[pathauto][version] = 1.0
+projects[pathauto][version] = 1.1
 projects[redirect][version] = 1.0-beta4
 projects[transliteration][version] = 3.0
 
@@ -24,11 +24,14 @@ projects[transliteration][version] = 3.0
 ; Sitebuilding tools
 ;;;;;;
 projects[apps][version] = 1.0-beta6
-projects[backup_migrate][version] = 2.2
+projects[backup_migrate][version] = 2.3
 projects[boxes][version] = 1.0
 projects[ctools][version] = 1.0
 projects[custom_formatters][version] = 2.0
 projects[defaultcontent][version] = 1.0-alpha6
+; Remove context dependency.
+; http://drupal.org/node/1446714
+projects[defaultcontent][patch][1446714] = http://drupal.org/files/defaultcontent-1446714-16.patch
 projects[ds][version] = 1.5
 projects[email_registration][version] = 1.0
 projects[entity][version] = 1.0-rc2
@@ -39,7 +42,7 @@ projects[libraries][version] = 1.0
 projects[menu_block][version] = 2.3
 projects[panels][version] = 3.2
 projects[strongarm][version] = 2.0-rc1
-projects[token][version] = 1.0
+projects[token][version] = 1.1
 projects[total_control][version] = 2.3-beta1
 projects[views][version] = 3.3
 projects[views_bulk_operations][version] = 3.0-rc1
@@ -84,7 +87,7 @@ libraries[tinymce][directory_name] = "tinymce"
 libraries[tinymce][destination] = "libraries"
 
 ;;;;;;
-; Theme
+; Themes
 ;;;;;;
 
 projects[tao][version] = 3.0-beta4
