@@ -1,6 +1,4 @@
 api = 2
-; to be flexible just use 7.x
-; also " are not necessary
 core = 7.x
 
 ; take the last released Drupal 7.x version

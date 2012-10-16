@@ -1,5 +1,3 @@
-; todo: check all issues with patches: are they any longer neccessary?
-; check all URI, are they still avialable?
 api = 2
 core = 7.x
 
@@ -54,21 +52,11 @@ projects[views_bulk_operations][subdir] = contrib
 ;;;;;;
 projects[imce][subdir] = contrib
 projects[imce_wysiwyg][subdir] = contrib
-;; No D7 release yet
-;projects[better_formats][version] = 1.x-dev
+projects[better_formats][subdir] = contrib
 projects[insert][subdir] = contrib
 projects[caption_filter][subdir] = contrib
 projects[image_resize_filter][subdir] = contrib
-; suggestion: using the dev version until 7.x-2.2
-; until these issues are solved
-; projects[wysiwyg][version] = 7.x-2.x-dev
-projects[wysiwyg][version] = 2.1
-; Fix path_to_theme()
-; http://drupal.org/node/835682
-projects[wysiwyg][patch][835682] = http://drupal.org/files/issues/wysiwyg-835682-12.patch
-; Fix empty font styles drop down()
-; http://drupal.org/node/746524
-projects[wysiwyg][patch][746524] = http://drupal.org/files/746524-143-D7.patch
+projects[wysiwyg][subdir] = contrib
 projects[wysiwyg_filter][subdir] = contrib
 
 ;;;;;;
@@ -95,8 +83,8 @@ libraries[tinymce][destination] = libraries
 ; Themes
 ;;;;;;
 
-projects[tao][subdir] = contrib
-projects[rubik][subdir] = contrib
+projects[tao][type] = theme
+projects[rubik][type] = theme
 projects[omega][version] = 3.1
 projects[omega][patch][1343274] = http://drupal.org/files/omega-ie7_0.patch
-projects[navin][subdir] = contrib
+projects[navin][type] = theme

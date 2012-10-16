@@ -1,13 +1,9 @@
 api = 2
 core = 7.x
-; todo: check all modules with patches if the patch if the 
 
 ;;;;;;
 ; Fields
 ;;;;;;
-; why are the versions important?
-; i'd prefere to be version idependent, as much as possible
-; in case of a patch a version number is justified
 projects[date][subdir] = contrib
 projects[field_group][subdir] = contrib
 projects[link][subdir] = contrib
