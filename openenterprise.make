@@ -29,6 +29,7 @@ projects[boxes][subdir] = contrib
 projects[ctools][subdir] = contrib
 projects[custom_formatters][subdir] = contrib
 projects[defaultcontent][version] = 1.0-alpha6
+projects[defaultcontent][subdir] = contrib
 ; Remove context dependency.
 ; http://drupal.org/node/1446714
 projects[defaultcontent][patch][1446714] = http://drupal.org/files/defaultcontent-1446714-16.patch
