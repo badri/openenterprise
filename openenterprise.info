@@ -30,7 +30,12 @@ dependencies[] = rdf
 dependencies[] = date
 dependencies[] = date_popup
 dependencies[] = date_views
+dependencies[] = ffc
+dependencies[] = field_delimiter
+dependencies[] = field_formatter_class
+dependencies[] = field_formatter_settings
 dependencies[] = field_group
+dependencies[] = field_word_boundary
 dependencies[] = link
 dependencies[] = options_element
 dependencies[] = references
@@ -59,6 +64,7 @@ dependencies[] = filefield_sources
 dependencies[] = backports
 dependencies[] = block_visibility
 dependencies[] = elements
+dependencies[] = jquery_update
 dependencies[] = navigation404
 dependencies[] = nodeconnect
 dependencies[] = simplified_menu_admin
@@ -73,6 +79,7 @@ dependencies[] = defaultcontent
 dependencies[] = email_registration
 dependencies[] = entity
 dependencies[] = entitycache
+dependencies[] = image_url_formatter
 dependencies[] = features
 dependencies[] = libraries
 dependencies[] = menu_block
@@ -90,6 +97,3 @@ dependencies[] = views_bulk_operations
 ;dependencies[] = tutorials
 
 files[] = openenterprise.profile
-
-;; Include WYSIWYG stylesheet
-stylesheets[all][] = wysiwyg_align.css
