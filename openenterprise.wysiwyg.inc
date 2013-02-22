@@ -153,7 +153,7 @@ img[!src|alt|width|height|class|typeof],
 Align Image Left=align-left',
     ),
   );
-  $filtered_html_wysiwyg['settings'] = serialize($filtered_html_wysiwyg['settings']);
+  $filtered_html_wysiwyg['settings'] = $filtered_html_wysiwyg['settings'];
   drupal_write_record('wysiwyg', $filtered_html_wysiwyg);
 
   // Full HTML Text Filter
@@ -290,7 +290,7 @@ img[!src|alt|width|height|class|typeof],
 Align Image Left=align-left',
     ),
   );
-  $full_html_wysiwyg['settings'] = serialize($full_html_wysiwyg['settings']);
+  $full_html_wysiwyg['settings'] = $full_html_wysiwyg['settings'];
   drupal_write_record('wysiwyg', $full_html_wysiwyg);
 
   $filtered_html_permission = filter_permission_name($filtered_html_format);
