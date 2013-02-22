@@ -8,15 +8,37 @@ function openenterprise_admin_paths_alter(&$paths) {
 }
 
 /**
- * Set Open Enterprise as default install profile.
- *
- * Must use system as the hook module because openenterprise is not active yet
+ * Determine whether or not to skip the profile selection process. Normally when
+ * downloading a distribution, there is only one additional profile to choose from
+ * beside what core provides. We need to use the system hook, because openenterprise
+ * is not yet active.
  */
-function system_form_install_select_profile_form_alter(&$form, $form_state) {
-  foreach($form['profile'] as $key => $element) {
-    $form['profile'][$key]['#value'] = 'openenterprise';
+if (!function_exists('system_form_install_select_profile_form_alter')) {
+  function system_form_install_select_profile_form_alter(&$form, $form_state) {
+    if (isset($_GET['profile']) && empty($_GET['profile'])) {
+      foreach($form['profile'] as $key => $element) {
+        $form['profile'][$key]['#value'] = 'openenterprise';
+      }
+      return;
+    }
+    $profiles = array_keys($form['profile']);
+    if (in_array('OpenEnterprise', $profiles)) {
+      foreach ($profiles as $key => $profile) {
+        switch ($profile) {
+          case 'Standard':
+          case 'Minimal':
+          case 'OpenEnterprise':
+            unset($profiles[$key]);
+            break;
+        }
+      }
+      if (empty($profiles)) {
+        install_goto('install.php?profile=openenterprise');
+      }
+    }
   }
 }
+
 /**
  * Implements hook_appstore_stores_info
  */
@@ -102,6 +124,23 @@ function openenterprise_default_content(&$modules) {
 }
 
 /**
+ * Force-set a theme at any point during the execution of the request.
+ *
+ * Drupal doesn't give us the option to set the theme during the installation
+ * process and forces enable the maintenance theme too early in the request
+ * for us to modify it in a clean way.
+ */
+function _openenterprise_set_theme($target_theme) {
+  if ($GLOBALS['theme'] != $target_theme) {
+    unset($GLOBALS['theme']);
+
+    drupal_static_reset();
+    $GLOBALS['conf']['maintenance_theme'] = $target_theme;
+    _drupal_maintenance_theme();
+  }
+}
+
+/**
  * Modify the apps_select_form
  * 
  * Add a custom callback so we can save the apps selection for later.
@@ -128,6 +167,7 @@ function openenterprise_apps_profile_apps_select_form_submit($form, $form_state)
  * Change the final task to our task
  */
 function openenterprise_install_tasks_alter(&$tasks, $install_state) {
+  _openenterprise_set_theme('oe_install_theme');
   $tasks['install_finished']['function'] = "openenterprise_install_finished";
 }
 

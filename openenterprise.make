@@ -89,4 +89,5 @@ libraries[tinymce][destination] = libraries
 ;;;;;;
 
 projects[bootstrap][type] = theme
+projects[tao][type] = theme
 projects[rubik][type] = theme
