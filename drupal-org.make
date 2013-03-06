@@ -4,76 +4,72 @@ core = 7.x
 ;;;;;;
 ; Fields
 ;;;;;;
-projects[date][type] = module
-projects[ffc][type] = module
-projects[field_delimiter][type] = module
-projects[field_formatter_class][type] = module
-projects[field_formatter_settings][type] = module
-projects[field_group][type] = module
-projects[field_word_boundary][type] = module
-projects[filefield_sources][type] = module
-projects[link][type] = module
-projects[options_element][type] = module
-projects[references][type] = module
+projects[custom_formatters][version] = 2.2
+projects[date][version] = 2.6
+projects[entityreference][version] = 1.0
+projects[ffc][version] = 1.0-beta2
+projects[field_delimiter][version] = 1.0
+projects[field_formatter_class][version] = 1.1
+projects[field_formatter_settings][version] = 1.0
+projects[field_group][version] = 1.1
+projects[field_word_boundary][version] = 1.0-beta3
+projects[filefield_sources][version] = 1.7
+projects[image_url_formatter][version] = 1.0
+projects[link][version] = 1.1
+projects[options_element][version] = 1.8
 
 ;;;;;;
 ; Path Tools
 ;;;;;;
-projects[globalredirect][type] = module
-projects[pathauto][type] = module
-projects[redirect][type] = module
-projects[transliteration][type] = module
+projects[globalredirect][version] = 1.5
+projects[pathauto][version] = 1.2
+projects[redirect][version] = 1.0-rc1
+projects[transliteration][version] = 3.1
 
 ;;;;;;
 ; Sitebuilding tools
 ;;;;;;
-projects[apps][type] = module
-projects[backup_migrate][type] = module
-projects[boxes][type] = module
-projects[ctools][type] = module
-projects[custom_formatters][type] = module
-projects[defaultcontent][type] = module
-projects[ds][type] = module
-projects[email_registration][type] = module
-projects[entity][type] = module
-projects[entitycache][type] = module
-projects[features][type] = module
-projects[features_override][type] = module
-projects[image_url_formatter][type] = module
-projects[libraries][type] = module
-projects[menu_block][type] = module
-projects[panels][type] = module
-projects[strongarm][type] = module
-projects[token][type] = module
-projects[total_control][type] = module
-projects[views][type] = module
-projects[views_bulk_operations][type] = module
+projects[apps][version] = 1.0-beta7
+projects[blockgroup][version] = 1.0-beta1
+projects[block_class][version] = 1.2
+projects[ctools][version] = 1.2
+projects[defaultcontent][version] = 1.0-alpha9
+projects[ds][version] = 2.2
+projects[entity][version] = 1.0
+projects[entitycache][version] = 1.1
+projects[features][version] = 2.0-beta1
+projects[libraries][version] = 2.0
+projects[menu_attributes][version] = 1.0-rc2
+projects[menu_block][version] = 2.3
+projects[strongarm][version] = 2.0
+projects[token][version] = 1.5
+projects[views][version] = 3.5
+projects[views_bulk_operations][version] = 3.1
+projects[views_responsive_grid][version] = 1.2
 
 ;;;;;;
 ; Text Editor
 ;;;;;;
-projects[imce][type] = module
-projects[imce_wysiwyg][type] = module
-projects[better_formats][type] = module
-projects[insert][type] = module
-projects[caption_filter][type] = module
-projects[image_resize_filter][type] = module
-projects[wysiwyg][type] = module
-projects[wysiwyg_filter][type] = module
+projects[imce][version] = 1.7
+projects[imce_wysiwyg][version] = 1.0
+projects[better_formats][version] = 1.0-beta1
+projects[insert][version] = 1.3
+projects[caption_filter][version] = 1.2
+projects[image_resize_filter][version] = 1.13
+projects[wysiwyg][version] = 2.2
+projects[wysiwyg_filter][version] = 1.6-rc2
 
 ;;;;;;
 ; UI Enhancements
 ;;;;;;
-projects[admin_menu][type] = module
-projects[backports][type] = module
-projects[block_visibility][type] = module
-projects[jquery_update][type] = module
-projects[jquery_update][version] = 2.x-dev
-projects[menu_trail_by_path][type] = module
-projects[navigation404][type] = module
-projects[nodeconnect][type] = module
-projects[simplified_menu_admin][type] = module
-projects[elements][type] = module
+projects[admin_menu][version] = 3.0-rc4
+projects[block_visibility][version] = 1.0-beta2
+projects[email_registration][version] = 1.1
+projects[jquery_update][version] = 2.3
+projects[module_filter][version] = 1.7
+projects[menu_trail_by_path][version] = 2.0
+projects[navigation404][version] = 1.0
+projects[simplified_menu_admin][version] = 1.0-beta2
 
 ;;;;;
 ; Libraries
