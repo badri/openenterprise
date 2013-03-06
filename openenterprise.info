@@ -16,7 +16,6 @@ dependencies[] = options
 dependencies[] = path
 dependencies[] = taxonomy
 dependencies[] = syslog
-dependencies[] = search
 dependencies[] = shortcut
 dependencies[] = overlay
 dependencies[] = field
@@ -38,9 +37,6 @@ dependencies[] = field_group
 dependencies[] = field_word_boundary
 dependencies[] = link
 dependencies[] = options_element
-dependencies[] = references
-dependencies[] = node_reference
-dependencies[] = user_reference
 
 ;; Path
 dependencies[] = globalredirect
@@ -61,19 +57,15 @@ dependencies[] = image_resize_filter
 dependencies[] = filefield_sources
 
 ;; UX Enhancements
-dependencies[] = backports
 dependencies[] = block_visibility
-dependencies[] = elements
 dependencies[] = jquery_update
 dependencies[] = navigation404
-dependencies[] = nodeconnect
 dependencies[] = simplified_menu_admin
 
 ;; Sitebuilding Tools
 dependencies[] = admin_menu
 dependencies[] = admin_menu_toolbar
 dependencies[] = apps
-dependencies[] = backup_migrate
 dependencies[] = ctools
 dependencies[] = defaultcontent
 dependencies[] = email_registration
@@ -84,10 +76,8 @@ dependencies[] = features
 dependencies[] = libraries
 dependencies[] = menu_block
 dependencies[] = page_manager
-dependencies[] = panels
 dependencies[] = strongarm
 dependencies[] = token
-dependencies[] = total_control
 dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_ui
