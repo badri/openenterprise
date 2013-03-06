@@ -66,6 +66,7 @@ projects[admin_menu][version] = 3.0-rc4
 projects[block_visibility][version] = 1.0-beta2
 projects[email_registration][version] = 1.1
 projects[jquery_update][version] = 2.3
+projects[module_filter][version] = 1.7
 projects[menu_trail_by_path][version] = 2.0
 projects[navigation404][version] = 1.0
 projects[simplified_menu_admin][version] = 1.0-beta2

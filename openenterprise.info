@@ -59,6 +59,7 @@ dependencies[] = filefield_sources
 ;; UX Enhancements
 dependencies[] = block_visibility
 dependencies[] = jquery_update
+dependencies[] = module_filter
 dependencies[] = navigation404
 dependencies[] = simplified_menu_admin
 
