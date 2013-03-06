@@ -14,7 +14,7 @@ projects[field_formatter_settings][version] = 1.0
 projects[field_group][version] = 1.1
 projects[field_word_boundary][version] = 1.0-beta3
 projects[filefield_sources][version] = 1.7
-projects[image_url_formatter][version] = module
+projects[image_url_formatter][version] = 1.0
 projects[link][version] = 1.1
 projects[options_element][version] = 1.8
 
@@ -31,7 +31,7 @@ projects[transliteration][version] = 3.1
 ;;;;;;
 projects[apps][version] = 1.0-beta7
 projects[blockgroup][version] = 1.0-beta1
-projects[block_class][version] = 1.2p
+projects[block_class][version] = 1.2
 rojects[ctools][version] = 1.2
 projects[defaultcontent][version] = 1.0-alpha9
 projects[ds][version] = 2.2
@@ -64,8 +64,8 @@ projects[wysiwyg_filter][version] = 1.6-rc2
 ;;;;;;
 ; UI Enhancements
 ;;;;;;
-projects[admin_menu][version] = module
-projects[block_visibility][version] = module
+projects[admin_menu][version] = 3.0-rc4
+projects[block_visibility][version] = 1.0-beta2
 projects[email_registration][version] = 1.1
 projects[jquery_update][version] = 2.3
 projects[menu_trail_by_path][version] = 2.0
