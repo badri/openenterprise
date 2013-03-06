@@ -167,7 +167,7 @@ function openenterprise_apps_profile_apps_select_form_submit($form, $form_state)
  * Change the final task to our task
  */
 function openenterprise_install_tasks_alter(&$tasks, $install_state) {
-  _openenterprise_set_theme('oe_install_theme');
+//  _openenterprise_set_theme('oe_install_theme');
   $tasks['install_finished']['function'] = "openenterprise_install_finished";
 }
 
