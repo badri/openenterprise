@@ -4,7 +4,6 @@ core = 7.x
 ;;;;;;
 ; Fields
 ;;;;;;
-projects[custom_formatters][version] = 2.2
 projects[date][version] = 2.6
 projects[entityreference][version] = 1.0
 projects[ffc][version] = 1.0-beta2
