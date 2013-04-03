@@ -29,20 +29,20 @@ projects[transliteration][version] = 3.1
 ; Sitebuilding tools
 ;;;;;;
 projects[apps][version] = 1.0-beta7
-projects[blockgroup][version] = 1.0-beta1
+projects[blockgroup][version] = 1.0-rc1
 projects[block_class][version] = 1.2
 projects[ctools][version] = 1.2
 projects[defaultcontent][version] = 1.0-alpha9
 projects[ds][version] = 2.2
 projects[entity][version] = 1.0
 projects[entitycache][version] = 1.1
-projects[features][version] = 2.0-beta1
-projects[libraries][version] = 2.0
+projects[features][version] = 2.0-beta2
+projects[libraries][version] = 2.1
 projects[menu_attributes][version] = 1.0-rc2
 projects[menu_block][version] = 2.3
 projects[strongarm][version] = 2.0
 projects[token][version] = 1.5
-projects[views][version] = 3.5
+projects[views][version] = 3.6
 projects[views_bulk_operations][version] = 3.1
 projects[views_responsive_grid][version] = 1.2
 
