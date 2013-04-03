@@ -17,6 +17,7 @@ function openenterprise_install() {
   openenterprise_setup_tags();
 
   // pathauto variables since they don't get set early enough for content.
+  variable_set('pathauto_taxonomy_term_pattern', ''); // Pathauto sets this to something else. We actually want it blank so we can turn it off for some vocabularies.
   variable_set('pathauto_node_pattern', '[node:content-type:machine-name]/[node:title]');
   variable_set('pathauto_punctuation_underscore', '1');
 
