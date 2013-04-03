@@ -83,6 +83,16 @@ libraries[tinymce][destination] = libraries
 ; Themes
 ;;;;;;
 
+projects[bootstrap][version] = 2.x-dev
 projects[bootstrap][type] = theme
+; [META] Refactor code to allow for either CDN or sub-theme source files.
+; http://drupal.org/node/1957620
+projects[bootstrap][patch][1957620] = http://drupal.org/files/1957620-bootstrap-refactor_code_cdn-1.patch
+; Add sub-theme starter kit
+; http://drupal.org/node/1844448
+projects[bootstrap][patch][1844448] = http://drupal.org/files/1844448-bootstrap-subtheme-52.patch
+projects[tao][version] = 3.0-beta4
 projects[tao][type] = theme
+projects[tao][patch][1212314] = http://drupal.org/files/0001-Issue-1212314-by-ericduran-Fixed-Fieldgroup-legend-t.patch
+projects[rubik][version] = 4.0-beta8
 projects[rubik][type] = theme
