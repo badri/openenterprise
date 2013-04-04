@@ -23,7 +23,7 @@ function openenterprise_variable_set() {
     // Bootstrap needs a minimum of jQuery 1.7. Set jQuery Update variables.
     'jquery_update_compression_type' => 'min',
     'jquery_update_jquery_cdn' => 'google',
-    'jquery_update_jquery_version' => '1.7',
+    'jquery_update_jquery_version' => '1.8',
     // Pathauto sets this to something else. We actually want it blank
     // so we can turn it off for some vocabularies.
     'pathauto_taxonomy_term_pattern' => '',
