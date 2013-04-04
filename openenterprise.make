@@ -8,6 +8,9 @@ projects[date][version] = 2.6
 projects[entityreference][version] = 1.0
 projects[ffc][version] = 1.0-beta2
 projects[field_delimiter][version] = 1.0
+; Undefined index: field_delimiter & Undefined index: cardinality
+; http://drupal.org/node/1961498
+projects[field_delimiter][patch][1961498] = http://drupal.org/files/1961498-field_delimiter-undefined_indexes-1.patch
 projects[field_formatter_class][version] = 1.1
 projects[field_formatter_settings][version] = 1.0
 projects[field_group][version] = 1.1
