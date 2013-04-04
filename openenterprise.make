@@ -31,7 +31,7 @@ projects[transliteration][version] = 3.1
 projects[apps][version] = 1.0-beta7
 projects[blockgroup][version] = 1.0-rc1
 projects[block_class][version] = 1.2
-projects[ctools][version] = 1.2
+projects[ctools][version] = 1.3
 projects[defaultcontent][version] = 1.0-alpha9
 projects[ds][version] = 2.2
 ; Allow modules to alter region and layout classes
@@ -46,6 +46,9 @@ projects[menu_block][version] = 2.3
 projects[strongarm][version] = 2.0
 projects[token][version] = 1.5
 projects[views][version] = 3.6
+; Views UI breaks with jQuery 1.8
+; http://drupal.org/node/1802198
+projects[views][patch][1802198] = http://drupal.org/files/1802198.patch
 projects[views_bulk_operations][version] = 3.1
 projects[views_responsive_grid][version] = 1.2
 
@@ -68,6 +71,12 @@ projects[admin_menu][version] = 3.0-rc4
 projects[block_visibility][version] = 1.0-beta2
 projects[email_registration][version] = 1.1
 projects[jquery_update][version] = 2.3
+; Allow different version for administrative pages
+; http://drupal.org/node/1524944
+projects[jquery_update][patch][1524944] = http://drupalcode.org/project/jquery_update.git/patch/469fac05d630668d6f3d8e24fef60c35614ff0ca
+; Update jQuery UI to the latest version (1.10.2)
+; http://drupal.org/node/1947438
+projects[jquery_update][patch][1947438] = http://drupalcode.org/project/jquery_update.git/patch/d32f50d45b54b1b1f6430ea09b83f005032075f0
 projects[module_filter][version] = 1.7
 projects[menu_trail_by_path][version] = 2.0
 projects[navigation404][version] = 1.0
