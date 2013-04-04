@@ -34,6 +34,9 @@ projects[block_class][version] = 1.2
 projects[ctools][version] = 1.2
 projects[defaultcontent][version] = 1.0-alpha9
 projects[ds][version] = 2.2
+; Allow modules to alter region and layout classes
+; http://drupal.org/node/1961420
+projects[ds][patch][1961420] = http://drupal.org/files/1961420-ds-classes_alter-1.patch
 projects[entity][version] = 1.0
 projects[entitycache][version] = 1.1
 projects[features][version] = 2.0-beta2
