@@ -130,10 +130,9 @@ function openenterprise_default_content(&$modules) {
  * process and forces enable the maintenance theme too early in the request
  * for us to modify it in a clean way.
  */
-function _openenterprise_set_theme($target_theme) {
+function openenterprise_install_set_theme($target_theme) {
   if ($GLOBALS['theme'] != $target_theme) {
     unset($GLOBALS['theme']);
-
     drupal_static_reset();
     $GLOBALS['conf']['maintenance_theme'] = $target_theme;
     _drupal_maintenance_theme();
@@ -167,7 +166,7 @@ function openenterprise_apps_profile_apps_select_form_submit($form, $form_state)
  * Change the final task to our task
  */
 function openenterprise_install_tasks_alter(&$tasks, $install_state) {
-//  _openenterprise_set_theme('oe_install_theme');
+  openenterprise_install_set_theme('oe_install_theme');
   $tasks['install_finished']['function'] = "openenterprise_install_finished";
 }
 
