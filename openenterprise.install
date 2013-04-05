@@ -6,50 +6,21 @@
  * Perform actions to set up the site for this profile.
  */
 function openenterprise_install() {
-  variable_set('node_content_enabled', TRUE);
-  openenterprise_enable_theme_settings ();
-  openenterprise_add_default_text_formats_and_perms();
-  openenterprise_setup_admin_role();
-  openenterprise_create_menus();
-  openenterprise_add_default_blocks();
-  openenterprise_add_content_types();
-  openenterprise_setup_users();
-  openenterprise_setup_tags();
-  openenterprise_variable_set();
-}
-
-function openenterprise_variable_set() {
-  $variables = array(
-    // Bootstrap needs a minimum of jQuery 1.7. Set jQuery Update variables.
-    'jquery_update_compression_type' => 'min',
-    'jquery_update_jquery_cdn' => 'google',
-    'jquery_update_jquery_version' => '1.8',
-    // Pathauto sets this to something else. We actually want it blank
-    // so we can turn it off for some vocabularies.
-    'pathauto_taxonomy_term_pattern' => '',
-    // Pathauto variables since they don't get set early enough for content.
-    'pathauto_node_pattern' => '[node:content-type:machine-name]/[node:title]',
-    'pathauto_punctuation_underscore' => '1',
-    // Set up date defaults so it doesn't yell at us anymore
-    'date_first_day' => 0,
-    'date_format_long' => 'l, F j, Y - H:i',
-    'date_format_medium' => 'D, Y-m-d H:i',
-    'date_format_short' => 'Y-m-d H:i',
-  );
-  foreach ($variables as $name => $value) {
-    variable_set($name, $value);
-  }
-}
-
-function openenterprise_add_default_text_formats_and_perms() {
-  require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.wysiwyg.inc';
-  openenterprise_wysiwyg_formats();
+  openenterprise_install_admin_roll();
+  openenterprise_install_blocks();
+  openenterprise_install_content_types();
+  openenterprise_install_menu_links();
+  openenterprise_install_permissions();
+  openenterprise_install_taxonomy();
+  openenterprise_install_text_formats();
+  openenterprise_install_theme_settings();
+  openenterprise_install_variables();
 }
 
 /*
- * Create the admin role
+ * Install user rolls.
  */
-function openenterprise_setup_admin_role() {
+function openenterprise_install_admin_roll() {
   // Create a default role for site administrators, with all available permissions assigned.
   $admin_role = new stdClass();
   $admin_role->name = 'administrator';
@@ -58,7 +29,6 @@ function openenterprise_setup_admin_role() {
   user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
   // Set this as the administrator role.
   variable_set('user_admin_role', $admin_role->rid);
-
   // Assign user 1 the "administrator" role.
   db_insert('users_roles')
     ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
@@ -68,22 +38,9 @@ function openenterprise_setup_admin_role() {
 }
 
 /**
- * Create menus and links
+ * Install default block placements.
  */
-function openenterprise_create_menus() {
-  // Create a Home link in the main menu.
-  $item = array(
-    'link_title' => st('Home'),
-    'link_path' => '<front>',
-    'menu_name' => 'main-menu',
-  );
-  menu_link_save($item);
-
-  // Update the menu router information.
-  menu_rebuild();
-}
-
-function openenterprise_add_default_blocks() {
+function openenterprise_install_blocks() {
   // Enable some standard blocks.
   $default_theme = variable_get('theme_default', 'bartik');
   $admin_theme = 'rubik';
@@ -206,7 +163,10 @@ function openenterprise_add_default_blocks() {
   $query->execute();
 }
 
-function openenterprise_add_content_types() {
+/**
+ * Install default "Page" content type.
+ */
+function openenterprise_install_content_types() {
   $types = array(
     array(
       'type' => 'page',
@@ -218,13 +178,11 @@ function openenterprise_add_content_types() {
       'locked' => 0,
     ),
   );
-
   foreach ($types as $type) {
     $type = node_type_set_defaults($type);
     node_type_save($type);
     node_add_body_field($type);
   }
-
   // Insert default pre-defined RDF mapping into the database.
   $rdf_mappings = array(
     array(
@@ -238,10 +196,10 @@ function openenterprise_add_content_types() {
   foreach ($rdf_mappings as $rdf_mapping) {
     rdf_mapping_save($rdf_mapping);
   }
-
   require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.wysiwyg.inc';
   openenterprise_wysiwyg_create_image_field('page');
-  
+
+  variable_set('node_content_enabled', TRUE);
   // Default "Basic page" to not be promoted and have comments disabled.
   variable_set('node_options_page', array('status'));
   variable_set('comment_page', COMMENT_NODE_HIDDEN);
@@ -250,35 +208,55 @@ function openenterprise_add_content_types() {
   variable_set('node_submitted_page', FALSE);
 }
 
-function openenterprise_setup_users() {
-  // Enable user picture support and set the default to a square thumbnail option.
-  variable_set('user_pictures', '1');
-  variable_set('user_picture_dimensions', '1024x1024');
-  variable_set('user_picture_file_size', '800');
-  variable_set('user_picture_style', 'thumbnail');
-
-  // Allow visitor account creation with administrative approval.
-  variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
+/**
+ * Install default "Home" link in the main menu.
+ */
+function openenterprise_install_menu_links() {
+  $item = array(
+    'link_title' => st('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+  );
+  menu_link_save($item);
+  // Update the menu router information.
+  menu_rebuild();
 }
 
-function openenterprise_setup_tags() {
-  // Create a default vocabulary named "Tags".
-  $description = st('Use tags to group articles on similar topics into categories.');
-  $help = st('Enter a comma-separated list of words to describe your content.');
+/**
+ * Install default permissions.
+ */
+function openenterprise_install_permissions() {
+  // Enable default permissions for system roles.
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+}
+
+/**
+ * Install default "Tags" vocabulary.
+ */
+function openenterprise_install_taxonomy() {
   $vocabulary = (object) array(
     'name' => st('Tags'),
-    'description' => $description,
+    'description' => st('Use tags to group articles on similar topics into categories.'),
     'machine_name' => 'tags',
-    'help' => $help,
-
+    'help' => st('Enter a comma-separated list of words to describe your content.'),
   );
   taxonomy_vocabulary_save($vocabulary);
 }
 
 /**
-* Set Rubik as the Admin Theme
+ * Install default text formats with WYSIWYG settings.
+ */
+function openenterprise_install_text_formats() {
+  require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.wysiwyg.inc';
+  openenterprise_wysiwyg_formats();
+}
+
+/**
+* Install default theme settings.
 */
-function openenterprise_enable_theme_settings () {
+function openenterprise_install_theme_settings() {
   // Set default theme.
   $theme_default = 'bartik';
   variable_set('theme_default', $theme_default);
@@ -322,19 +300,34 @@ function openenterprise_enable_theme_settings () {
 }
 
 /**
- * Setup WYSIWYG editor for new setup.
+ * Install default variables.
  */
-function openenterprise_update_7100() {
-  module_enable(array('imce_wysiwyg', 'imce', 'wysiwyg', 'wysiwyg_filter', 'better_formats', 'caption_filter', 'insert', 'image_resize_filter', 'filefield_sources'));
-  require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.wysiwyg.inc';
-  openenterprise_wysiwyg_formats();
-  openenterprise_wysiwyg_create_image_field('page');
-}
-
-
-/**
- * Enable the modules: 404 Navigation and Total Control.
- */
-function openenterprise_update_7101() {
-  module_enable(array('navigation404', 'total_control'));
+function openenterprise_install_variables() {
+  $variables = array(
+    // Bootstrap needs a minimum of jQuery 1.7. Set jQuery Update variables.
+    'jquery_update_compression_type' => 'min',
+    'jquery_update_jquery_cdn' => 'google',
+    'jquery_update_jquery_version' => '1.8',
+    // Pathauto sets this to something else. We actually want it blank
+    // so we can turn it off for some vocabularies.
+    'pathauto_taxonomy_term_pattern' => '',
+    // Pathauto variables since they don't get set early enough for content.
+    'pathauto_node_pattern' => '[node:content-type:machine-name]/[node:title]',
+    'pathauto_punctuation_underscore' => '1',
+    // Set up date defaults so it doesn't yell at us anymore
+    'date_first_day' => 0,
+    'date_format_long' => 'l, F j, Y - H:i',
+    'date_format_medium' => 'D, Y-m-d H:i',
+    'date_format_short' => 'Y-m-d H:i',
+    // Enable user pictures and set the default to a square thumbnail option.
+    'user_pictures' => '1',
+    'user_picture_dimensions' => '1024x1024',
+    'user_picture_file_size' => '800',
+    'user_picture_style' => 'thumbnail',
+    // Allow visitor account creation with administrative approval.
+    'user_register' => USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL,
+  );
+  foreach ($variables as $name => $value) {
+    variable_set($name, $value);
+  }
 }
