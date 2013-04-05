@@ -3,6 +3,7 @@ description = Bootstrap subtheme
 version = 7.x-1.0
 core = 7.x
 base theme = bootstrap
+hidden = TRUE
 
 regions[menu]           = 'Menu'
 regions[featured]       = 'Featured'
