@@ -7,7 +7,7 @@ core = 7.x
 projects[date][version] = 2.6
 ; Add microdata support to date module.
 ; http://drupal.org/node/1266688
-projects[date_delimiter][patch][1266688] = http://drupal.org/files/1266688-33-microdata-support.patch
+projects[date][patch][1266688] = http://drupal.org/files/1266688-33-microdata-support.patch
 projects[entityreference][version] = 1.0
 projects[ffc][version] = 1.0-beta2
 projects[field_delimiter][version] = 1.0
