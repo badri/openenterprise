@@ -39,7 +39,7 @@ projects[blockgroup][version] = 1.0-rc1
 projects[block_class][version] = 1.2
 projects[ctools][version] = 1.3
 projects[defaultcontent][version] = 1.0-alpha9
-projects[ds][version] = 2.2
+projects[ds][version] = 2.3
 ; Allow modules to alter region and layout classes
 ; http://drupal.org/node/1961420
 projects[ds][patch][1961420] = http://drupal.org/files/1961420-ds-classes_alter-1.patch
@@ -51,10 +51,7 @@ projects[menu_attributes][version] = 1.0-rc2
 projects[menu_block][version] = 2.3
 projects[strongarm][version] = 2.0
 projects[token][version] = 1.5
-projects[views][version] = 3.6
-; Views UI breaks with jQuery 1.8
-; http://drupal.org/node/1802198
-projects[views][patch][1802198] = http://drupal.org/files/1802198.patch
+projects[views][version] = 3.7
 projects[views_bulk_operations][version] = 3.1
 projects[views_responsive_grid][version] = 1.2
 
@@ -103,12 +100,6 @@ libraries[tinymce][destination] = libraries
 
 projects[bootstrap][version] = 2.x-dev
 projects[bootstrap][type] = theme
-; [META] Refactor code to allow for either CDN or sub-theme source files.
-; http://drupal.org/node/1957620
-projects[bootstrap][patch][1957620] = http://drupal.org/files/1957620-bootstrap-refactor_code_cdn-1.patch
-; Add sub-theme starter kit
-; http://drupal.org/node/1844448
-projects[bootstrap][patch][1844448] = http://drupal.org/files/1844448-bootstrap-subtheme-52.patch
 projects[tao][version] = 3.0-beta4
 projects[tao][type] = theme
 projects[tao][patch][1212314] = http://drupal.org/files/0001-Issue-1212314-by-ericduran-Fixed-Fieldgroup-legend-t.patch
