@@ -16,10 +16,6 @@ projects[drupal][patch][972536] = http://drupal.org/files/drupal-menu-int-972536
 ; http://drupal.org/node/992540
 projects[drupal][patch][992540] = http://drupal.org/files/issues/992540-3-reset_flood_limit_on_password_reset-drush.patch
 
-; Two nested contextual links regions are active, when the outer region is hovered.
-; http://drupal.org/node/1216776
-projects[drupal][patch][1216776] = http://drupal.org/files/1216776-contextual-links-nested-23-d7.patch
-
 ; drupal_add_js() is missing the 'browsers' option
 ; http://drupal.org/node/865536
 projects[drupal][patch][865536] = http://drupal.org/files/drupal-865536-204.patch
@@ -27,6 +23,10 @@ projects[drupal][patch][865536] = http://drupal.org/files/drupal-865536-204.patc
 ; _menu_load_objects() is not always called when building menu trees
 ; http://drupal.org/node/1697570
 projects[drupal][patch][1697570] = http://drupal.org/files/drupal-menu_always_load_objects-1697570-5.patch
+
+; user_role_grant_permissions() throws PDOException when used for a disabled module's permission or with non-existent permissions
+; http://drupal.org/node/737816
+projects[drupal][patch][737816] = https://drupal.org/files/drupal-fix_pdoexception_grant_permissions-737816-36-do-not-test.patch
 
 projects[openenterprise][type] = profile
 projects[openenterprise][version] = 2.x-dev

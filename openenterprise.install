@@ -12,7 +12,6 @@ function openenterprise_install() {
   openenterprise_install_menu_links();
   openenterprise_install_permissions();
   openenterprise_install_taxonomy();
-  openenterprise_install_text_formats();
   openenterprise_install_theme_settings();
   openenterprise_install_variables();
 }
@@ -196,9 +195,6 @@ function openenterprise_install_content_types() {
   foreach ($rdf_mappings as $rdf_mapping) {
     rdf_mapping_save($rdf_mapping);
   }
-  require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.wysiwyg.inc';
-  openenterprise_wysiwyg_create_image_field('page');
-
   variable_set('node_content_enabled', TRUE);
   // Default "Basic page" to not be promoted and have comments disabled.
   variable_set('node_options_page', array('status'));
@@ -243,14 +239,6 @@ function openenterprise_install_taxonomy() {
     'help' => st('Enter a comma-separated list of words to describe your content.'),
   );
   taxonomy_vocabulary_save($vocabulary);
-}
-
-/**
- * Install default text formats with WYSIWYG settings.
- */
-function openenterprise_install_text_formats() {
-  require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.wysiwyg.inc';
-  openenterprise_wysiwyg_formats();
 }
 
 /**

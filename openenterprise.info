@@ -17,9 +17,7 @@ dependencies[] = path
 dependencies[] = taxonomy
 dependencies[] = syslog
 dependencies[] = shortcut
-dependencies[] = overlay
 dependencies[] = field
-dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 
@@ -45,15 +43,11 @@ dependencies[] = redirect
 dependencies[] = transliteration
 
 ;; Text Editor
-dependencies[] = imce_wysiwyg
-dependencies[] = imce
-dependencies[] = wysiwyg
-dependencies[] = wysiwyg_filter
+dependencies[] = video_filter
+dependencies[] = ckeditor
+
 ;; No D7 release yet.
-;dependencies[] = better_formats
-dependencies[] = caption_filter
-dependencies[] = insert
-dependencies[] = image_resize_filter
+dependencies[] = better_formats
 dependencies[] = filefield_sources
 
 ;; UX Enhancements
@@ -66,25 +60,27 @@ dependencies[] = simplified_menu_admin
 ;; Sitebuilding Tools
 dependencies[] = admin_menu
 dependencies[] = admin_menu_toolbar
-dependencies[] = apps
+dependencies[] = breakpoints
 dependencies[] = ctools
-dependencies[] = defaultcontent
 dependencies[] = email_registration
 dependencies[] = entity
 dependencies[] = entitycache
+dependencies[] = icon
+dependencies[] = icon_filter
+dependencies[] = icon_block
+dependencies[] = icon_menu
+dependencies[] = icon_field
 dependencies[] = image_url_formatter
 dependencies[] = features
 dependencies[] = libraries
 dependencies[] = menu_block
 dependencies[] = page_manager
+dependencies[] = picture
 dependencies[] = strongarm
 dependencies[] = token
 dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_ui
 dependencies[] = views_bulk_operations
-
-;; Custom
-;dependencies[] = tutorials
 
 files[] = openenterprise.profile

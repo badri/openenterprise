@@ -40,25 +40,6 @@ if (!function_exists('system_form_install_select_profile_form_alter')) {
 }
 
 /**
- * Implements hook_appstore_stores_info
- */
-function openenterprise_apps_servers_info() {
-  $profile = variable_get('install_profile', 'standard');
-  $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
-  return array(
-    'levelten' => array(
-      'title' => 'LevelTen',
-      'description' => "Apps from LevelTen Interactive",
-      'manifest' => 'http://apps.leveltendesign.com/app/query',
-      'profile' => $profile,
-      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
-      'server_name' => $_SERVER['SERVER_NAME'],
-      'server_ip' => $_SERVER['SERVER_ADDR'],
-    ),
-  );
-}
-
-/**
  * implements hook_install_configure_form_alter()
  */
 function openenterprise_form_install_configure_form_alter(&$form, &$form_state) {
@@ -89,86 +70,28 @@ function openenterprise_form_install_configure_form_alter(&$form, &$form_state) 
 }
 
 /**
- * Implements hook_install_tasks
- */
-function openenterprise_install_tasks($install_state) {
-  $tasks = array();
-  require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-  $server = array(
-    'machine name' => 'levelten',
-    'default apps' => array(
-      'enterprise_rotator',
-      'enterprise_blog',
-    ),
-    'required apps' => array(
-
-    ),
-    'default content callback' => 'openenterprise_default_content',
-  );
-  $tasks = $tasks + apps_profile_install_tasks($install_state, $server);
-  return $tasks;
-}
-
-/**
- * Apps installer default content callback.
- */
-function openenterprise_default_content(&$modules) {
-  $modules[] = 'enterprise_content';
-  $files = system_rebuild_module_data();
-  foreach($modules as $module) {
-    // Should probably check the app to see the proper way to do this.
-    if (isset($files[$module . '_content'])) {
-      $modules[] = $module . '_content';
-    }
-  }
-}
-
-/**
  * Force-set a theme at any point during the execution of the request.
  *
  * Drupal doesn't give us the option to set the theme during the installation
  * process and forces enable the maintenance theme too early in the request
  * for us to modify it in a clean way.
  */
-function openenterprise_install_set_theme($target_theme) {
-  if ($GLOBALS['theme'] != $target_theme) {
-    unset($GLOBALS['theme']);
-    drupal_static_reset();
-    $GLOBALS['conf']['maintenance_theme'] = $target_theme;
-    _drupal_maintenance_theme();
-  }
-}
-
-/**
- * Modify the apps_select_form
- * 
- * Add a custom callback so we can save the apps selection for later.
- */
-function openenterprise_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
-  $form['#submit'][] = 'openenterprise_apps_profile_apps_select_form_submit';
-}
-
-/**
- * Submit callback for apps_profile_apps_select_form
- */
-function openenterprise_apps_profile_apps_select_form_submit($form, $form_state) {
-  if ($form_state['values']['op'] == t('Install Apps') && isset($form_state['values']['apps']) && !empty($form_state['values']['apps'])) {
-    $apps = array_filter($form_state['values']['apps']);
-    $_SESSION['openenterprise_apps_installed'] = FALSE;
-    if (!empty($apps)) {
-      $_SESSION['openenterprise_apps_installed'] = TRUE;
-    }
-    $_SESSION['openenterprise_apps_default_content'] = $form_state['values']['default_content'];
-  }
-}
+//function openenterprise_install_set_theme($target_theme) {
+//  if ($GLOBALS['theme'] != $target_theme) {
+//    unset($GLOBALS['theme']);
+//    drupal_static_reset();
+//    $GLOBALS['conf']['maintenance_theme'] = $target_theme;
+//    _drupal_maintenance_theme();
+//  }
+//}
 
 /**
  * Change the final task to our task
  */
-function openenterprise_install_tasks_alter(&$tasks, $install_state) {
-  openenterprise_install_set_theme('oe_install_theme');
-  $tasks['install_finished']['function'] = "openenterprise_install_finished";
-}
+//function openenterprise_install_tasks_alter(&$tasks, $install_state) {
+//  openenterprise_install_set_theme('oe_install_theme');
+//  $tasks['install_finished']['function'] = "openenterprise_install_finished";
+//}
 
 /**
  * Installation task; perform final steps and display a 'finished' page.
@@ -181,20 +104,10 @@ function openenterprise_install_tasks_alter(&$tasks, $install_state) {
  */
 function openenterprise_install_finished(&$install_state) {
   drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
-  if (!isset($_SESSION['openenterprise_apps_installed']) || !$_SESSION['openenterprise_apps_installed']) {
-    $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
-    $output .= '<p>' . st('By not installing any apps, your site is currently a blank. To get started you can either create your own content types, views and set up the site yourself or install some prebuild apps. Apps provide complete bundled functionality that will greatly speed up the process of creating your site.') . '</p>';
-    $output .= '<p>' . st('Even after installing apps your site may look very empty before you add some content. To see what it looks like with content, try installing the default content for each of the apps. This can be done on each app\'s configuration page.') . '</p>';
-    $output .= '<h2>' . st('Next Step') . '</h2>';
-    $output .= '<p>' . st('<a href="@url">Install some apps</a>', array('@url' => url('admin/apps'))) . ' or ' . st('<a href="@url">go to your site\'s home page</a>.', array('@url' => url('<front>'))) . '</p>';
-  }
-  else {
-    $link = (isset($_SESSION['openenterprise_apps_default_content']))?drupal_get_normal_path('home'):'<front>';
-    $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
-    $output .= '<p>' . st('Your site now contains the apps you selected. To add more, go to the Apps menu in the admin menu at the top of the site.') . '</p>';
-    $output .= '<h2>' . st('Next Step') . '</h2>';
-    $output .= '<p>' . st('<a href="@url">Go to your site\'s home page</a>.', array('@url' => url($link))) . '</p>';
-  }
+  $link = '<front>';
+  $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
+  $output .= '<h2>' . st('Next Step') . '</h2>';
+  $output .= '<p>' . st('<a href="@url">Go to your site\'s home page</a>.', array('@url' => url($link))) . '</p>';
 
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
@@ -281,25 +194,5 @@ function openenterprise_block_view($delta = '') {
         'subject' => NULL,
         'content' => '<span>' . variable_get('site_name', t('This site')) . ' ' . t('is powered by <a href="http://drupal.org/project/openenterprise" title="OpenEnterprise" target="_blank">!openenterprise</a>. A distribution by <a href="http://www.leveltendesign.com" title="LevelTen Interactive" target="_blank">!levelten</a>.', array('!openenterprise' => $openenterprise, '!levelten' => $levelten)) . '</span>',
       );
-  }
-}
-
-/**
- * Implements hook_init()
- * 
- * Add a message if this is the levelten apps page.
- */
-function openenterprise_init() {
-  if ($_GET['q'] == 'admin/apps/levelten') {
-    apps_include('manifest'); 
-    $server = apps_servers('levelten');
-    // Create args array for substitutions
-    $manifest = apps_manifest($server);
-    if (isset($manifest['message']) && $manifest['message'] != '') {
-      foreach($server as $key => $value) {
-        $args['!' . $key] = $value;
-      }
-      drupal_set_message(format_string($manifest['message'], $args));
-    }
   }
 }
