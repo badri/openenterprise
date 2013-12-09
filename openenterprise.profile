@@ -1,13 +1,6 @@
 <?php
 
 /**
-* A trick to enforce page refresh when theme is changed from an overlay.
-*/
-function openenterprise_admin_paths_alter(&$paths) {
-  $paths['admin/appearance/default*'] = FALSE;
-}
-
-/**
  * Determine whether or not to skip the profile selection process. Normally when
  * downloading a distribution, there is only one additional profile to choose from
  * beside what core provides. We need to use the system hook, because openenterprise

@@ -14,6 +14,7 @@ function openenterprise_install() {
   openenterprise_install_taxonomy();
   openenterprise_install_theme_settings();
   openenterprise_install_variables();
+  openenterprise_install_custom_modules();
 }
 
 /*
@@ -51,46 +52,6 @@ function openenterprise_install_blocks() {
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'search',
-      'delta' => 'form',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -1,
-      'region' => 'user_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'node',
-      'delta' => 'recent',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 10,
-      'region' => 'dashboard_main',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'sidebar_second',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'navigation',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'sidebar_second',
       'pages' => '',
       'cache' => -1,
     ),
@@ -182,19 +143,7 @@ function openenterprise_install_content_types() {
     node_type_save($type);
     node_add_body_field($type);
   }
-  // Insert default pre-defined RDF mapping into the database.
-  $rdf_mappings = array(
-    array(
-      'type' => 'node',
-      'bundle' => 'page',
-      'mapping' => array(
-        'rdftype' => array('foaf:Document'),
-      ),
-    ),
-  );
-  foreach ($rdf_mappings as $rdf_mapping) {
-    rdf_mapping_save($rdf_mapping);
-  }
+
   variable_set('node_content_enabled', TRUE);
   // Default "Basic page" to not be promoted and have comments disabled.
   variable_set('node_options_page', array('status'));
@@ -223,9 +172,8 @@ function openenterprise_install_menu_links() {
  */
 function openenterprise_install_permissions() {
   // Enable default permissions for system roles.
-  $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval'));
 }
 
 /**
@@ -246,9 +194,11 @@ function openenterprise_install_taxonomy() {
 */
 function openenterprise_install_theme_settings() {
   // Set default theme.
-  $theme_default = 'bartik';
+  $theme_default = 'bootstrap';
   variable_set('theme_default', $theme_default);
   
+  theme_enable(array('bootstrap'));
+  theme_disable(array('bartik'));
   
   // Enable the admin theme.
   db_update('system')
@@ -295,7 +245,7 @@ function openenterprise_install_variables() {
     // Bootstrap needs a minimum of jQuery 1.7. Set jQuery Update variables.
     'jquery_update_compression_type' => 'min',
     'jquery_update_jquery_cdn' => 'google',
-    'jquery_update_jquery_version' => '1.8',
+    'jquery_update_jquery_version' => '1.7',
     // Pathauto sets this to something else. We actually want it blank
     // so we can turn it off for some vocabularies.
     'pathauto_taxonomy_term_pattern' => '',
@@ -317,5 +267,14 @@ function openenterprise_install_variables() {
   );
   foreach ($variables as $name => $value) {
     variable_set($name, $value);
+  }
+}
+
+/**
+ * This can be used by a sub distribution to add additional modules.
+ */
+function openenterprise_install_custom_modules() {
+  if($extras = variable_get('enterprise_extras', FALSE)) {
+    module_enable($extras, TRUE);
   }
 }

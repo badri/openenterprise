@@ -15,11 +15,9 @@ dependencies[] = number
 dependencies[] = options
 dependencies[] = path
 dependencies[] = taxonomy
-dependencies[] = syslog
 dependencies[] = shortcut
 dependencies[] = field
 dependencies[] = file
-dependencies[] = rdf
 
 ; Contrib
 
@@ -33,7 +31,9 @@ dependencies[] = field_formatter_class
 dependencies[] = field_formatter_settings
 dependencies[] = field_group
 dependencies[] = field_word_boundary
+dependencies[] = filefield_sources
 dependencies[] = link
+dependencies[] = linked_field
 dependencies[] = options_element
 
 ;; Path
@@ -46,16 +46,22 @@ dependencies[] = transliteration
 dependencies[] = video_filter
 dependencies[] = ckeditor
 
-;; No D7 release yet.
-dependencies[] = better_formats
-dependencies[] = filefield_sources
-
 ;; UX Enhancements
-dependencies[] = block_visibility
+dependencies[] = better_formats
 dependencies[] = jquery_update
 dependencies[] = module_filter
 dependencies[] = navigation404
+dependencies[] = search404
 dependencies[] = simplified_menu_admin
+
+;; Block Tools
+dependencies[] = block_class
+dependencies[] = block_row
+dependencies[] = block_visibility
+dependencies[] = bean
+dependencies[] = bean_admin_ui
+dependencies[] = blocker
+dependencies[] = blocker_ui
 
 ;; Sitebuilding Tools
 dependencies[] = admin_menu
@@ -65,16 +71,11 @@ dependencies[] = ctools
 dependencies[] = email_registration
 dependencies[] = entity
 dependencies[] = entitycache
-dependencies[] = icon
-dependencies[] = icon_filter
-dependencies[] = icon_block
-dependencies[] = icon_menu
-dependencies[] = icon_field
+dependencies[] = exclude_node_title
 dependencies[] = image_url_formatter
 dependencies[] = features
 dependencies[] = libraries
 dependencies[] = menu_block
-dependencies[] = page_manager
 dependencies[] = picture
 dependencies[] = strongarm
 dependencies[] = token
@@ -82,5 +83,6 @@ dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_ui
 dependencies[] = views_bulk_operations
+dependencies[] = views_responsive_grid
 
 files[] = openenterprise.profile

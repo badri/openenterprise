@@ -1,8 +1,9 @@
 api = 2
 core = 7.x
 
-; Latest Drupal Core
-projects[drupal][type] = core
+; Redirect to install.php when empty database
+; http://drupal.org/node/728702
+projects[drupal][patch][728702] = http://drupal.org/files/issues/install-redirect-on-empty-database-728702-36.patch
 
 ; Missing drupal_alter() for text formats and filters
 ; http://drupal.org/node/903730
@@ -29,4 +30,4 @@ projects[drupal][patch][1697570] = http://drupal.org/files/drupal-menu_always_lo
 projects[drupal][patch][737816] = https://drupal.org/files/drupal-fix_pdoexception_grant_permissions-737816-36-do-not-test.patch
 
 projects[openenterprise][type] = profile
-projects[openenterprise][version] = 2.x-dev
+projects[openenterprise][version] = 3.x-dev

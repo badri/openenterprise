@@ -14,20 +14,3 @@ projects[openenterprise][download][url] = http://git.drupal.org/project/openente
 projects[openenterprise][download][revision] = 7.x-1.0-rc3
 ; for a local build
 ; includes[] = drupal-org.make
-
-; Add in some apps (optional). These can also be added later from the Apps page.
-;projects[socialmedia][location] = http://apps.leveltendesign.com/fserver
-;projects[seotools][location] = http://apps.leveltendesign.com/fserver
-;projects[seo][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_blog][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_rotator][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_events][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_faq][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_forum][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_links][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_location][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_images][location] = http://apps.leveltendesign.com/fserver
-;projects[enterprise_video][location] = http://apps.leveltendesign.com/fserver
-; i can't find careers on the fserver, can someone please test?
-;projects[enterprise_careers][location] = http://apps.leveltendesign.com/fserver
-;projects[development][location] = http://apps.leveltendesign.com/fserver
