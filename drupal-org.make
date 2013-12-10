@@ -123,7 +123,7 @@ projects[maillog] = 1.x-dev
 ; Libraries
 ;;;;;
 libraries[ckeditor][download][type] = file
-libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.3/ckeditor_4.3.1_full.zip
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.3.1/ckeditor_4.3.1_full.zip
 libraries[ckeditor][directory_name] = ckeditor
 libraries[ckeditor][destination] = libraries
 
