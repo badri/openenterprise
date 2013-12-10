@@ -123,14 +123,19 @@ projects[maillog] = 1.x-dev
 ; Libraries
 ;;;;;
 libraries[ckeditor][download][type] = file
-libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.3/ckeditor_4.3_full.zip
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.3/ckeditor_4.3.1_full.zip
 libraries[ckeditor][directory_name] = ckeditor
 libraries[ckeditor][destination] = libraries
 
 libraries[ckeditor_widget][download][type] = file
-libraries[ckeditor_widget][download][url] = http://download.ckeditor.com/widget/releases/widget_4.3.zip
+libraries[ckeditor_widget][download][url] = http://download.ckeditor.com/widget/releases/widget_4.3.1.zip
 libraries[ckeditor_widget][directory_name] = widget
 libraries[ckeditor_widget][destination] = libraries/ckeditor/plugins
+
+libraries[ckeditor_lineutils][download][type] = file
+libraries[ckeditor_lineutils][download][url] = http://download.ckeditor.com/lineutils/releases/lineutils_4.3.1.zip
+libraries[ckeditor_lineutils][directory_name] = widget
+libraries[ckeditor_lineutils][destination] = libraries/ckeditor/plugins
 
 ;;;;;;
 ; Themes
