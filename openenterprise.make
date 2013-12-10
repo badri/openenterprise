@@ -27,7 +27,7 @@ projects[filefield_sources][version] = 1.9
 projects[image_url_formatter][version] = 1.4
 projects[link][version] = 1.2
 projects[linked_field][version] = 1.8
-projects[media][version] = 2.x-dev
+projects[media][version] = 2.0-alpha3
 projects[options_element][version] = 1.10
 
 ;;;;;;
@@ -71,6 +71,7 @@ projects[uuid_features][version] = 1.0-alpha3
 projects[views][version] = 3.7
 projects[views_bulk_operations][version] = 3.1
 projects[views_responsive_grid][version] = 1.3
+projects[webform][version] = 3.19
 
 ;;;;;;
 ; Text Editor
@@ -88,12 +89,6 @@ projects[video_filter][patch][1689440] = https://drupal.org/files/video_filter-v
 projects[admin_menu][version] = 3.0-rc4
 projects[email_registration][version] = 1.1
 projects[jquery_update][version] = 2.3
-; Allow different version for administrative pages
-; http://drupal.org/node/1524944
-projects[jquery_update][patch][1524944] = http://drupalcode.org/project/jquery_update.git/patch/469fac05d630668d6f3d8e24fef60c35614ff0ca
-; Update jQuery UI to the latest version (1.10.2)
-; http://drupal.org/node/1947438
-projects[jquery_update][patch][1947438] = http://drupalcode.org/project/jquery_update.git/patch/d32f50d45b54b1b1f6430ea09b83f005032075f0
 projects[luxe][version] = 1.2
 projects[module_filter][version] = 2.0-alpha2
 projects[menu_trail_by_path][version] = 2.0
@@ -104,6 +99,7 @@ projects[simplified_menu_admin][version] = 1.0-beta2
 ; SEO Modules
 ;;;;;
 projects[google_analytics][version] = 1.4
+projects[metatag][version] = 1.0-beta7
 projects[navigation404][version] = 1.0
 projects[search404][version] = 1.3
 projects[xmlsitemap][version] = 2.0-rc2
