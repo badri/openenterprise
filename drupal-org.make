@@ -134,7 +134,7 @@ libraries[ckeditor_widget][destination] = libraries/ckeditor/plugins
 
 libraries[ckeditor_lineutils][download][type] = file
 libraries[ckeditor_lineutils][download][url] = http://download.ckeditor.com/lineutils/releases/lineutils_4.3.1.zip
-libraries[ckeditor_lineutils][directory_name] = widget
+libraries[ckeditor_lineutils][directory_name] = lineutils
 libraries[ckeditor_lineutils][destination] = libraries/ckeditor/plugins
 
 ;;;;;;
