@@ -39,6 +39,7 @@ projects[redirect][version] = 1.0-rc1
 ; How to fix and/or prevent circular redirects
 ; http://drupal.org/node/1796596
 projects[redirect][patch][1796596] = https://drupal.org/files/redirect_loop_detection-1796596-68-reroll.patch
+projects[slug][version] = 1.0-alpha1
 projects[transliteration][version] = 3.1
 
 ;;;;;;
@@ -78,6 +79,10 @@ projects[webform][version] = 3.19
 ;;;;;;
 projects[better_formats][version] = 1.0-beta1
 projects[ckeditor][version] = 1.x-dev
+projects[ckeditor_blocks][version] = 1.x-dev
+projects[ckeditor_bootstrap][version] = 1.x-dev
+projects[ckeditor_media][version] = 1.x-dev
+projects[insert_block][version] = 1.x-dev
 projects[video_filter][version] = 3.x-dev
 ; video filter dialog with ckeditor standalone module is not working
 ; http://drupal.org/node/1689440

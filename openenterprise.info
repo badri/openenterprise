@@ -38,11 +38,16 @@ dependencies[] = options_element
 dependencies[] = globalredirect
 dependencies[] = pathauto
 dependencies[] = redirect
+dependencies[] = slug
 dependencies[] = transliteration
 
 ;; Text Editor
 dependencies[] = video_filter
+dependencies[] = insert_block
 dependencies[] = ckeditor
+dependencies[] = ckeditor_blocks
+dependencies[] = ckeditor_bootstrap
+dependencies[] = ckeditor_media
 
 ;; UX Enhancements
 dependencies[] = toolbar_megamenu
