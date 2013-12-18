@@ -86,7 +86,6 @@ projects[video_filter][patch][1689440] = https://drupal.org/files/video_filter-v
 ;;;;;;
 ; UI Enhancements
 ;;;;;;
-projects[admin_menu][version] = 3.0-rc4
 projects[email_registration][version] = 1.1
 projects[jquery_update][version] = 2.3
 projects[luxe][version] = 1.2

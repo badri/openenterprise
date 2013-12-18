@@ -6,7 +6,6 @@ distribution_name = OpenEnterprise
 dependencies[] = block
 dependencies[] = comment
 dependencies[] = contextual
-dependencies[] = dashboard
 dependencies[] = help
 dependencies[] = image
 dependencies[] = list
@@ -15,7 +14,6 @@ dependencies[] = number
 dependencies[] = options
 dependencies[] = path
 dependencies[] = taxonomy
-dependencies[] = shortcut
 dependencies[] = field
 dependencies[] = file
 
@@ -64,8 +62,6 @@ dependencies[] = blocker
 dependencies[] = blocker_ui
 
 ;; Sitebuilding Tools
-dependencies[] = admin_menu
-dependencies[] = admin_menu_toolbar
 dependencies[] = breakpoints
 dependencies[] = ctools
 dependencies[] = email_registration
