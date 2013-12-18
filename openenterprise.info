@@ -45,6 +45,8 @@ dependencies[] = video_filter
 dependencies[] = ckeditor
 
 ;; UX Enhancements
+dependencies[] = toolbar_megamenu
+dependencies[] = enterprise_menus
 dependencies[] = better_formats
 dependencies[] = jquery_update
 dependencies[] = module_filter
