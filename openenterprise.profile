@@ -33,6 +33,23 @@ if (!function_exists('system_form_install_select_profile_form_alter')) {
 }
 
 /**
+ * Determine whether or not to skip the local selection process. By default
+ * there is only one language which adds a step in the installer. We'll assume
+ * that anyone who knows about localization is smart enough to add the language.
+ */
+if (!function_exists('system_form_install_select_locale_form_alter')) {
+  function system_form_install_select_locale_form_alter(&$form, $form_state) {
+    if (!isset($_GET['locale'])) {
+      // If there is only one language, select it automatically.
+      if (count(element_children($form['locale'])) == 1) {
+        install_goto('install.php?profile=' . $_GET['profile'] . '&locale=en');
+      } 
+    }  
+  }
+}
+
+
+/**
  * implements hook_install_configure_form_alter()
  */
 function openenterprise_form_install_configure_form_alter(&$form, &$form_state) {

@@ -1,6 +1,7 @@
 name = OpenEnterprise
 description = OpenEnterprise Distribution by LevelTen Interactive
 distribution_name = OpenEnterprise
+version = "7.x-3.x"
 
 ; Core
 dependencies[] = block

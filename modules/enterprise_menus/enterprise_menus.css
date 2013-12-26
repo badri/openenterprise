@@ -22,6 +22,10 @@ body.toolbar #toolbar div.toolbar-menu {
   text-shadow: 0 1px 1px #18466b;
 }
 
+body.toolbar #toolbar-home {
+  float: left;
+  width: 120px;
+}
 /* Home Logo Link */
 body.toolbar #toolbar-home a,
 body.toolbar #toolbar-home ul li a.active,
@@ -32,14 +36,23 @@ body.toolbar #toolbar-home a:hover {
   box-shadow: none !important;
   color: #fff;
 }
-body.toolbar #toolbar-home a span {
+body.toolbar #toolbar-home li.home a span {
   background: transparent url("images/logo-menu.png") no-repeat 0 0;
   display: block;
-  min-height: 42px;
+  min-height: 30px;
   text-indent: -9999px;
-  width: 140px;
+  width: 100px;
   margin: 0;
 }
+body.toolbar #toolbar-home li.version a span {
+  background: none;
+  color: #999;
+  text-indent: 0px;
+  width: 100px;
+  font-size: 11px;
+  line-height: 1em;
+  margin: 1px 0 0 0;
+}  
 /* User Menu */
 #toolbar #toolbar-user li.account a {
   color: #fddb84;

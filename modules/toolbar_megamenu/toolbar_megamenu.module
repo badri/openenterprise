@@ -25,6 +25,11 @@ function toolbar_megamenu_pre_render($toolbar) {
  */
 function toolbar_megamenu_view() {
   global $user;
+  
+  $profile_info = drupal_parse_info_file('profiles/' . drupal_get_profile() . '/' . drupal_get_profile() . '.info');
+  if (!isset($profile_info['version'])) {
+    $profile_info['version'] = '7.x-1.x';
+  }
 
   $module_path = drupal_get_path('module', 'toolbar');
   $megamenu_path = drupal_get_path('module', 'toolbar_megamenu');
@@ -86,6 +91,11 @@ function toolbar_megamenu_view() {
       'href' => '<front>',
       'html' => TRUE,
       'attributes' => array('title' => t('Home')),
+    ),
+    'version' => array(
+      'title' => '<span class="version-link">Version ' . $profile_info['version'],
+      'href' => '<front>',
+      'html' => TRUE,
     ),
   );
   $build['toolbar_home'] = array(
