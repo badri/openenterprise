@@ -27,7 +27,7 @@ function enterprise_menus_menu() {
   // Content
   $items['admin/manage-content'] = array(
     'title' => 'Content',
-    'description' => 'Manage content.',
+    'description' => 'All content.',
     'page callback' => 'drupal_goto',
     'page arguments' => array('admin/content'),
     'access arguments' => array('access administration pages'),
@@ -237,6 +237,7 @@ function enterprise_menus_menu() {
     'page callback' => 'enterprise_menus_flush_cache',
     'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
+    'options' => array('attributes' => array('class' => array('menu-destination'))),
   );
   $items['admin/site-config/development/cron'] = array(
     'title' => 'Run Cron',
@@ -293,16 +294,16 @@ function enterprise_menus_menu_alter(&$items) {
       $action_base = 'admin/manage-content/' . $node_type;
       $setting_base = 'admin/manage-content/' . $node_type;
     }
-    // Content > Manage content
+    // Content > All content
     if (isset($items['admin/content/' . $node_type])) {
       $items['admin/content/' . $node_type]['parent'] = $action_base;
-      $items['admin/content/' . $node_type]['title'] = 'Manage ' . _enterprise_menus_pluralize($node_type, $node_type_label);
+      $items['admin/content/' . $node_type]['title'] = 'All ' . _enterprise_menus_pluralize($node_type, $node_type_label);
       $items['admin/content/' . $node_type]['weight'] = -15;
       $items['admin/content/' . $node_type]['type'] = MENU_NORMAL_ITEM;
     }
     else {
       $items['admin/manage-content/' . $node_type . '-manage'] = array(
-        'title' => 'Manage ' . _enterprise_menus_pluralize($node_type, $node_type_label),
+        'title' => 'All ' . _enterprise_menus_pluralize($node_type, $node_type_label),
         'page callback' => 'drupal_goto',
         'page arguments' => array('admin/content/node/' . $node_type),
         'access arguments' => array('access administration pages'),
@@ -327,17 +328,17 @@ function enterprise_menus_menu_alter(&$items) {
     );
   }
 
-  // Content > Manage content
+  // Content > All content
   if (isset($items['admin/content'])) {
     $items['admin/content']['parent'] = 'admin/site-config/advanced';
-    $items['admin/content']['title'] = 'Manage content';
+    $items['admin/content']['title'] = 'All content';
     $items['admin/content']['weight'] = -15;
     $items['admin/content']['type'] = MENU_LOCAL_TASK;
   }
-  // Content > Manage comments
+  // Content > All comments
   if (isset($items['admin/content/comment'])) {
     $items['admin/content/comment']['parent'] = 'admin/manage-content/comments';
-    $items['admin/content/comment']['title'] = 'Manage comments';
+    $items['admin/content/comment']['title'] = 'All comments';
     $items['admin/content/comment']['weight'] = -14;
     $items['admin/content/comment']['type'] = MENU_NORMAL_ITEM;
   }
@@ -347,10 +348,10 @@ function enterprise_menus_menu_alter(&$items) {
     $items['admin/content/comment/approval']['weight'] = -14;
     $items['admin/content/comment/approval']['type'] = MENU_NORMAL_ITEM;
   }
-  // Content > Files > Manage
+  // Content > Files > All
   if (isset($items['admin/content/file'])) {
     $items['admin/content/file']['parent'] = 'admin/manage-content/files';
-    $items['admin/content/file']['title'] = 'Manage files';
+    $items['admin/content/file']['title'] = 'All files';
     $items['admin/content/file']['weight'] = 0;
     $items['admin/content/file']['type'] = MENU_NORMAL_ITEM;
   }
@@ -387,7 +388,7 @@ function enterprise_menus_menu_alter(&$items) {
   // Set up people menu.
   if (isset($items['admin/people'])) {
     $items['admin/people']['parent'] = 'admin/manage-people/actions';
-    $items['admin/people']['title'] = 'Manage Users';
+    $items['admin/people']['title'] = 'All Users';
     $items['admin/people']['type'] = MENU_NORMAL_ITEM;
   }
   if (isset($items['admin/people/create'])) {
@@ -589,4 +590,39 @@ function enterprise_menus_flush_cache() {
   // originating page, so the user is redirected back to that page. Without
   // destination parameter, the redirect ends on the front page.
   drupal_goto();
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function enterprise_menus_page_build(&$page) {
+  if (!user_access('access toolbar')) {
+    return;
+  }
+  // Performance: Skip this entirely for AJAX requests.
+  if (strpos($_GET['q'], 'js/') === 0) {
+    return;
+  }
+  // The function path_is_admin() is not available on update.php pages.
+  if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE === 'update') {
+    return;
+  }
+  $path = drupal_get_path('module', 'enterprise_menus');
+
+  $page['page_bottom']['toolbar'] = array(
+    '#attached' => array(),
+  );
+  $attached = &$page['page_bottom']['#attached'];
+
+  // Destination query strings are applied via JS.
+  $settings['destination'] = drupal_http_build_query(drupal_get_destination());
+  // Settings for Back to site link.
+  $settings['currentPath'] = current_path();
+  $settings['currentPathIsAdmin'] = path_is_admin($settings['currentPath']);
+
+  $attached['js'][] = array(
+    'data' => array('enterprise_menus' => $settings),
+    'type' => 'setting',
+  );
+  $attached['js'][$path . '/enterprise_menus.js'] = array('every_page' => TRUE);
 }

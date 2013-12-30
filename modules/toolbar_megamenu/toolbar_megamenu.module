@@ -54,7 +54,31 @@ function toolbar_megamenu_view() {
   // Retrieve the admin menu from the database.
   $build['toolbar_menu'] = toolbar_megamenu_tree_output(toolbar_megamenu_get_menu_tree());
   $build['toolbar_menu']['#prefix'] .= '<h2 class="element-invisible">' . t('Administrative toolbar') . '</h2>';
-
+  
+  $home_menu = array(
+    'home_wrapper' => array(
+      '#sorted' => 1,
+      '#prefix' => '<ul class="menu group menu-depth-2 toolbar-tab hidden">',
+      '#suffix' => '</ul>',
+      'home' => array(
+        '#theme' => 'menu_link',
+        '#title' => t('< Back to site'),
+        '#href' => '<front>',
+        '#attributes' => array(
+          'title' => t('Return to site content'),
+          'class' => array('toolbar-icon', 'toolbar-icon-escape-admin'),
+          'data-toolbar-escape-admin' => TRUE,
+        ),
+        '#localized_options' => array(
+          'toolbar_expanded' => FALSE,
+        ),
+        '#below' => array(),
+      ),
+    ),
+  );
+  
+  $build['toolbar_menu'] = $home_menu + $build['toolbar_menu'];
+  
   // Add logout & user account links or login link.
   if ($user->uid) {
     $links = array(

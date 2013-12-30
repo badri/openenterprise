@@ -52,31 +52,10 @@
   display: inline-block;
   z-index: -1;
 
-  /* Transition for browsers that support it. */
-  -webkit-transition: .5s all;
-  -webkit-transition-delay: .25s;
-  -moz-transition: .5s all;
-  -moz-transition-delay: .25s;
-  -ms-transition: .5s all;
-  -ms-transition-delay: .25s;
-  -o-transition: .5s all;
-  -o-transition-delay: .25s;
-  transition: .5s all;
-  transition-delay: .25s;
 }
 #toolbar li.depth-2:hover .wrapper-depth-3,
 #toolbar li.depth-2 .wrapper-depth-3:hover {
   top: 100%;
-
-  /* Transition for browsers that support it. */
-  -webkit-transition-delay: 0s;
-  -ms-transition-delay: 0s;
-  transition-delay: 0s;
-  -moz-transition-delay: 0s;
-  -webkit-transition: 0.5s;
-  -ms-transition: 0.5s;
-  transition: 0.5s;
-  -moz-transition: 0.5s;
 }
 #toolbar ul.menu-depth-3 {
   background: transparent;
