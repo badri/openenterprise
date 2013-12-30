@@ -44,21 +44,23 @@ dependencies[] = transliteration
 
 ;; Text Editor
 dependencies[] = video_filter
-dependencies[] = insert_block
 dependencies[] = ckeditor
+dependencies[] = ckeditor_media
 dependencies[] = ckeditor_blocks
 dependencies[] = ckeditor_bootstrap
-dependencies[] = ckeditor_media
+dependencies[] = file_entity
+dependencies[] = insert_block
+dependencies[] = media
+dependencies[] = picture
 
 ;; UX Enhancements
-dependencies[] = toolbar_megamenu
-dependencies[] = enterprise_menus
 dependencies[] = better_formats
 dependencies[] = jquery_update
 dependencies[] = module_filter
 dependencies[] = navigation404
 dependencies[] = search404
 dependencies[] = simplified_menu_admin
+dependencies[] = toolbar_megamenu
 
 ;; Block Tools
 dependencies[] = block_class
@@ -87,6 +89,13 @@ dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_ui
 dependencies[] = views_bulk_operations
+dependencies[] = views_litepager
 dependencies[] = views_responsive_grid
+
+;; Enterprise Modules
+dependencies[] = enterprise_base
+dependencies[] = enterprise_editor
+dependencies[] = enterprise_menus
+dependencies[] = enterprise_page
 
 files[] = openenterprise.profile

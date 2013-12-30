@@ -25,6 +25,7 @@ projects[field_word_boundary][version] = 1.0-beta3
 projects[file_entity][version] = 2.x-dev
 projects[filefield_sources][version] = 1.9
 projects[image_url_formatter][version] = 1.4
+projects[insert_block][version] = 1.x-dev
 projects[link][version] = 1.2
 projects[linked_field][version] = 1.8
 projects[media][version] = 2.0-alpha3
@@ -72,6 +73,10 @@ projects[uuid_features][version] = 1.0-alpha3
 projects[views][version] = 3.7
 projects[views_bulk_operations][version] = 3.1
 projects[views_responsive_grid][version] = 1.3
+projects[views_litepager][version] = 3.0
+; multiple hook_requirements bugs cause fatal errors on install
+; http://drupal.org/node/1874586
+projects[views_litepager][patch][1874586] = https://drupal.org/files/views_litepager-n1874586-3.patch
 projects[webform][version] = 3.19
 
 ;;;;;;
@@ -82,7 +87,6 @@ projects[ckeditor][version] = 1.x-dev
 projects[ckeditor_blocks][version] = 1.x-dev
 projects[ckeditor_bootstrap][version] = 1.x-dev
 projects[ckeditor_media][version] = 1.x-dev
-projects[insert_block][version] = 1.x-dev
 projects[video_filter][version] = 3.x-dev
 ; video filter dialog with ckeditor standalone module is not working
 ; http://drupal.org/node/1689440
@@ -109,13 +113,10 @@ projects[search404][version] = 1.3
 projects[xmlsitemap][version] = 2.0-rc2
 
 ;;;;;
-; Security and Performance
+; Security
 ;;;;;
-projects[memcache] = 1.0
 projects[paranoia] = 1.3
-projects[performance] = 2.0
 projects[security_review] = 1.1
-projects[varnish] = 1.0-beta2
 
 ;;;;;
 ; Email
@@ -152,3 +153,27 @@ projects[tao][type] = theme
 projects[tao][patch][1212314] = http://drupal.org/files/0001-Issue-1212314-by-ericduran-Fixed-Fieldgroup-legend-t.patch
 projects[rubik][version] = 4.0-rc1
 projects[rubik][type] = theme
+
+;;;;;;
+; Enterprise Projects
+;;;;;;
+
+projects[galaxy][type] = theme
+projects[galaxy][download][type] = git
+projects[galaxy][download][url] = ssh://git@bitbucket.org/levelten/galaxy.git
+projects[galaxy][download][branch] = 7.x-1.x
+
+projects[enterprise_base][type] = module
+projects[enterprise_base][download][type] = git
+projects[enterprise_base][download][url] = http://git.drupal.org/project/enterprise_base.git
+projects[enterprise_base][download][branch] = 7.x-3.x
+
+projects[enterprise_editor][type] = module
+projects[enterprise_editor][download][type] = git
+projects[enterprise_editor][download][url] = ssh://git@bitbucket.org/levelten/enterprise_editor.git
+projects[enterprise_editor][download][branch] = 7.x-3.x
+
+projects[enterprise_page][type] = module
+projects[enterprise_page][download][type] = git
+projects[enterprise_page][download][url] = ssh://git@bitbucket.org/levelten/enterprise_page.git
+projects[enterprise_page][download][branch] = 7.x-3.x
