@@ -47,6 +47,7 @@ projects[block_visibility][type] = module
 projects[nodeconnect][type] = module
 projects[elements][type] = module
 projects[navigation404][type] = module
+projects[options_element][type] = module
 
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.1
