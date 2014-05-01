@@ -112,13 +112,6 @@ dependencies[] = date_popup_authored
 dependencies[] = devel
 dependencies[] = uuid
 
-
-;; Enterprise Modules
-dependencies[] = enterprise_base
-dependencies[] = enterprise_editor
-dependencies[] = enterprise_menus
-dependencies[] = enterprise_page
-
 files[] = openenterprise.profile
 
 exclusive = 1
