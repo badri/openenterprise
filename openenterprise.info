@@ -67,8 +67,10 @@ dependencies[] = blocker
 dependencies[] = blocker_ui
 
 ;; Sitebuilding Tools
+dependencies[] = boxes
 dependencies[] = breakpoints
 dependencies[] = ctools
+dependencies[] = defaultcontent
 dependencies[] = email_registration
 dependencies[] = entity
 dependencies[] = entitycache
