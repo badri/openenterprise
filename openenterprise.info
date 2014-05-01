@@ -44,10 +44,6 @@ dependencies[] = redirect
 dependencies[] = transliteration
 
 ;; Text Editor
-dependencies[] = imce_wysiwyg
-dependencies[] = imce
-dependencies[] = wysiwyg
-dependencies[] = wysiwyg_filter
 ;; No D7 release yet.
 ;dependencies[] = better_formats
 dependencies[] = caption_filter
@@ -86,10 +82,30 @@ dependencies[] = views_content
 dependencies[] = views_ui
 dependencies[] = views_bulk_operations
 
+; Panopoly Foundation
+dependencies[] = panopoly_core
+dependencies[] = panopoly_images
+dependencies[] = panopoly_theme
+dependencies[] = panopoly_magic
+dependencies[] = panopoly_widgets
+dependencies[] = panopoly_admin
+dependencies[] = panopoly_users
+; Panopoly Toolset
+dependencies[] = panopoly_pages
+dependencies[] = panopoly_search
+dependencies[] = panopoly_wysiwyg
+; Panopoly Recommended - Admin
+dependencies[] = navbar
+dependencies[] = backports
+dependencies[] = simplified_menu_admin
+dependencies[] = save_draft
+dependencies[] = module_filter
+dependencies[] = date_popup_authored
+
+dependencies[] = enterprise_content
 ;; Custom
 ;dependencies[] = tutorials
 
 files[] = openenterprise.profile
 
-;; Include WYSIWYG stylesheet
-stylesheets[all][] = wysiwyg_align.css
+exclusive = 1
