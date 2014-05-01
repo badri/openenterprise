@@ -60,12 +60,13 @@ function openenterprise_install_set_theme($target_theme) {
  * Change the final task to our task
  */
 function openenterprise_install_tasks_alter(&$tasks, $install_state) {
+  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
   $tasks['install_finished']['function'] = "openenterprise_install_finished";
   $tasks['install_select_profile']['display'] = FALSE;
   $tasks['install_select_locale']['display'] = FALSE;
   $tasks['install_profile_modules']['display_name'] = 'Install site';
-  
-    // The "Welcome" screen needs to come after the first two steps
+  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';  
+  // The "Welcome" screen needs to come after the first two steps
   // (profile and language selection), despite the fact that they are disabled.
   $new_task['install_welcome'] = array(
     'display' => TRUE,
