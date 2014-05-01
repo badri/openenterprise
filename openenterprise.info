@@ -44,10 +44,6 @@ dependencies[] = transliteration
 
 ;; Text Editor
 dependencies[] = video_filter
-dependencies[] = ckeditor
-dependencies[] = ckeditor_media
-dependencies[] = ckeditor_blocks
-dependencies[] = ckeditor_bootstrap
 dependencies[] = file_entity
 dependencies[] = insert_block
 dependencies[] = media
@@ -92,6 +88,31 @@ dependencies[] = views_bulk_operations
 dependencies[] = views_litepager
 dependencies[] = views_responsive_grid
 
+
+; Panopoly Foundation
+dependencies[] = panopoly_core
+dependencies[] = panopoly_images
+dependencies[] = panopoly_theme
+dependencies[] = panopoly_magic
+dependencies[] = panopoly_widgets
+dependencies[] = panopoly_admin
+dependencies[] = panopoly_users
+; Panopoly Toolset
+dependencies[] = panopoly_pages
+dependencies[] = panopoly_search
+dependencies[] = panopoly_wysiwyg
+; Panopoly Recommended - Admin
+dependencies[] = navbar
+dependencies[] = backports
+dependencies[] = simplified_menu_admin
+dependencies[] = save_draft
+dependencies[] = module_filter
+dependencies[] = date_popup_authored
+; Panopoly Recommended - Other
+dependencies[] = devel
+dependencies[] = uuid
+
+
 ;; Enterprise Modules
 dependencies[] = enterprise_base
 dependencies[] = enterprise_editor
@@ -99,3 +120,5 @@ dependencies[] = enterprise_menus
 dependencies[] = enterprise_page
 
 files[] = openenterprise.profile
+
+exclusive = 1
