@@ -23,10 +23,8 @@ projects[transliteration][type] = module
 ;;;;;;
 ; Sitebuilding tools
 ;;;;;;
-projects[apps][type] = module
 projects[backup_migrate][type] = module
 projects[boxes][type] = module
-projects[ctools][type] = module
 projects[custom_formatters][type] = module
 projects[defaultcontent][version] = 1.0-alpha6
 projects[defaultcontent][type] = module
@@ -35,50 +33,51 @@ projects[defaultcontent][type] = module
 projects[defaultcontent][patch][1446714] = http://drupal.org/files/defaultcontent-1446714-16.patch
 projects[ds][type] = module
 projects[email_registration][type] = module
-projects[entity][type] = module
 projects[entitycache][type] = module
-projects[features][type] = module
 projects[features_override][type] = module
-projects[libraries][type] = module
-projects[menu_block][type] = module
-projects[panels][type] = module
-projects[strongarm][type] = module
-projects[token][type] = module
 projects[total_control][type] = module
-projects[views][type] = module
-projects[views_bulk_operations][type] = module
 
 ;;;;;;
 ; Text Editor
 ;;;;;;
-projects[imce][type] = module
-projects[imce_wysiwyg][type] = module
 projects[better_formats][type] = module
 projects[insert][type] = module
-projects[caption_filter][type] = module
-projects[image_resize_filter][type] = module
-projects[wysiwyg][type] = module
-projects[wysiwyg_filter][type] = module
 
 ;;;;;;
 ; UI Enhancements
 ;;;;;;
-projects[backports][type] = module
 projects[block_visibility][type] = module
 projects[nodeconnect][type] = module
-projects[simplified_menu_admin][type] = module
 projects[elements][type] = module
 projects[admin_menu][type] = module
 projects[navigation404][type] = module
 
+; The Panopoly Foundation
+projects[panopoly_core][version] = 1.1
+projects[panopoly_core][subdir] = panopoly
+projects[panopoly_images][version] = 1.1
+projects[panopoly_images][subdir] = panopoly
+projects[panopoly_theme][version] = 1.1
+projects[panopoly_theme][subdir] = panopoly
+projects[panopoly_magic][version] = 1.1
+projects[panopoly_magic][subdir] = panopoly
+projects[panopoly_widgets][version] = 1.1
+projects[panopoly_widgets][subdir] = panopoly
+projects[panopoly_admin][version] = 1.1
+projects[panopoly_admin][subdir] = panopoly
+projects[panopoly_users][version] = 1.1
+projects[panopoly_users][subdir] = panopoly
+; The Panopoly Toolset
+projects[panopoly_pages][version] = 1.1
+projects[panopoly_pages][subdir] = panopoly
+projects[panopoly_wysiwyg][version] = 1.1
+projects[panopoly_wysiwyg][subdir] = panopoly
+projects[panopoly_search][version] = 1.1
+projects[panopoly_search][subdir] = panopoly
+
 ;;;;;
 ; Libraries
 ;;;;;
-
-libraries[tinymce][download][type] = file
-libraries[tinymce][download][url] = http://github.com/downloads/tinymce/tinymce/tinymce_3.5.6.zip
-libraries[tinymce][directory_name] = tinymce
-libraries[tinymce][destination] = libraries
 
 ;;;;;;
 ; Themes
