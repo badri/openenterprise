@@ -21,6 +21,7 @@ projects[transliteration][type] = module
 projects[backup_migrate][type] = module
 projects[boxes][type] = module
 projects[custom_formatters][type] = module
+projects[custom_formatters][version] = 2.x-dev
 projects[defaultcontent][version] = 1.0-alpha6
 projects[defaultcontent][type] = module
 ; Remove context dependency.
