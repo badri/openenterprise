@@ -142,3 +142,6 @@ projects[tao][type] = theme
 projects[tao][patch][1212314] = http://drupal.org/files/0001-Issue-1212314-by-ericduran-Fixed-Fieldgroup-legend-t.patch
 projects[rubik][version] = 4.0-rc1
 projects[rubik][type] = theme
+projects[omega][version] = 3.1
+projects[omega][patch][1343274] = http://drupal.org/files/omega-ie7_0.patch
+projects[navin][version] = 1.0-beta2
