@@ -1,0 +1,1 @@
+Panopoly flavoured OpenEnterprise.
