@@ -4,10 +4,6 @@ core = 7.x
 ;;;;;;
 ; Fields
 ;;;;;;
-projects[date][type] = module
-projects[field_group][type] = module
-projects[link][type] = module
-projects[options_element][type] = module
 projects[references][type] = module
 projects[filefield_sources][type] = module
 
@@ -15,7 +11,6 @@ projects[filefield_sources][type] = module
 ; Path Tools
 ;;;;;;
 projects[globalredirect][type] = module
-projects[pathauto][type] = module
 projects[redirect][type] = module
 projects[transliteration][type] = module
 
@@ -36,6 +31,7 @@ projects[email_registration][type] = module
 projects[entitycache][type] = module
 projects[features_override][type] = module
 projects[total_control][type] = module
+projects[elements][type] = module
 
 ;;;;;;
 ; Text Editor
@@ -49,7 +45,6 @@ projects[insert][type] = module
 projects[block_visibility][type] = module
 projects[nodeconnect][type] = module
 projects[elements][type] = module
-projects[admin_menu][type] = module
 projects[navigation404][type] = module
 
 ; The Panopoly Foundation
