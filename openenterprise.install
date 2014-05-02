@@ -211,6 +211,20 @@ function openenterprise_add_content_types() {
     node_add_body_field($type);
   }
 
+  // Insert default pre-defined RDF mapping into the database.
+  $rdf_mappings = array(
+    array(
+      'type' => 'node',
+      'bundle' => 'page',
+      'mapping' => array(
+        'rdftype' => array('foaf:Document'),
+      ),
+    ),
+  );
+  foreach ($rdf_mappings as $rdf_mapping) {
+    rdf_mapping_save($rdf_mapping);
+  }
+
   require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.wysiwyg.inc';
   openenterprise_wysiwyg_create_image_field('page');
   
