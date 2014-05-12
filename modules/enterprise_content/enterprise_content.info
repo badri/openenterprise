@@ -6,6 +6,7 @@ php = 5.2.4
 dependencies[] = boxes
 dependencies[] = features
 dependencies[] = menu
+dependencies[] = rdf
 dependencies[] = strongarm
 features[box][] = oe1
 features[box][] = oe2
