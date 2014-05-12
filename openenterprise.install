@@ -11,8 +11,8 @@ function openenterprise_install() {
   // openenterprise_add_default_text_formats_and_perms();
   // openenterprise_setup_admin_role();
   openenterprise_create_menus();
-  openenterprise_add_default_blocks();
-  openenterprise_add_content_types();
+  // openenterprise_add_default_blocks();
+  // openenterprise_add_content_types();
   openenterprise_setup_users();
   openenterprise_setup_tags();
 
@@ -71,7 +71,7 @@ function openenterprise_create_menus() {
 
 function openenterprise_add_default_blocks() {
   // Enable some standard blocks.
-  $default_theme = variable_get('theme_default', 'navin');
+  $default_theme = variable_get('theme_default', 'kappa');
   $admin_theme = 'rubik';
   $values = array(
     array(
@@ -266,7 +266,7 @@ function openenterprise_setup_tags() {
 */
 function openenterprise_enable_theme_settings () {
   // Set default theme.
-  $theme_default = 'navin';
+  $theme_default = 'kappa';
   variable_set('theme_default', $theme_default);
   
   

@@ -82,6 +82,10 @@ projects[panopoly_search][subdir] = panopoly
 
 projects[tao][type] = theme
 projects[rubik][type] = theme
-projects[omega][version] = 3.1
-projects[omega][patch][1343274] = http://drupal.org/files/omega-ie7_0.patch
-projects[navin][type] = theme
+projects[omega][type] = theme
+
+; Kappa is still a sandbox theme
+projects[kappa][type] = theme
+projects[kappa][download][type] = git
+projects[kappa][download][branch] = 7.x-1.x
+projects[kappa][download][url] = http://git.drupal.org/sandbox/badri/2264805.git
