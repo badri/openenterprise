@@ -265,6 +265,21 @@ function openenterprise_setup_tags() {
 * Set Rubik as the Admin Theme
 */
 function openenterprise_enable_theme_settings () {
+
+  // Enable omega base theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'omega')
+    ->execute();
+
+  // Enable kappa theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'kappa')
+    ->execute();
+
   // Set default theme.
   $theme_default = 'kappa';
   variable_set('theme_default', $theme_default);
