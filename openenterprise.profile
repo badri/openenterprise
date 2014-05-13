@@ -143,7 +143,7 @@ function openenterprise_install_tasks_alter(&$tasks, $install_state) {
  * @return
  *   A message informing the user that the installation is complete.
  */
-function openenterprise_install_finished(&$install_state) {
+function openenterprise_install_finished(&$install_state) {  
   drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
   if (!isset($_SESSION['openenterprise_apps_installed']) || !$_SESSION['openenterprise_apps_installed']) {
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';

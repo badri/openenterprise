@@ -7,6 +7,7 @@
  */
 function openenterprise_install() {
   variable_set('node_content_enabled', TRUE);
+  variable_set('inside_install', 'test');
   openenterprise_enable_theme_settings();
   openenterprise_create_menus();
   openenterprise_setup_users();
@@ -74,4 +75,5 @@ function openenterprise_enable_theme_settings() {
   variable_set('theme_default', $theme_default);  
   variable_set('admin_theme', 'rubik');
   variable_set('node_admin_theme', '1');
+  variable_set('test_var', 'test');
 }
