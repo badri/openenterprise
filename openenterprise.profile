@@ -128,9 +128,6 @@ function openenterprise_apps_profile_apps_select_form_submit($form, $form_state)
  * Change the final task to our task
  */
 function openenterprise_install_tasks_alter(&$tasks, $install_state) {
-  // Magically go one level deeper in solving years of dependency problems
-  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
-  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
   $tasks['install_finished']['function'] = "openenterprise_install_finished";
 }
 
@@ -144,12 +141,6 @@ function openenterprise_install_tasks_alter(&$tasks, $install_state) {
  *   A message informing the user that the installation is complete.
  */
 function openenterprise_install_finished(&$install_state) {
-  $theme_default = 'kappa';
-  $admin_theme = 'rubik';
-  theme_enable(array('omega', $theme_default, 'tao', $admin_theme));
-  variable_set('theme_default', $theme_default);  
-  variable_set('admin_theme', 'rubik');
-  
   drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
   if (!isset($_SESSION['openenterprise_apps_installed']) || !$_SESSION['openenterprise_apps_installed']) {
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';

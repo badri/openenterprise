@@ -68,5 +68,10 @@ function openenterprise_setup_tags() {
 * enable themes
 */
 function openenterprise_enable_theme_settings() {
+  $theme_default = 'kappa';
+  $admin_theme = 'rubik';
+  theme_enable(array('omega', $theme_default, 'tao', $admin_theme));
+  variable_set('theme_default', $theme_default);
+  variable_set('admin_theme', 'rubik');
   variable_set('node_admin_theme', '1');
 }

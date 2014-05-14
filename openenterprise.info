@@ -2,6 +2,8 @@ name = OpenEnterprise
 description = OpenEnterprise Distribution by LevelTen Interactive
 distribution_name = OpenEnterprise
 
+base[] = panopoly
+
 ; Core
 dependencies[] = block
 dependencies[] = comment
