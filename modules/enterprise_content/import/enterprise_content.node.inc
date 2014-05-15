@@ -28,7 +28,7 @@ class OpenEnterpriseNode extends Migration {
     // Create a MigrateSource object.
     $this->source = new MigrateSourceCSV($import_path . 'enterprise_content.node.csv', $this->csvcolumns(), array('header_rows' => 1));
 
-    $this->destination = new MigrateDestinationNode('page');
+    $this->destination = new MigrateDestinationNode('panopoly_page');
 
     $this->addFieldMapping('uid')->defaultValue(1);
     $this->addFieldMapping('status')->defaultValue(1);
