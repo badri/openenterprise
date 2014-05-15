@@ -128,6 +128,9 @@ function openenterprise_apps_profile_apps_select_form_submit($form, $form_state)
  * Change the final task to our task
  */
 function openenterprise_install_tasks_alter(&$tasks, $install_state) {
+  // Magically go one level deeper in solving years of dependency problems
+  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
   $tasks['install_finished']['function'] = "openenterprise_install_finished";
 }
 
