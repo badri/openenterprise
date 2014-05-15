@@ -31,8 +31,15 @@ projects[ds][type] = module
 projects[email_registration][type] = module
 projects[entitycache][type] = module
 projects[features_override][type] = module
+
+projects[features_uuid][type] = module
+projects[features_uuid][version] = 1.x-dev
+projects[features_uuid][patch][2222727] = https://drupal.org/files/issues/2222727-13-uuid-features-fpp-support.patch
+
 projects[total_control][type] = module
-projects[elements][type] = module
+projects[panels_everywhere][type] = module
+projects[panels_everywhere][version] = 1.x-dev
+projects[fieldable_panels_pane][patch][2246893] = https://drupal.org/files/issues/properly-set-pane-subtype-on-edit-form-submit-0.patch
 
 ;;;;;;
 ; Text Editor
@@ -50,26 +57,26 @@ projects[navigation404][type] = module
 projects[options_element][type] = module
 
 ; The Panopoly Foundation
-projects[panopoly_core][version] = 1.1
+projects[panopoly_core][version] = 1.5
 projects[panopoly_core][subdir] = panopoly
-projects[panopoly_images][version] = 1.1
+projects[panopoly_images][version] = 1.5
 projects[panopoly_images][subdir] = panopoly
-projects[panopoly_theme][version] = 1.1
+projects[panopoly_theme][version] = 1.5
 projects[panopoly_theme][subdir] = panopoly
-projects[panopoly_magic][version] = 1.1
+projects[panopoly_magic][version] = 1.5
 projects[panopoly_magic][subdir] = panopoly
-projects[panopoly_widgets][version] = 1.1
+projects[panopoly_widgets][version] = 1.5
 projects[panopoly_widgets][subdir] = panopoly
-projects[panopoly_admin][version] = 1.1
+projects[panopoly_admin][version] = 1.5
 projects[panopoly_admin][subdir] = panopoly
-projects[panopoly_users][version] = 1.1
+projects[panopoly_users][version] = 1.5
 projects[panopoly_users][subdir] = panopoly
 ; The Panopoly Toolset
-projects[panopoly_pages][version] = 1.1
+projects[panopoly_pages][version] = 1.5
 projects[panopoly_pages][subdir] = panopoly
-projects[panopoly_wysiwyg][version] = 1.1
+projects[panopoly_wysiwyg][version] = 1.5
 projects[panopoly_wysiwyg][subdir] = panopoly
-projects[panopoly_search][version] = 1.1
+projects[panopoly_search][version] = 1.5
 projects[panopoly_search][subdir] = panopoly
 
 ;;;;;

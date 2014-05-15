@@ -72,6 +72,7 @@ dependencies[] = email_registration
 dependencies[] = entity
 dependencies[] = entitycache
 dependencies[] = features
+dependencies[] = features_uuid
 dependencies[] = libraries
 dependencies[] = menu_block
 dependencies[] = page_manager

@@ -31,9 +31,15 @@ projects[ds][type] = module
 projects[email_registration][type] = module
 projects[entitycache][type] = module
 projects[features_override][type] = module
+
+projects[features_uuid][type] = module
+projects[features_uuid][version] = 1.x-dev
+projects[features_uuid][patch][2222727] = https://drupal.org/files/issues/2222727-13-uuid-features-fpp-support.patch
+
 projects[total_control][type] = module
 projects[panels_everywhere][type] = module
 projects[panels_everywhere][version] = 1.x-dev
+projects[fieldable_panels_pane][patch][2246893] = https://drupal.org/files/issues/properly-set-pane-subtype-on-edit-form-submit-0.patch
 
 ;;;;;;
 ; Text Editor

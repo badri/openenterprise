@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * enterprise_content.install
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function enterprise_content_enable() {
+  _panopoly_core_import_demo_content(array('OpenEnterpriseNode'));
+}
