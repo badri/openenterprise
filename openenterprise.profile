@@ -103,7 +103,7 @@ function openenterprise_default_content(&$modules) {
 
 /**
  * Modify the apps_select_form
- * 
+ *
  * Add a custom callback so we can save the apps selection for later.
  */
 function openenterprise_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
@@ -174,6 +174,10 @@ function openenterprise_install_finished(&$install_state) {
     ->condition('type', 'module')
     ->condition('name', drupal_get_profile())
     ->execute();
+
+  $theme_default = 'kappa';
+  $admin_theme = 'rubik';
+  theme_enable(array('omega', $theme_default, 'tao', $admin_theme));
 
   // Cache a fully-built schema.
   drupal_get_schema(NULL, TRUE);
@@ -250,12 +254,12 @@ function openenterprise_block_view($delta = '') {
 
 /**
  * Implements hook_init()
- * 
+ *
  * Add a message if this is the levelten apps page.
  */
 function openenterprise_init() {
   if ($_GET['q'] == 'admin/apps/levelten') {
-    apps_include('manifest'); 
+    apps_include('manifest');
     $server = apps_servers('levelten');
     // Create args array for substitutions
     $manifest = apps_manifest($server);
