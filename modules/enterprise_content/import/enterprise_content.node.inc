@@ -32,9 +32,10 @@ class OpenEnterpriseNode extends Migration {
 
     $this->addFieldMapping('uid')->defaultValue(1);
     $this->addFieldMapping('status')->defaultValue(1);
+    $this->addFieldMapping('comment')->defaultValue(0);
     $this->addFieldMapping('language')->defaultValue(LANGUAGE_NONE);
     $this->addFieldMapping('title', 'title');
-    $this->addFieldMapping('exported_path', 'exported_path');
+    $this->addFieldMapping('path', 'export_path');
     $this->addFieldMapping('machine_name', 'machine_name');    
     $this->addFieldMapping('body', 'body');
     $this->addFieldMapping('body:format')->defaultValue('panopoly_wysiwyg_text');
@@ -49,5 +50,4 @@ class OpenEnterpriseNode extends Migration {
     $columns[4] = array('machine_name', 'Machine Name');        
     return $columns;
   }
-
 }
