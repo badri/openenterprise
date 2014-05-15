@@ -39,7 +39,10 @@ projects[uuid_features][patch][2222727] = https://drupal.org/files/issues/222272
 projects[total_control][type] = module
 projects[panels_everywhere][type] = module
 projects[panels_everywhere][version] = 1.x-dev
+;; for uuid features export of panels panes
 projects[fieldable_panels_panes][patch][2246893] = https://drupal.org/files/issues/properly-set-pane-subtype-on-edit-form-submit-0.patch
+;; for migrate support of panels panes
+projects[fieldable_panels_panes][patch][2145209] = https://drupal.org/files/issues/fpp-migrate-destination-handler-2145209-5.patch
 
 ;;;;;;
 ; Text Editor
