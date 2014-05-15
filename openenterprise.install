@@ -9,6 +9,7 @@ function openenterprise_install() {
   variable_set('node_content_enabled', TRUE);
   openenterprise_enable_theme_settings();
   openenterprise_create_menus();
+  openenterprise_add_content_types();
   openenterprise_setup_users();
   openenterprise_setup_tags();
 
@@ -38,6 +39,51 @@ function openenterprise_create_menus() {
   // Update the menu router information.
   menu_rebuild();
 }
+
+function openenterprise_add_content_types() {
+  $types = array(
+    array(
+      'type' => 'page',
+      'name' => st('Basic page'),
+      'base' => 'node_content',
+      'description' => st("Use <em>basic pages</em> for your static content, such as an 'About us' page."),
+      'custom' => 1,
+      'modified' => 1,
+      'locked' => 0,
+    ),
+  );
+
+  foreach ($types as $type) {
+    $type = node_type_set_defaults($type);
+    node_type_save($type);
+    node_add_body_field($type);
+  }
+
+  // Insert default pre-defined RDF mapping into the database.
+  $rdf_mappings = array(
+    array(
+      'type' => 'node',
+      'bundle' => 'page',
+      'mapping' => array(
+        'rdftype' => array('foaf:Document'),
+      ),
+    ),
+  );
+  foreach ($rdf_mappings as $rdf_mapping) {
+    rdf_mapping_save($rdf_mapping);
+  }
+
+  require_once drupal_get_path('profile', 'openenterprise') . '/openenterprise.wysiwyg.inc';
+  openenterprise_wysiwyg_create_image_field('page');
+
+  // Default "Basic page" to not be promoted and have comments disabled.
+  variable_set('node_options_page', array('status'));
+  variable_set('comment_page', COMMENT_NODE_HIDDEN);
+
+  // Don't display date and author information for "Basic page" nodes by default.
+  variable_set('node_submitted_page', FALSE);
+}
+
 
 function openenterprise_setup_users() {
   // Enable user picture support and set the default to a square thumbnail option.
