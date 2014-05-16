@@ -9,9 +9,7 @@ function openenterprise_install() {
   variable_set('node_content_enabled', TRUE);
   openenterprise_enable_theme_settings();
   openenterprise_create_menus();
-  openenterprise_add_content_types();
   openenterprise_setup_users();
-  openenterprise_setup_tags();
 
   // pathauto variables since they don't get set early enough for content.
   variable_set('pathauto_node_pattern', '[node:content-type:machine-name]/[node:title]');
@@ -40,48 +38,6 @@ function openenterprise_create_menus() {
   menu_rebuild();
 }
 
-function openenterprise_add_content_types() {
-  $types = array(
-    array(
-      'type' => 'page',
-      'name' => st('Basic page'),
-      'base' => 'node_content',
-      'description' => st("Use <em>basic pages</em> for your static content, such as an 'About us' page."),
-      'custom' => 1,
-      'modified' => 1,
-      'locked' => 0,
-    ),
-  );
-
-  foreach ($types as $type) {
-    $type = node_type_set_defaults($type);
-    node_type_save($type);
-    node_add_body_field($type);
-  }
-
-  // Insert default pre-defined RDF mapping into the database.
-  $rdf_mappings = array(
-    array(
-      'type' => 'node',
-      'bundle' => 'page',
-      'mapping' => array(
-        'rdftype' => array('foaf:Document'),
-      ),
-    ),
-  );
-  foreach ($rdf_mappings as $rdf_mapping) {
-    rdf_mapping_save($rdf_mapping);
-  }
-
-  // Default "Basic page" to not be promoted and have comments disabled.
-  variable_set('node_options_page', array('status'));
-  variable_set('comment_page', COMMENT_NODE_HIDDEN);
-
-  // Don't display date and author information for "Basic page" nodes by default.
-  variable_set('node_submitted_page', FALSE);
-}
-
-
 function openenterprise_setup_users() {
   // Enable user picture support and set the default to a square thumbnail option.
   variable_set('user_pictures', '1');
@@ -91,20 +47,6 @@ function openenterprise_setup_users() {
 
   // Allow visitor account creation with administrative approval.
   variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
-}
-
-function openenterprise_setup_tags() {
-  // Create a default vocabulary named "Tags".
-  $description = st('Use tags to group articles on similar topics into categories.');
-  $help = st('Enter a comma-separated list of words to describe your content.');
-  $vocabulary = (object) array(
-    'name' => st('Tags'),
-    'description' => $description,
-    'machine_name' => 'tags',
-    'help' => $help,
-
-  );
-  taxonomy_vocabulary_save($vocabulary);
 }
 
 /**
