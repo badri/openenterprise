@@ -8,12 +8,12 @@
  * Implements hook_enable().
  */
 function enterprise_content_enable() {
-  _panopoly_core_import_demo_content(array('OpenEnterpriseNode'));
+  _panopoly_core_import_demo_content(array('OpenEnterpriseNode', 'OpenEnterpriseBlocks'));
 }
 
 /**
  * Implements hook_disable().
  */
 function enterprise_content_disable() {
-  _panopoly_core_rollback_demo_content(array('OpenEnterpriseNode'));
+  _panopoly_core_rollback_demo_content(array('OpenEnterpriseNode', 'OpenEnterpriseBlocks'));
 }
