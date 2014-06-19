@@ -5,59 +5,99 @@ core = 7.x
 ; Fields
 ;;;;;;
 projects[references][type] = module
+projects[references][subdir] = contrib
+
 projects[filefield_sources][type] = module
+projects[filefield_sources][subdir] = contrib
 
 ;;;;;;
 ; Path Tools
 ;;;;;;
 projects[globalredirect][type] = module
+projects[globalredirect][subdir] = contrib
+
 projects[redirect][type] = module
+projects[redirect][subdir] = contrib
+
 projects[transliteration][type] = module
+projects[transliteration][subdir] = contrib
 
 
 ;;;;;;
 ; Sitebuilding tools
 ;;;;;;
 projects[backup_migrate][type] = module
+projects[backup_migrate][subdir] = contrib
+
 projects[boxes][type] = module
-projects[custom_formatters][type] = module
+projects[boxes][subdir] = contrib
+
 projects[custom_formatters][version] = 2.x-dev
+projects[custom_formatters][subdir] = contrib
+
 projects[defaultcontent][version] = 1.0-alpha6
-projects[defaultcontent][type] = module
+projects[defaultcontent][subdir] = contrib
 ; Remove context dependency.
 ; http://drupal.org/node/1446714
 projects[defaultcontent][patch][1446714] = http://drupal.org/files/defaultcontent-1446714-16.patch
+
 projects[ds][type] = module
+projects[ds][subdir] = contrib
+
 projects[email_registration][type] = module
+projects[email_registration][subdir] = contrib
+
 projects[entitycache][type] = module
+projects[entitycache][subdir] = contrib
+
 projects[features_override][type] = module
+projects[features_override][subdir] = contrib
 
 projects[uuid_features][type] = module
 projects[uuid_features][version] = 1.x-dev
 projects[uuid_features][patch][2222727] = https://drupal.org/files/issues/2222727-13-uuid-features-fpp-support.patch
+projects[uuid_features][subdir] = contrib
+
 
 projects[total_control][type] = module
-projects[panels_everywhere][type] = module
+projects[total_control][subdir] = contrib
+
 projects[panels_everywhere][version] = 1.x-dev
 ;; for uuid features export of panels panes
 projects[fieldable_panels_panes][patch][2246893] = https://drupal.org/files/issues/properly-set-pane-subtype-on-edit-form-submit-0.patch
 ;; for migrate support of panels panes
 projects[fieldable_panels_panes][patch][2145209] = https://www.drupal.org/files/issues/fieldable_panels_panes-n2145209-8.patch
+projects[fieldable_panels_panes][subdir] = contrib
+
 
 ;;;;;;
 ; Text Editor
 ;;;;;;
 projects[better_formats][type] = module
+projects[better_formats][subdir] = contrib
+
 projects[insert][type] = module
+projects[insert][subdir] = contrib
+
 
 ;;;;;;
 ; UI Enhancements
 ;;;;;;
 projects[block_visibility][type] = module
+projects[block_visibility][subdir] = contrib
+
 projects[nodeconnect][type] = module
+projects[nodeconnect][subdir] = contrib
+
 projects[elements][type] = module
+projects[elements][subdir] = contrib
+
 projects[navigation404][type] = module
+projects[navigation404][subdir] = contrib
+
 projects[options_element][type] = module
+projects[options_element][subdir] = contrib
+
 
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.5
