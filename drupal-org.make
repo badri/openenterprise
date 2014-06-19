@@ -38,7 +38,6 @@ projects[custom_formatters][subdir] = contrib
 projects[defaultcontent][version] = 1.0-alpha6
 projects[defaultcontent][subdir] = contrib
 ; Remove context dependency.
-; http://drupal.org/node/1446714
 projects[defaultcontent][patch][1446714] = http://drupal.org/files/defaultcontent-1446714-16.patch
 
 projects[ds][type] = module
@@ -63,10 +62,13 @@ projects[total_control][type] = module
 projects[total_control][subdir] = contrib
 
 projects[panels_everywhere][version] = 1.x-dev
+projects[panels_everywhere][subdir] = contrib
+
+projects[fieldable_panels_panes][version] = 1.x-dev
 ;; for uuid features export of panels panes
 projects[fieldable_panels_panes][patch][2246893] = https://drupal.org/files/issues/properly-set-pane-subtype-on-edit-form-submit-0.patch
 ;; for migrate support of panels panes
-projects[fieldable_panels_panes][patch][2145209] = https://www.drupal.org/files/issues/fieldable_panels_panes-n2145209-8.patch
+projects[fieldable_panels_panes][patch][2145209] = https://drupal.org/files/issues/fpp-migrate-destination-handler-2145209-5.patch
 projects[fieldable_panels_panes][subdir] = contrib
 
 

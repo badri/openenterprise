@@ -36,10 +36,13 @@ class OpenEnterpriseNode extends Migration {
     $this->addFieldMapping('language')->defaultValue(LANGUAGE_NONE);
     $this->addFieldMapping('title', 'title');
     $this->addFieldMapping('path', 'export_path');
-    $this->addFieldMapping('machine_name', 'machine_name');    
+    $this->addFieldMapping('machine_name', 'machine_name');
     $this->addFieldMapping('body', 'body');
     $this->addFieldMapping('body:format')->defaultValue('panopoly_wysiwyg_text');
     $this->addFieldMapping('created', 'created');
+    $this->addUnmigratedDestinations(array(
+      'vid'
+    ));
   }
 
   protected function csvcolumns() {
@@ -47,7 +50,7 @@ class OpenEnterpriseNode extends Migration {
     $columns[1] = array('body', 'Body');
     $columns[2] = array('created', 'Created');
     $columns[3] = array('export_path', 'Path');
-    $columns[4] = array('machine_name', 'Machine Name');        
+    $columns[4] = array('machine_name', 'Machine Name');
     return $columns;
   }
 }

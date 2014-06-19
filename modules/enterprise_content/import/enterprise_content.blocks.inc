@@ -28,7 +28,7 @@ class OpenEnterpriseBlocks extends Migration {
     // Create destination
     $this->destination = new MigrateDestinationFieldablePanelsPanes('text');
     $this->addFieldMapping('title', 'title');
-    $this->addFieldMapping('bundle', 'text');    
+    $this->addFieldMapping('bundle', 'text');
     $this->addFieldMapping('link', 'title_has_link')->defaultValue(FALSE);
     $this->addFieldMapping('path', 'title_link_path')->defaultValue('');
     $this->addFieldMapping('reusable')->defaultValue(TRUE);
