@@ -76,6 +76,7 @@ dependencies[] = libraries
 dependencies[] = menu_block
 dependencies[] = page_manager
 dependencies[] = panels
+dependencies[] = panelizer
 dependencies[] = panels_everywhere
 dependencies[] = panels_mini
 dependencies[] = strongarm
