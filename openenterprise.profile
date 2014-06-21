@@ -83,6 +83,10 @@ function openenterprise_install_tasks($install_state) {
     ),
     'default content callback' => 'openenterprise_default_content',
   );
+  $tasks['openterprise_setup_form'] = array(
+    'display_name' => st('Configure your installation'),
+    'type' => 'form',
+  );
   $tasks = $tasks + apps_profile_install_tasks($install_state, $server);
   return $tasks;
 }
@@ -100,6 +104,34 @@ function openenterprise_default_content(&$modules) {
     }
   }
 }
+
+/**
+ * Task callback: returns the form allowing the user to create example content.
+ */
+function openenterprise_setup_form() {
+  $form['install_demo_content'] = array(
+    '#type' => 'radios',
+    '#title' => st('Do you want to install demo content?'),
+    '#description' => st('Sample content to get started with. Includes sample pages and blocks.'),
+    '#options' => $options,
+    '#default_value' => '1',
+  );
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st('Create and Finish'),
+    '#weight' => 15,
+  );
+  return $form;
+}
+
+/**
+ * Submit callback: creates the requested sample content.
+ */
+function openenterprise_setup_form_submit(&$form, &$form_state) {
+  variable_set('openenterprise_demo_content', $form_state['values']['install_demo_content']);
+}
+
 
 /**
  * Modify the apps_select_form
