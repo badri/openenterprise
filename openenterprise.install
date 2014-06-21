@@ -1,5 +1,48 @@
 <?php
 
+
+/**
+ * Implements hook_install_tasks().
+ */
+function openenterprise_install_tasks() {
+  $tasks = array();
+
+  $tasks['openterprise_setup_form'] = array(
+    'display_name' => st('Configure your installation'),
+    'type' => 'form',
+  );
+  return $tasks;
+}
+
+
+/**
+ * Task callback: returns the form allowing the user to create example content.
+ */
+function openenterprise_setup_form() {
+  $form['install_demo_content'] = array(
+    '#type' => 'radios',
+    '#title' => st('Do you want to install demo content?'),
+    '#description' => st('Sample content to get started with. Includes sample pages and blocks.'),
+    '#options' => $options,
+    '#default_value' => '1',
+  );
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st('Create and Finish'),
+    '#weight' => 15,
+  );
+  return $form;
+}
+
+/**
+ * Submit callback: creates the requested sample content.
+ */
+function openenterprise_setup_form_submit(&$form, &$form_state) {
+  variable_set('openenterprise_demo_content', $form_state['values']['install_demo_content']);
+}
+
+
 /**
  * Implements hook_install().
  *
@@ -21,6 +64,33 @@ function openenterprise_install() {
   variable_set('date_format_medium', 'D, Y-m-d H:i');
   variable_set('date_format_short', 'Y-m-d H:i');
 }
+
+/**
+ * Implements hook_install_tasks_alter().
+ */
+function openenterprise_install_tasks_alter(&$tasks, $install_state) {
+  $tasks['install_finished']['function'] = 'openenterprise_install_finished';
+}
+
+
+/**
+ * Custom installation task; perform final steps and redirect the user to the new site if there are no errors.
+ *
+ * @param $install_state
+ *   An array of information about the current installation state.
+ *
+ * @return
+ *   A message informing the user about errors if there was some.
+ */
+function openenterprise_install_finished(&$install_state) {
+  drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
+  $messages = drupal_set_message();
+  $openenterprise_demo_content = variable_get('openenterprise_demo_content', FALSE);
+  if ($openenterprise_demo_content) {
+    module_enable(array('enterprise_content'));
+  }
+}
+
 
 /**
  * Create menus and links
