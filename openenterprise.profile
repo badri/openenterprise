@@ -83,7 +83,7 @@ function openenterprise_install_tasks($install_state) {
     ),
     'default content callback' => 'openenterprise_default_content',
   );
-  $tasks['openterprise_setup_form'] = array(
+  $tasks['openenterprise_setup_form'] = array(
     'display_name' => st('Configure your installation'),
     'type' => 'form',
   );
@@ -109,6 +109,12 @@ function openenterprise_default_content(&$modules) {
  * Task callback: returns the form allowing the user to create example content.
  */
 function openenterprise_setup_form() {
+
+  $options = array(
+    '1' => st('Yes'),
+    '0' => st('No'),
+  );
+
   $form['install_demo_content'] = array(
     '#type' => 'radios',
     '#title' => st('Do you want to install demo content?'),
@@ -197,6 +203,10 @@ function openenterprise_install_tasks_alter(&$tasks, $install_state) {
  */
 function openenterprise_install_finished(&$install_state) {
   drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
+  $openenterprise_demo_content = variable_get('openenterprise_demo_content', FALSE);
+  if ($openenterprise_demo_content) {
+    module_enable(array('enterprise_content'));
+  }
   if (!isset($_SESSION['openenterprise_apps_installed']) || !$_SESSION['openenterprise_apps_installed']) {
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
     $output .= '<p>' . st('By not installing any apps, your site is currently a blank. To get started you can either create your own content types, views and set up the site yourself or install some prebuild apps. Apps provide complete bundled functionality that will greatly speed up the process of creating your site.') . '</p>';

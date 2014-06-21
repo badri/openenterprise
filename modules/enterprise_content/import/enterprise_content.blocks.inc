@@ -11,11 +11,12 @@ class OpenEnterpriseBlocks extends Migration {
     $this->description = t('Basic text blocks for Open Enterprise using fieldable panels panes');
     $this->map = new MigrateSQLMap($this->machineName,
       array(
-      'vid' => array(
-        'type' => 'int',
+      'fpid' => array(
+        'description' => 'The primary identifier for the entity.',
+        'type' => 'serial',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        ),
+      ),
       ),
       MigrateDestinationFieldablePanelsPanes::getKeySchema()
     );
@@ -49,11 +50,12 @@ class OpenEnterpriseBlocks extends Migration {
    * @return mixed
    */
   function csvcolumns() {
-    $columns[0] = array('title', 'Title');
-    $columns[1] = array('title_has_link', 'TitleHasLink');
-    $columns[2] = array('title_link_path', 'TitleLinkPath');
-    $columns[3] = array('content', 'Content');
-    $columns[4] = array('category', 'Category');
+    $columns[0] = array('fpid', 'Id');
+    $columns[1] = array('title', 'Title');
+    $columns[2] = array('title_has_link', 'TitleHasLink');
+    $columns[3] = array('title_link_path', 'TitleLinkPath');
+    $columns[4] = array('content', 'Content');
+    $columns[5] = array('category', 'Category');
     return $columns;
   }
 }
