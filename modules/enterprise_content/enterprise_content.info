@@ -9,6 +9,7 @@ dependencies[] = fieldable_panels_panes
 ddependencies[] = menu
 dependencies[] = migrate
 dependencies[] = panopoly_pages
+dependencies[] = panopoly_widgets
 dependencies[] = rdf
 dependencies[] = strongarm
 features[box][] = oe1
