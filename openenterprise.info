@@ -108,7 +108,9 @@ dependencies[] = save_draft
 dependencies[] = module_filter
 dependencies[] = date_popup_authored
 
+dependencies[] = enterprise_content
 ;; Custom
+;dependencies[] = tutorials
 
 files[] = openenterprise.profile
 
