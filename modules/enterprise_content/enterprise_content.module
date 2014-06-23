@@ -23,6 +23,7 @@ function enterprise_content_migrate_api() {
     'migrations' => array(
       'OpenEnterpriseNode' => array('class_name' => 'OpenEnterpriseNode'),
       'OpenEnterpriseBlocks' => array('class_name' => 'OpenEnterpriseBlocks'),
+      'OpenEnterpriseImageBlocks' => array('class_name' => 'OpenEnterpriseImageBlocks'),
     ),
   );
   return $api;
