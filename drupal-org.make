@@ -54,7 +54,6 @@ projects[features_override][subdir] = contrib
 
 projects[uuid_features][type] = module
 projects[uuid_features][version] = 1.x-dev
-projects[uuid_features][patch][2222727] = https://dl.dropboxusercontent.com/u/1971103/uuid-features-fpp-support-2222727-31.patch
 projects[uuid_features][subdir] = contrib
 
 
