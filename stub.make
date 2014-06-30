@@ -11,7 +11,7 @@ projects[] = drupal
 projects[openenterprise][type] = profile
 projects[openenterprise][download][type] = git
 projects[openenterprise][download][url] = https://github.com/badri/openenterprise
-projects[openenterprise][download][branch] = 1.x
+projects[openenterprise][download][branch] = pp-slideshow
 
 ; for a local build
 ; includes[] = drupal-org.make

@@ -79,6 +79,7 @@ dependencies[] = panels
 dependencies[] = panelizer
 dependencies[] = panels_everywhere
 dependencies[] = panels_mini
+dependencies[] = pp_slideshow
 dependencies[] = strongarm
 dependencies[] = token
 dependencies[] = total_control

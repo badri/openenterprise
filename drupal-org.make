@@ -10,7 +10,16 @@ projects[references][subdir] = contrib
 projects[filefield_sources][type] = module
 projects[filefield_sources][subdir] = contrib
 
-;;;;;;
+projects[color_field][type] = module
+projects[color_field][subdir] = contrib
+
+projects[field_collection][type] = module
+projects[field_collection][subdir] = contrib
+
+projects[field_slideshow][type] = module
+projects[field_slideshow][subdir] = contrib
+
+;;;;;
 ; Path Tools
 ;;;;;;
 projects[globalredirect][type] = module
@@ -70,6 +79,15 @@ projects[fieldable_panels_panes][patch][2246893] = https://drupal.org/files/issu
 projects[fieldable_panels_panes][patch][2145209] = https://drupal.org/files/issues/fpp-migrate-destination-handler-2145209-5.patch
 projects[fieldable_panels_panes][subdir] = contrib
 
+projects[pp_crop][type] = module
+projects[pp_crop][subdir] = contrib
+
+projects[pp_slideshow][type] = module
+projects[pp_slideshow][subdir] = contrib
+
+projects[epsacrop][type] = module
+projects[epsacrop][subdir] = contrib
+projects[epsacrop][version] = 2.x-dev
 
 ;;;;;;
 ; Text Editor
@@ -126,6 +144,13 @@ projects[panopoly_search][subdir] = panopoly
 ;;;;;
 ; Libraries
 ;;;;;
+libraries[json2][download][type] = get
+libraries[json2][download][url] = https://github.com/douglascrockford/JSON-js/archive/master.zip
+libraries[json2][download][destination] = libraries
+
+libraries[Jcrop][download][type] = get
+libraries[Jcrop][download][url] = https://github.com/tapmodo/Jcrop/zipball/v0.9.12
+libraries[Jcrop][download][destination] = libraries
 
 ;;;;;;
 ; Themes
