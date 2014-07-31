@@ -10,7 +10,7 @@ projects[] = drupal
 
 projects[druplug][type] = profile
 projects[druplug][download][type] = git
-projects[druplug][download][url] = https://github.com/badri/druplug
+projects[druplug][download][url] = https://github.com/druplug/druplug
 projects[druplug][download][branch] = druplug
 
 ; for a local build
