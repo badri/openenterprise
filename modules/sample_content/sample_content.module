@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file
+ * Code for the Druplug Content feature.
+ */
+
+include_once('sample_content.features.inc');
+
+/**
+ * Implements hook_menu_alter().
+ */
+function sample_content_menu_alter(&$items) {
+  $items['node']['page callback'] = 'drupal_goto';
+  $items['node']['page arguments'] = array('home');
+}
+
+/**
+ * Implements hook_migrate_api().
+ */
+function sample_content_migrate_api() {
+  $api = array(
+    'api' => 2,
+    'migrations' => array(
+      'DruplugNode' => array('class_name' => 'DruplugNode'),
+      'DruplugBlocks' => array('class_name' => 'DruplugBlocks'),
+      'DruplugImageBlocks' => array('class_name' => 'DruplugImageBlocks'),
+    ),
+  );
+  return $api;
+}

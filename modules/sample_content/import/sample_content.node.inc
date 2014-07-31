@@ -5,7 +5,7 @@
  * Migrations for Basic Nodes.
  */
 
-class OpenEnterpriseNode extends Migration {
+class DruplugNode extends Migration {
 
   public function __construct($arguments = array()) {
     parent::__construct($arguments = array());
@@ -23,10 +23,10 @@ class OpenEnterpriseNode extends Migration {
       MigrateDestinationNode::getKeySchema()
     );
 
-    $import_path = drupal_get_path('module', 'enterprise_content') . '/import/data/';
+    $import_path = drupal_get_path('module', 'sample_content') . '/import/data/';
 
     // Create a MigrateSource object.
-    $this->source = new MigrateSourceCSV($import_path . 'enterprise_content.node.csv', $this->csvcolumns(), array('header_rows' => 1));
+    $this->source = new MigrateSourceCSV($import_path . 'sample_content.node.csv', $this->csvcolumns(), array('header_rows' => 1));
 
     $this->destination = new MigrateDestinationNode('panopoly_page');
 

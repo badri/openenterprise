@@ -1,5 +1,5 @@
-name = OpenEnterprise Content
-description = Default content for OpenEnterprise
+name = Druplug Content
+description = Default content for Druplug distribution
 core = 7.x
 package = Other
 php = 5.2.4
@@ -10,6 +10,6 @@ dependencies[] = panopoly_pages
 dependencies[] = panopoly_widgets
 dependencies[] = rdf
 dependencies[] = strongarm
-files[] = import/enterprise_content.node.inc
-files[] = import/enterprise_content.blocks.inc
-files[] = import/enterprise_content.image_blocks.inc
+files[] = import/sample_content.node.inc
+files[] = import/sample_content.blocks.inc
+files[] = import/sample_content.image_blocks.inc

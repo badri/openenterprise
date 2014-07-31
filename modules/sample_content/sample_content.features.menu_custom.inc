@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * enterprise_content.features.menu_custom.inc
+ * sample_content.features.menu_custom.inc
  */
 
 /**
  * Implements hook_menu_default_menu_custom().
  */
-function enterprise_content_menu_default_menu_custom() {
+function sample_content_menu_default_menu_custom() {
   $menus = array();
 
   // Exported menu: menu-legal-notices

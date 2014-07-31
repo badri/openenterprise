@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * enterprise_content.features.menu_links.inc
+ * sample_content.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function enterprise_content_menu_default_menu_links() {
+function sample_content_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link: menu-social:http://twitter.com

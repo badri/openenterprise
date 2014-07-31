@@ -9,7 +9,7 @@ projects[] = drupal
 ; Version (commit 3e7568e8b8ed077caadcac4dfa147fb394b0b041 , but not in 7.x-2.1)
 ; see http://drupal.org/node/624018
 ; http://drupal.org/node/903730
-; my suggestion use wysiwyg - dev version until this is in the stable version, 
+; my suggestion use wysiwyg - dev version until this is in the stable version,
 ; expect it in 7.x-2.2
 projects[drupal][patch][903730] = http://drupal.org/files/issues/drupal.filter-alter.92.patch
 
@@ -25,4 +25,4 @@ projects[drupal][patch][972536] = http://drupal.org/files/issues/drupal-menu-int
 ; http://drupal.org/node/992540
 projects[drupal][patch][992540] = http://drupal.org/files/issues/992540-3-reset_flood_limit_on_password_reset-drush.patch
 
-projects[openenterprise][version] = 1.0-rc3
+projects[druplug][version] = 1.0

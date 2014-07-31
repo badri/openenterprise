@@ -1,0 +1,19 @@
+<?php
+/**
+ * @file
+ * sample_content.install
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function sample_content_enable() {
+  _panopoly_core_import_demo_content(array('DruplugNode', 'DruplugBlocks', 'DruplugImageBlocks'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function sample_content_disable() {
+  _panopoly_core_rollback_demo_content(array('DruplugNode', 'DruplugBlocks', 'DruplugImageBlocks'));
+}

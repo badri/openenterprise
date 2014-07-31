@@ -5,10 +5,10 @@
  * Migrations for blocks.
  */
 
-class OpenEnterpriseBlocks extends Migration {
+class DruplugBlocks extends Migration {
   public function __construct() {
     parent::__construct();
-    $this->description = t('Basic text blocks for Open Enterprise using fieldable panels panes');
+    $this->description = t('Basic text blocks for Druplug using fieldable panels panes');
     $this->map = new MigrateSQLMap($this->machineName,
       array(
       'fppid' => array(
@@ -21,10 +21,10 @@ class OpenEnterpriseBlocks extends Migration {
       MigrateDestinationFieldablePanelsPanes::getKeySchema()
     );
     // Create MigrateSource object
-    $import_path = drupal_get_path('module', 'enterprise_content') . '/import/data/';
+    $import_path = drupal_get_path('module', 'sample_content') . '/import/data/';
 
     // Create a MigrateSource object.
-    $this->source = new MigrateSourceCSV($import_path . 'enterprise_content.blocks.csv', $this->csvcolumns(), array('header_rows' => 1));
+    $this->source = new MigrateSourceCSV($import_path . 'sample_content.blocks.csv', $this->csvcolumns(), array('header_rows' => 1));
 
     // Create destination
     $this->destination = new MigrateDestinationFieldablePanelsPanes('text');

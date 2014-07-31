@@ -5,11 +5,11 @@
  *
  * Perform actions to set up the site for this profile.
  */
-function openenterprise_install() {
+function druplug_install() {
   variable_set('node_content_enabled', TRUE);
-  openenterprise_enable_theme_settings();
-  openenterprise_create_menus();
-  openenterprise_setup_users();
+  druplug_enable_theme_settings();
+  druplug_create_menus();
+  druplug_setup_users();
 
   // pathauto variables since they don't get set early enough for content.
   variable_set('pathauto_node_pattern', '[node:content-type:machine-name]/[node:title]');
@@ -25,7 +25,7 @@ function openenterprise_install() {
 /**
  * Create menus and links
  */
-function openenterprise_create_menus() {
+function druplug_create_menus() {
   // Create a Home link in the main menu.
   $item = array(
     'link_title' => st('Home'),
@@ -38,7 +38,7 @@ function openenterprise_create_menus() {
   menu_rebuild();
 }
 
-function openenterprise_setup_users() {
+function druplug_setup_users() {
   // Enable user picture support and set the default to a square thumbnail option.
   variable_set('user_pictures', '1');
   variable_set('user_picture_dimensions', '1024x1024');
@@ -52,7 +52,7 @@ function openenterprise_setup_users() {
 /**
 * enable themes
 */
-function openenterprise_enable_theme_settings() {
+function druplug_enable_theme_settings() {
   $theme_default = 'kappa';
   $admin_theme = 'rubik';
   theme_enable(array('omega', $theme_default, 'tao', $admin_theme));

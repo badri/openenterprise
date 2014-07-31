@@ -1,6 +1,6 @@
-name = OpenEnterprise
-description = OpenEnterprise Distribution by LevelTen Interactive
-distribution_name = OpenEnterprise
+name = Druplug
+description = Run Drupal on steroids
+distribution_name = Druplug
 
 base[] = panopoly
 
@@ -108,10 +108,10 @@ dependencies[] = save_draft
 dependencies[] = module_filter
 dependencies[] = date_popup_authored
 
-dependencies[] = enterprise_content
+dependencies[] = sample_content
 ;; Custom
 ;dependencies[] = tutorials
 
-files[] = openenterprise.profile
+files[] = druplug.profile
 
 exclusive = 1

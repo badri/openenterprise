@@ -5,10 +5,10 @@
  * Migrations for blocks with image.
  */
 
-class OpenEnterpriseImageBlocks extends Migration {
+class DruplugImageBlocks extends Migration {
   public function __construct() {
     parent::__construct();
-    $this->description = t('Image blocks for Open Enterprise using fieldable panels panes');
+    $this->description = t('Image blocks for Druplug using fieldable panels panes');
     $this->map = new MigrateSQLMap($this->machineName,
       array(
       'fppid' => array(
@@ -21,10 +21,10 @@ class OpenEnterpriseImageBlocks extends Migration {
       MigrateDestinationFieldablePanelsPanes::getKeySchema()
     );
     // Create MigrateSource object
-    $import_path = drupal_get_path('module', 'enterprise_content') . '/import/data/';
+    $import_path = drupal_get_path('module', 'sample_content') . '/import/data/';
 
     // Create a MigrateSource object.
-    $this->source = new MigrateSourceCSV($import_path . 'enterprise_content.image_blocks.csv', $this->csvcolumns(), array('header_rows' => 1));
+    $this->source = new MigrateSourceCSV($import_path . 'sample_content.image_blocks.csv', $this->csvcolumns(), array('header_rows' => 1));
 
     // Create destination
     $this->destination = new MigrateDestinationFieldablePanelsPanes('image');
@@ -38,7 +38,7 @@ class OpenEnterpriseImageBlocks extends Migration {
     $this->addFieldMapping('field_basic_image_image:file_replace')
       ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_basic_image_image:source_dir')
-      ->defaultValue(drupal_get_path('module', 'enterprise_content') . '/import/data/images');
+      ->defaultValue(drupal_get_path('module', 'sample_content') . '/import/data/images');
 
     $this->addFieldMapping('field_basic_image_caption', 'caption');
     $this->addFieldMapping('field_basic_image_caption:format')->defaultValue('panopoly_wysiwyg_text');

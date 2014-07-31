@@ -3,24 +3,24 @@
 /**
 * A trick to enforce page refresh when theme is changed from an overlay.
 */
-function openenterprise_admin_paths_alter(&$paths) {
+function druplug_admin_paths_alter(&$paths) {
   $paths['admin/appearance/default*'] = FALSE;
 }
 
 /**
- * Set Open Enterprise as default install profile.
+ * Set Druplug as default install profile.
  *
- * Must use system as the hook module because openenterprise is not active yet
+ * Must use system as the hook module because druplug is not active yet
  */
 function system_form_install_select_profile_form_alter(&$form, $form_state) {
   foreach($form['profile'] as $key => $element) {
-    $form['profile'][$key]['#value'] = 'openenterprise';
+    $form['profile'][$key]['#value'] = 'druplug';
   }
 }
 /**
  * Implements hook_appstore_stores_info
  */
-function openenterprise_apps_servers_info() {
+function druplug_apps_servers_info() {
   $profile = variable_get('install_profile', 'standard');
   $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
   return array(
@@ -39,7 +39,7 @@ function openenterprise_apps_servers_info() {
 /**
  * implements hook_install_configure_form_alter()
  */
-function openenterprise_form_install_configure_form_alter(&$form, &$form_state) {
+function druplug_form_install_configure_form_alter(&$form, &$form_state) {
   // Many modules set messages during installation that are very annoying.
   // (I'm looking at you Date and IMCE)
   // Lets remove these and readd the only message that should be set.
@@ -60,7 +60,7 @@ function openenterprise_form_install_configure_form_alter(&$form, &$form_state) 
     drupal_set_message(st('All necessary changes to %dir and %file have been made, so you should remove write permissions to them now in order to avoid security risks. If you are unsure how to do so, consult the <a href="@handbook_url">online handbook</a>.', array('%dir' => $settings_dir, '%file' => $settings_file, '@handbook_url' => 'http://drupal.org/server-permissions')), 'warning');
   }
 
-  $form['site_information']['site_name']['#default_value'] = 'OpenEnterprise';
+  $form['site_information']['site_name']['#default_value'] = 'Druplug';
   $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
   $form['admin_account']['account']['mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
@@ -69,7 +69,7 @@ function openenterprise_form_install_configure_form_alter(&$form, &$form_state) 
 /**
  * Implements hook_install_tasks
  */
-function openenterprise_install_tasks($install_state) {
+function druplug_install_tasks($install_state) {
   $tasks = array();
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
   $server = array(
@@ -81,7 +81,7 @@ function openenterprise_install_tasks($install_state) {
     'required apps' => array(
 
     ),
-    'default content callback' => 'openenterprise_default_content',
+    'default content callback' => 'druplug_default_content',
   );
   $tasks = $tasks + apps_profile_install_tasks($install_state, $server);
   return $tasks;
@@ -90,8 +90,8 @@ function openenterprise_install_tasks($install_state) {
 /**
  * Apps installer default content callback.
  */
-function openenterprise_default_content(&$modules) {
-  $modules[] = 'enterprise_content';
+function druplug_default_content(&$modules) {
+  $modules[] = 'sample_content';
   $files = system_rebuild_module_data();
   foreach($modules as $module) {
     // Should probably check the app to see the proper way to do this.
@@ -106,7 +106,7 @@ function openenterprise_default_content(&$modules) {
  *
  * Add a custom callback so we can save the apps selection for later.
  */
-function openenterprise_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
+function druplug_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
   // panopoly_form_apps_profile_apps_select_form_alter($form, $form_state);
   ############## INCLUDE FROM PANOPOLY #####################
     // For some things there are no need
@@ -127,31 +127,31 @@ function openenterprise_form_apps_profile_apps_select_form_alter(&$form, $form_s
   $form['default_content_fieldset']['#access'] = FALSE;
   // ########### END PANOPOLY ################
 
-  $form['#submit'][] = 'openenterprise_apps_profile_apps_select_form_submit';
+  $form['#submit'][] = 'druplug_apps_profile_apps_select_form_submit';
 }
 
 /**
  * Submit callback for apps_profile_apps_select_form
  */
-function openenterprise_apps_profile_apps_select_form_submit($form, $form_state) {
+function druplug_apps_profile_apps_select_form_submit($form, $form_state) {
   if ($form_state['values']['op'] == t('Install Apps') && isset($form_state['values']['apps']) && !empty($form_state['values']['apps'])) {
     $apps = array_filter($form_state['values']['apps']);
-    $_SESSION['openenterprise_apps_installed'] = FALSE;
+    $_SESSION['druplug_apps_installed'] = FALSE;
     if (!empty($apps)) {
-      $_SESSION['openenterprise_apps_installed'] = TRUE;
+      $_SESSION['druplug_apps_installed'] = TRUE;
     }
-    $_SESSION['openenterprise_apps_default_content'] = $form_state['values']['default_content'];
+    $_SESSION['druplug_apps_default_content'] = $form_state['values']['default_content'];
   }
 }
 
 /**
  * Change the final task to our task
  */
-function openenterprise_install_tasks_alter(&$tasks, $install_state) {
+function druplug_install_tasks_alter(&$tasks, $install_state) {
   // Magically go one level deeper in solving years of dependency problems
   require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
   $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
-  $tasks['install_finished']['function'] = "openenterprise_install_finished";
+  $tasks['install_finished']['function'] = "druplug_install_finished";
 }
 
 /**
@@ -163,9 +163,9 @@ function openenterprise_install_tasks_alter(&$tasks, $install_state) {
  * @return
  *   A message informing the user that the installation is complete.
  */
-function openenterprise_install_finished(&$install_state) {
+function druplug_install_finished(&$install_state) {
   drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
-  if (!isset($_SESSION['openenterprise_apps_installed']) || !$_SESSION['openenterprise_apps_installed']) {
+  if (!isset($_SESSION['druplug_apps_installed']) || !$_SESSION['druplug_apps_installed']) {
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
     $output .= '<p>' . st('By not installing any apps, your site is currently a blank. To get started you can either create your own content types, views and set up the site yourself or install some prebuild apps. Apps provide complete bundled functionality that will greatly speed up the process of creating your site.') . '</p>';
     $output .= '<p>' . st('Even after installing apps your site may look very empty before you add some content. To see what it looks like with content, try installing the default content for each of the apps. This can be done on each app\'s configuration page.') . '</p>';
@@ -173,7 +173,7 @@ function openenterprise_install_finished(&$install_state) {
     $output .= '<p>' . st('<a href="@url">Install some apps</a>', array('@url' => url('admin/apps'))) . ' or ' . st('<a href="@url">go to your site\'s home page</a>.', array('@url' => url('<front>'))) . '</p>';
   }
   else {
-    $link = (isset($_SESSION['openenterprise_apps_default_content']))?drupal_get_normal_path('home'):'<front>';
+    $link = (isset($_SESSION['druplug_apps_default_content']))?drupal_get_normal_path('home'):'<front>';
     $output = '<h2>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</h2>';
     $output .= '<p>' . st('Your site now contains the apps you selected. To add more, go to the Apps menu in the admin menu at the top of the site.') . '</p>';
     $output .= '<h2>' . st('Next Step') . '</h2>';
@@ -214,9 +214,9 @@ function openenterprise_install_finished(&$install_state) {
 /**
  * Implements hook_theme().
  */
-function openenterprise_theme($existing, $type, $theme, $path) {
+function druplug_theme($existing, $type, $theme, $path) {
   return array(
-    'openenterprise_logo' => array(
+    'druplug_logo' => array(
       'variables' => array(),
     ),
     'levelten_logo' => array(
@@ -226,25 +226,25 @@ function openenterprise_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements theme_openenterprise_logo().
+ * Implements theme_druplug_logo().
  */
-function theme_openenterprise_logo() {
-  return '<img src="/profiles/openenterprise/openenterprise-logo-small.png" alt="" class="openenterprise" height="16" width="122" />';
+function theme_druplug_logo() {
+  return '<img src="/profiles/druplug/druplug-logo-small.png" alt="" class="druplug" height="16" width="122" />';
 }
 
 /**
  * Implements theme_levelten_logo().
  */
 function theme_levelten_logo() {
-  return '<img src="/profiles/openenterprise/levelten-logo-small.png" alt="" class="levelten" height="16" width="52" />';
+  return '<img src="/profiles/druplug/levelten-logo-small.png" alt="" class="levelten" height="16" width="52" />';
 }
 
 /**
  * Implements hook_block_info()
  */
-function openenterprise_block_info() {
+function druplug_block_info() {
   $blocks['powered-by'] = array(
-    'info' => t('Powered by OpenEnterprise'),
+    'info' => t('Powered by Druplug'),
     'weight' => '10',
     'cache' => DRUPAL_NO_CACHE,
   );
@@ -254,12 +254,12 @@ function openenterprise_block_info() {
 /**
  * Implements hook_block_view().
  */
-function openenterprise_block_view($delta = '') {
+function druplug_block_view($delta = '') {
   switch ($delta) {
     case 'powered-by':
-      $openenterprise = theme('openenterprise_logo');
-      if (!$openenterprise) {
-        $openenterprise = t('OpenEnterprise');
+      $druplug = theme('druplug_logo');
+      if (!$druplug) {
+        $druplug = t('Druplug');
       }
       $levelten = theme('levelten_logo');
       if (!$levelten) {
@@ -267,7 +267,7 @@ function openenterprise_block_view($delta = '') {
       }
       return array(
         'subject' => NULL,
-        'content' => '<span>' . variable_get('site_name', t('This site')) . ' ' . t('is powered by <a href="http://drupal.org/project/openenterprise" title="OpenEnterprise" target="_blank">!openenterprise</a>. A distribution by <a href="http://www.leveltendesign.com" title="LevelTen Interactive" target="_blank">!levelten</a>.', array('!openenterprise' => $openenterprise, '!levelten' => $levelten)) . '</span>',
+        'content' => '<span>' . variable_get('site_name', t('This site')) . ' ' . t('is powered by <a href="http://drupal.org/project/druplug" title="Druplug" target="_blank">!druplug</a>. A distribution by <a href="http://www.leveltendesign.com" title="LevelTen Interactive" target="_blank">!levelten</a>.', array('!druplug' => $druplug, '!levelten' => $levelten)) . '</span>',
       );
   }
 }
@@ -277,7 +277,7 @@ function openenterprise_block_view($delta = '') {
  *
  * Add a message if this is the levelten apps page.
  */
-function openenterprise_init() {
+function druplug_init() {
   if ($_GET['q'] == 'admin/apps/levelten') {
     apps_include('manifest');
     $server = apps_servers('levelten');
