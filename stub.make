@@ -11,7 +11,7 @@ projects[] = drupal
 projects[druplug][type] = profile
 projects[druplug][download][type] = git
 projects[druplug][download][url] = https://github.com/badri/druplug
-projects[druplug][download][branch] = 1.x
+projects[druplug][download][branch] = druplug
 
 ; for a local build
 ; includes[] = drupal-org.make
