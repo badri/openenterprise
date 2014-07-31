@@ -29,9 +29,6 @@ projects[transliteration][subdir] = contrib
 projects[backup_migrate][type] = module
 projects[backup_migrate][subdir] = contrib
 
-projects[custom_formatters][version] = 2.x-dev
-projects[custom_formatters][subdir] = contrib
-
 projects[ds][type] = module
 projects[ds][subdir] = contrib
 
