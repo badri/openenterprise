@@ -67,7 +67,6 @@ dependencies[] = admin_menu_toolbar
 dependencies[] = apps
 dependencies[] = backup_migrate
 dependencies[] = ctools
-dependencies[] = defaultcontent
 dependencies[] = email_registration
 dependencies[] = entity
 dependencies[] = entitycache

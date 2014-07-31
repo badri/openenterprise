@@ -4,8 +4,6 @@
  * Code for the Druplug Content feature.
  */
 
-include_once('sample_content.features.inc');
-
 /**
  * Implements hook_menu_alter().
  */

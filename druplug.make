@@ -29,16 +29,8 @@ projects[transliteration][subdir] = contrib
 projects[backup_migrate][type] = module
 projects[backup_migrate][subdir] = contrib
 
-projects[boxes][type] = module
-projects[boxes][subdir] = contrib
-
 projects[custom_formatters][version] = 2.x-dev
 projects[custom_formatters][subdir] = contrib
-
-projects[defaultcontent][version] = 1.0-alpha6
-projects[defaultcontent][subdir] = contrib
-; Remove context dependency.
-projects[defaultcontent][patch][1446714] = http://drupal.org/files/defaultcontent-1446714-16.patch
 
 projects[ds][type] = module
 projects[ds][subdir] = contrib
