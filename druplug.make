@@ -4,9 +4,6 @@ core = 7.x
 ;;;;;;
 ; Fields
 ;;;;;;
-projects[references][type] = module
-projects[references][subdir] = contrib
-
 projects[filefield_sources][type] = module
 projects[filefield_sources][subdir] = contrib
 
@@ -31,9 +28,6 @@ projects[backup_migrate][subdir] = contrib
 
 projects[ds][type] = module
 projects[ds][subdir] = contrib
-
-projects[email_registration][type] = module
-projects[email_registration][subdir] = contrib
 
 projects[entitycache][type] = module
 projects[entitycache][subdir] = contrib
@@ -71,12 +65,6 @@ projects[insert][subdir] = contrib
 ;;;;;;
 ; UI Enhancements
 ;;;;;;
-projects[block_visibility][type] = module
-projects[block_visibility][subdir] = contrib
-
-projects[nodeconnect][type] = module
-projects[nodeconnect][subdir] = contrib
-
 projects[elements][type] = module
 projects[elements][subdir] = contrib
 

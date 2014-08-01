@@ -35,9 +35,6 @@ dependencies[] = date_views
 dependencies[] = field_group
 dependencies[] = link
 dependencies[] = options_element
-dependencies[] = references
-dependencies[] = node_reference
-dependencies[] = user_reference
 
 ;; Path
 dependencies[] = globalredirect
@@ -55,10 +52,8 @@ dependencies[] = filefield_sources
 
 ;; UX Enhancements
 dependencies[] = backports
-dependencies[] = block_visibility
 dependencies[] = elements
 dependencies[] = navigation404
-dependencies[] = nodeconnect
 dependencies[] = simplified_menu_admin
 
 ;; Sitebuilding Tools
@@ -67,12 +62,10 @@ dependencies[] = admin_menu_toolbar
 dependencies[] = apps
 dependencies[] = backup_migrate
 dependencies[] = ctools
-dependencies[] = email_registration
 dependencies[] = entity
 dependencies[] = entitycache
 dependencies[] = features
 dependencies[] = libraries
-dependencies[] = menu_block
 dependencies[] = page_manager
 dependencies[] = panels
 dependencies[] = panelizer
