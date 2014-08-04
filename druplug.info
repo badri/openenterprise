@@ -44,7 +44,6 @@ dependencies[] = transliteration
 
 ;; Text Editor
 ;; No D7 release yet.
-;dependencies[] = better_formats
 dependencies[] = caption_filter
 dependencies[] = insert
 dependencies[] = image_resize_filter

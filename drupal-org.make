@@ -26,9 +26,6 @@ projects[transliteration][subdir] = contrib
 projects[backup_migrate][type] = module
 projects[backup_migrate][subdir] = contrib
 
-projects[ds][type] = module
-projects[ds][subdir] = contrib
-
 projects[entitycache][type] = module
 projects[entitycache][subdir] = contrib
 
@@ -55,9 +52,6 @@ projects[fieldable_panels_panes][subdir] = contrib
 ;;;;;;
 ; Text Editor
 ;;;;;;
-projects[better_formats][type] = module
-projects[better_formats][subdir] = contrib
-
 projects[insert][type] = module
 projects[insert][subdir] = contrib
 
