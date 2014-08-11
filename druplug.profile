@@ -24,10 +24,10 @@ function druplug_apps_servers_info() {
   $profile = variable_get('install_profile', 'standard');
   $info =  drupal_parse_info_file(drupal_get_path('profile', $profile) . '/' . $profile . '.info');
   return array(
-    'levelten' => array(
-      'title' => 'LevelTen',
-      'description' => "Apps from LevelTen Interactive",
-      'manifest' => 'http://apps.leveltendesign.com/app/query',
+    'druplug' => array(
+      'title' => 'Druplug',
+      'description' => "Apps provided by Druplug",
+      'manifest' => 'http://apps.druplug.com/app/query',
       'profile' => $profile,
       'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
       'server_name' => $_SERVER['SERVER_NAME'],
@@ -73,7 +73,7 @@ function druplug_install_tasks($install_state) {
   $tasks = array();
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
   $server = array(
-    'machine name' => 'levelten',
+    'machine name' => 'druplug',
     'default apps' => array(
       'enterprise_rotator',
       'enterprise_blog',
@@ -219,9 +219,6 @@ function druplug_theme($existing, $type, $theme, $path) {
     'druplug_logo' => array(
       'variables' => array(),
     ),
-    'levelten_logo' => array(
-      'variables' => array(),
-    ),
   );
 }
 
@@ -230,13 +227,6 @@ function druplug_theme($existing, $type, $theme, $path) {
  */
 function theme_druplug_logo() {
   return '<img src="/profiles/druplug/druplug-logo-small.png" alt="" class="druplug" height="16" width="122" />';
-}
-
-/**
- * Implements theme_levelten_logo().
- */
-function theme_levelten_logo() {
-  return '<img src="/profiles/druplug/levelten-logo-small.png" alt="" class="levelten" height="16" width="52" />';
 }
 
 /**
@@ -261,13 +251,9 @@ function druplug_block_view($delta = '') {
       if (!$druplug) {
         $druplug = t('Druplug');
       }
-      $levelten = theme('levelten_logo');
-      if (!$levelten) {
-        $levelten = t('LevelTen Interactive');
-      }
       return array(
         'subject' => NULL,
-        'content' => '<span>' . variable_get('site_name', t('This site')) . ' ' . t('is powered by <a href="http://drupal.org/project/druplug" title="Druplug" target="_blank">!druplug</a>. A distribution by <a href="http://www.leveltendesign.com" title="LevelTen Interactive" target="_blank">!levelten</a>.', array('!druplug' => $druplug, '!levelten' => $levelten)) . '</span>',
+        'content' => '<span>' . variable_get('site_name', t('This site')) . ' ' . t('is powered by <a href="http://drupal.org/project/druplug" title="Druplug" target="_blank">!druplug</a>.', array('!druplug' => $druplug)) . '</span>',
       );
   }
 }
@@ -275,12 +261,12 @@ function druplug_block_view($delta = '') {
 /**
  * Implements hook_init()
  *
- * Add a message if this is the levelten apps page.
+ * Add a message if this is the druplug apps page.
  */
 function druplug_init() {
-  if ($_GET['q'] == 'admin/apps/levelten') {
+  if ($_GET['q'] == 'admin/apps/druplug') {
     apps_include('manifest');
-    $server = apps_servers('levelten');
+    $server = apps_servers('druplug');
     // Create args array for substitutions
     $manifest = apps_manifest($server);
     if (isset($manifest['message']) && $manifest['message'] != '') {
